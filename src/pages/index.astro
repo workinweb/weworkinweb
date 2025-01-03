@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Hero from '../sections/Hero';
+import Services from '../sections/Services';
+import WebAnimation from '../sections/WebAnimation';
+import Portfolio from '../sections/Portfolio';
+import Pricing from '../sections/Pricing';
+import ContactForm from '../sections/ContactForm';
+import Footer from '../sections/Footer';
+---
+
+<Layout
+  title="WorkInWeb - Expert Frontend Development Services"
+  description="Professional web development services specializing in modern frontend technologies. Create stunning, performant websites with WorkInWeb."
+>
+  <Navbar client:load />
+
+  <main>
+    <Hero client:only="react" />
+    <Services client:only="react"  />
+    <WebAnimation client:only="react" />
+    <Portfolio client:only="react" />
+    <Pricing client:only="react" />
+    <ContactForm client:only="react"  />
+  </main>
+  <Footer />
+</Layout>
