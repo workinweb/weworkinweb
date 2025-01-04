@@ -7,14 +7,73 @@ interface Props {
   description: string;
   image?: string;
   canonicalURL?: string;
+  type?: string;
 }
 
 const {
   title,
   description,
-  image = "/workinweb_logo.app", // Default OG image
+  image = "/workinweb_logo.jpeg", // Updated default OG image
   canonicalURL = Astro.url.href,
+  type = "website"
 } = Astro.props;
+
+// Enhanced meta keywords for web development
+const keywords = [
+  "web development",
+  "website design",
+  "custom web applications",
+  "responsive design",
+  "frontend development",
+  "React development",
+  "Next.js",
+  "Astro framework",
+  "web performance optimization",
+  "SEO optimization",
+  "mobile-first design",
+  "UI/UX design",
+  "web maintenance",
+  "business websites",
+  "professional web services",
+  "modern web development",
+  "fast websites",
+  "secure websites",
+  "custom web solutions"
+].join(", ");
+
+// Schema.org structured data for web development business
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "WorkInWeb",
+  "image": new URL(image, Astro.url),
+  "description": description,
+  "@id": canonicalURL,
+  "url": canonicalURL,
+  "telephone": "+1-786-510-7807",
+  
+ 
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/kevin-bueno-0a8809218/",
+    "https://github.com/kbueno1077",
+  ],
+  "priceRange": "$",
+  
+};
 ---
 
 <!doctype html>
@@ -29,28 +88,38 @@ const {
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="WorkInWeb" />
+    <meta name="copyright" content={`© ${new Date().getFullYear()} WorkInWeb`} />
+    <meta name="theme-color" content="#f97316" />
+    <meta name="rating" content="General" />
+    <meta name="revisit-after" content="7 days" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="WorkInWeb" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="WorkInWeb" />
-    <meta name="keywords" content="web development, frontend development, React, Next.js, web design, responsive design, SEO optimization, web performance" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@workinweb" />
+    <meta name="twitter:creator" content="@workinweb" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.url)} />
     
     <!-- Preload Critical Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,6 +128,13 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
+    <!-- Alternate Languages -->
+    <link rel="alternate" href={canonicalURL} hreflang="x-default" />
+    <link rel="alternate" href={canonicalURL} hreflang="en" />
   </head>
   <body>
     <slot />
