@@ -9,4 +9,7 @@ export default defineConfig({
   compressHTML: true,
   output: "hybrid",
   adapter: vercelAdapter(),
+  routeRules: {
+    "/api/**": { prerender: false },
+  },
 });
