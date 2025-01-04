@@ -7,7 +7,7 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   site: "https://workinweb.kbueno-studio.com",
   compressHTML: true,
-  output: "server",
+  output: "hybrid",
   adapter: vercel(),
   routeRules: {
     "/api/**": { prerender: false },
