@@ -62,9 +62,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Logo />
 
-          {isHome && (
-            <div className="hidden md:flex items-center space-x-8">
-              {["Services", "Pricing", "Contact"].map((item) => (
+          <div className="hidden md:flex items-center space-x-8">
+            {isHome &&
+              ["Services", "Pricing", "Contact"].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -74,11 +74,12 @@ export default function Navbar() {
                   {item}
                 </motion.a>
               ))}
-              <ThemeToggle />
-            </div>
-          )}
+            <ThemeToggle />
+          </div>
+
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-700 dark:text-slate-300"

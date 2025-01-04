@@ -3,12 +3,57 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useState } from "react";
 import GlassCard from "../components/ui/GlassCard";
 
+interface FormData {
+  name: string;
+  email: string;
+  project: string;
+}
+
 export default function ContactForm() {
   const [status, setStatus] = useState("");
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    project: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Thanks! We`ll be in touch within 24 hours.");
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          subject: `New Project Inquiry from ${formData.name}`,
+          message:
+            `Name: ${formData.name} Email: ${formData.email} Project Details: ${formData.project}
+          `.trim(),
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("Thanks! We'll be in touch within 24 hours.");
+        setFormData({ name: "", email: "", project: "" });
+      } else {
+        setStatus("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("Something went wrong. Please try again.");
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
   };
 
   return (
@@ -108,6 +153,8 @@ export default function ContactForm() {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                   />
@@ -123,6 +170,8 @@ export default function ContactForm() {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                   />
@@ -138,6 +187,8 @@ export default function ContactForm() {
                   <textarea
                     id="project"
                     rows={4}
+                    value={formData.project}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                     placeholder="What would you like to achieve?"
