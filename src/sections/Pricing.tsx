@@ -34,8 +34,8 @@ const journeyStages = [
     name: "Growth Package",
     icon: <Zap className="w-8 h-8" />,
     price: {
-      withDesign: "3,999",
-      providedDesign: "2,999",
+      withDesign: "1,699",
+      providedDesign: "1,999",
     },
     description: "Expand your digital presence with more features and support",
     features: [
