@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function WebAnimation() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-violet-50 dark:from-slate-900 dark:to-slate-800">
+    <section className="py-10 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -11,10 +11,10 @@ export default function WebAnimation() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 text-foreground">
             Building the Web, One Line at a Time
           </h2>
-          <p className="text-slate-600 text-lg">
+          <p className="text-foreground text-lg">
             Watch your ideas come to life through code
           </p>
         </motion.div>
@@ -24,7 +24,8 @@ export default function WebAnimation() {
             autoplay
             loop
             src="https://assets5.lottiefiles.com/packages/lf20_w51pcehl.json"
-            style={{ height: "400px" }}
+            className="w-full"
+            style={{ maxWidth: "700px" }}
           />
         </div>
       </div>

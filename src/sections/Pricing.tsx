@@ -6,50 +6,69 @@ import { Rocket, Zap, Building2 } from "lucide-react";
 const journeyStages = [
   {
     id: "seedling",
-    name: "Digital Seedling",
+    name: "Basic Landing",
     icon: <Rocket className="w-8 h-8" />,
-    price: "2,999",
-    description: "Plant your digital roots and start growing online",
+    price: {
+      withDesign: "1,199",
+      providedDesign: "899",
+    },
+    description:
+      "Perfect for getting started with a professional online presence",
     features: [
-      "Custom designed 5-page website",
+      "Single page website with essential sections",
+      "Basic contact form integration",
       "Mobile-responsive layout",
       "Basic SEO setup",
-      "Contact form integration",
       "1 month post-launch support",
+      "Hosting available ($99/year)",
+      "Post-deployment changes: $75/hour",
     ],
+    notes: ["Design provided by client: $899", "Design created by us: $1,199"],
     lottie: "https://assets2.lottiefiles.com/packages/lf20_qm8zig3v.json",
   },
   {
     id: "sapling",
-    name: "Thriving Sapling",
+    name: "Growth Package",
     icon: <Zap className="w-8 h-8" />,
-    price: "5,999",
-    description: "Nurture your online presence and branch out",
+    price: {
+      withDesign: "3,999",
+      providedDesign: "2,999",
+    },
+    description: "Expand your digital presence with more features and support",
     features: [
-      "Everything in Digital Seedling",
-      "Up to 10 pages of dynamic content",
-      "Blog or news section",
+      "Up to 6 pages of dynamic content",
+      "Advanced contact forms or basic applications",
       "Advanced SEO strategy",
-      "Social media integration",
-      "Basic e-commerce (up to 20 products)",
-      "3 months of growth support",
+      "12 months of basic maintenance included",
+      "Hosting included first year ($149/year after)",
+      "Basic changes covered for 1 year",
+      "Major changes: $60/hour",
+    ],
+    notes: [
+      "Design provided by client: $2,999",
+      "Design created by us: $3,999",
+      "Includes monthly content updates",
     ],
     lottie: "https://assets2.lottiefiles.com/packages/lf20_3ntisyac.json",
   },
   {
     id: "forest",
-    name: "Digital Ecosystem",
+    name: "Custom Solution",
     icon: <Building2 className="w-8 h-8" />,
-    price: "Custom",
-    description: "Cultivate a thriving digital forest",
+    price: {
+      withDesign: "Custom",
+      providedDesign: "Custom",
+    },
+    description: "Full-scale web solutions for established businesses",
     features: [
-      "Everything in Thriving Sapling",
-      "Unlimited pages and scalable architecture",
-      "Full e-commerce suite",
-      "Custom web applications",
-      "Advanced security measures",
-      "Multilingual support",
-      "6 months of ecosystem nurturing",
+      "Web Application Front-end development",
+      "Custom number of pages & features",
+      "Multilingual support if needed",
+      "Priority maintenance & support",
+    ],
+    notes: [
+      "Custom quote based on requirements",
+      "Flexible maintenance plans available",
     ],
     lottie: "https://assets7.lottiefiles.com/packages/lf20_yd8fbnml.json",
   },
@@ -59,7 +78,10 @@ export default function WebDevJourneyPricing() {
   const [selectedStage, setSelectedStage] = useState(journeyStages[0].id);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-green-50 to-blue-50 dark:from-slate-800 dark:to-slate-900">
+    <section
+      id="pricing"
+      className="py-20 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800"
+    >
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,12 +89,9 @@ export default function WebDevJourneyPricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-4">
-            Grow Your Digital Presence
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300">
-            Choose your web development journey and watch your online business
-            flourish
+          <h2 className="section-title">Transparent Pricing</h2>
+          <p className="text-foreground text-xl">
+            Clear pricing structure with no hidden costs
           </p>
         </motion.div>
 
@@ -82,10 +101,10 @@ export default function WebDevJourneyPricing() {
               key={stage.id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`cursor-pointer rounded-lg p-6 ${
+              className={`glass-card cursor-pointer p-6 ${
                 selectedStage === stage.id
-                  ? "bg-white dark:bg-slate-700 shadow-lg"
-                  : "bg-slate-100 dark:bg-slate-800"
+                  ? "border-orange-500/50 dark:border-orange-500/50"
+                  : ""
               }`}
               onClick={() => setSelectedStage(stage.id)}
             >
@@ -93,23 +112,24 @@ export default function WebDevJourneyPricing() {
                 <div
                   className={`mr-4 p-2 rounded-full ${
                     selectedStage === stage.id
-                      ? "bg-green-500 text-white"
-                      : "bg-slate-200 dark:bg-slate-600"
+                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white"
+                      : "bg-secondary dark:bg-slate-800 text-foreground dark:text-slate-300"
                   }`}
                 >
                   {stage.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-800 dark:text-white">
+                <h3 className="text-2xl font-semibold text-foreground dark:text-slate-100">
                   {stage.name}
                 </h3>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 mb-2">
+              <p className="text-foreground dark:text-slate-300 mb-2">
                 {stage.description}
               </p>
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400">
-                ${stage.price}
-                {stage.id === "forest" && (
-                  <span className="text-base ml-1">Starting at</span>
+              <div className="text-3xl font-bold text-orange-500 dark:text-orange-400">
+                {stage.price.withDesign === "Custom" ? (
+                  "Custom Quote"
+                ) : (
+                  <>From ${stage.price.providedDesign}</>
                 )}
               </div>
             </motion.div>
@@ -123,14 +143,14 @@ export default function WebDevJourneyPricing() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="bg-white dark:bg-slate-800 rounded-lg shadow-xl p-8"
+            className="glass-card p-8"
           >
             {journeyStages.map(
               (stage) =>
                 stage.id === selectedStage && (
                   <div key={stage.id} className="grid md:grid-cols-2 gap-8">
                     <div>
-                      <h3 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">
+                      <h3 className="text-3xl font-bold text-foreground dark:text-slate-100 mb-4">
                         {stage.name} Features
                       </h3>
                       <ul className="space-y-3">
@@ -140,10 +160,10 @@ export default function WebDevJourneyPricing() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            className="flex items-center text-slate-700 dark:text-slate-300"
+                            className="flex items-center text-foreground dark:text-slate-300"
                           >
                             <svg
-                              className="w-5 h-5 text-green-500 mr-3"
+                              className="w-5 h-5 text-orange-500 dark:text-orange-400 mr-3"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -159,14 +179,27 @@ export default function WebDevJourneyPricing() {
                           </motion.li>
                         ))}
                       </ul>
+                      <div className="mt-6 p-4 bg-orange-100 dark:bg-slate-800 rounded-lg">
+                        <h4 className="font-semibold mb-2 text-orange-700 dark:text-orange-400">
+                          Important Notes
+                        </h4>
+                        <ul className="space-y-2">
+                          {stage.notes.map((note, index) => (
+                            <li
+                              key={index}
+                              className="text-sm text-orange-600 dark:text-orange-300"
+                            >
+                              • {note}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="mt-8 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-lg shadow-md hover:from-orange-600 hover:to-amber-600 transition duration-300 ease-in-out"
+                        className="button-primary mt-8"
                       >
-                        {stage.id === "forest"
-                          ? "Get Custom Quote"
-                          : "Start Your Journey"}
+                        Get Started
                       </motion.button>
                     </div>
                     <div className="flex items-center justify-center">
@@ -182,20 +215,6 @@ export default function WebDevJourneyPricing() {
             )}
           </motion.div>
         </AnimatePresence>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="text-center mt-16"
-        >
-          <p className="text-xl text-slate-600 dark:text-slate-300 mb-4">
-            Not sure which stage is right for your digital growth?
-          </p>
-          <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-lg shadow-md hover:from-orange-600 hover:to-amber-600 transition duration-300 ease-in-out">
-            Get a Personalized Growth Plan
-          </button>
-        </motion.div>
       </div>
     </section>
   );

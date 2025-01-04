@@ -5,8 +5,8 @@ export default function Hero() {
   return (
     <section className="min-h-screen relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-violet-50 dark:from-slate-900 dark:to-slate-800">
-        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] opacity-30 dark:opacity-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800">
+        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] dark:bg-[url('/patterns/lightgrid.svg')] opacity-20 dark:opacity-[0.15]" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 pt-32 pb-20">
@@ -16,11 +16,11 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl dark:text-slate-400  font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl text-foreground font-bold mb-6 leading-tight">
               We Make Your <br />
               <span className="gradient-text">Web Ideas Work</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-xl md:text-2xl text-foreground mb-8">
               From concept to reality, we craft beautiful websites that engage
               your audience and grow your business.
             </p>
@@ -35,7 +35,7 @@ export default function Hero() {
               </motion.a>
               <motion.a
                 href="#portfolio"
-                className="px-8 py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                className="px-8 py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-foreground hover:border-orange-500 dark:hover:border-orange-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

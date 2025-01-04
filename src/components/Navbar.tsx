@@ -30,19 +30,20 @@ export default function Navbar() {
       initial={{ y: 0 }}
       animate={{ y: shouldShow ? 0 : -100 }}
       transition={{ duration: 0.3 }}
-      className="fixed w-full z-50 backdrop-blur-xl bg-background"
+      className="fixed w-full  backdrop-blur-xl bg-background"
+      style={{ zIndex: 1000 }}
     >
       <div className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Logo />
 
           <div className="hidden md:flex items-center space-x-8">
-            {["Services", "Portfolio", "Pricing", "Contact"].map((item) => (
+            {["Services", "Pricing", "Contact"].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 whileHover={{ scale: 1.05 }}
-                className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
               >
                 {item}
               </motion.a>
@@ -82,12 +83,12 @@ export default function Navbar() {
         }
         className="md:hidden overflow-hidden"
       >
-        <div className="m-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 rounded-xl shadow-xl">
+        <div className="m-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 rounded-xl shadow-xl">
           {["Services", "Portfolio", "Pricing", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block py-2 px-4 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="block py-2 px-4 text-foreground  hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item}
