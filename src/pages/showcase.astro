@@ -1,0 +1,18 @@
+---
+import Navbar from '../components/Navbar';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../sections/Footer.astro';
+import HappyCustomersShowcase from '../sections/Showcase';
+import ShowcaseGrid from '../sections/ShowcaseGrid';
+---
+
+<Layout title="Our Work | WorkInWeb - Web Development Portfolio"   
+description="Professional web development services specializing in modern frontend technologies. Create stunning, performant websites with WorkInWeb."
+>
+  <Navbar client:only="react"/>
+  <main>
+    <HappyCustomersShowcase  client:only="react"/>
+    <ShowcaseGrid  client:only="react"/>
+  </main>
+  <Footer />
+</Layout> 
