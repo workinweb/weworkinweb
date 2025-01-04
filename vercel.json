@@ -12,14 +12,8 @@
       "continue": true
     }
   ],
-  "builds": [{ "src": "package.json", "use": "@astro/vercel" }],
   "regions": ["sfo1"],
-  "functions": {
-    "api/**/*.ts": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
+
   "headers": [
     {
       "source": "/api/(.*)",
