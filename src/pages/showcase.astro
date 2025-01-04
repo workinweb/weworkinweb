@@ -6,13 +6,14 @@ import HappyCustomersShowcase from '../sections/Showcase';
 import ShowcaseGrid from '../sections/ShowcaseGrid';
 ---
 
-<Layout title="Our Work | WorkInWeb - Web Development Portfolio"   
-description="Professional web development services specializing in modern frontend technologies. Create stunning, performant websites with WorkInWeb."
+<Layout 
+  title="Our Work | Web Development Portfolio - WorkInWeb"   
+  description="Explore our portfolio of successful web development projects. See how we've helped businesses transform their online presence with modern, high-performance websites."
+  image="/og-images/showcase.jpg"
 >
   <Navbar client:only="react"/>
   <main>
-    <HappyCustomersShowcase  client:only="react"/>
-    <ShowcaseGrid  client:only="react"/>
+    <HappyCustomersShowcase client:only="react"/>
   </main>
   <Footer />
 </Layout> 
