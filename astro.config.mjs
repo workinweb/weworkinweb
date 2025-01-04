@@ -7,4 +7,5 @@ export default defineConfig({
   site: "https://workinweb.dev",
   compressHTML: true,
   output: "hybrid",
+  adapter: vercel(),
 });
