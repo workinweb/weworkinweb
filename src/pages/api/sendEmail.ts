@@ -7,6 +7,7 @@ interface EmailPayload {
   message: string;
   name?: string;
 }
+export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   const allowedOrigin =
