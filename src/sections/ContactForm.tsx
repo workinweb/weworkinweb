@@ -22,7 +22,7 @@ export default function ContactForm() {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("/sendEmail", {
+      const response = await fetch("/api/sendEmail.astro", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

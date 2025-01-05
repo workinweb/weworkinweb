@@ -109,19 +109,3 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 };
-
-// Handle CORS preflight requests
-export const OPTIONS: APIRoute = ({ request }) => {
-  const allowedOrigin =
-    import.meta.env.ALLOWED_ORIGIN || request.headers.get("origin");
-
-  return new Response(null, {
-    status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": allowedOrigin,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Max-Age": "86400",
-    },
-  });
-};
