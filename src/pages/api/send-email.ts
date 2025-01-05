@@ -9,10 +9,6 @@ interface EmailPayload {
   name?: string;
 }
 
-export const config = {
-  runtime: "edge",
-};
-
 export const POST: APIRoute = async ({ request }) => {
   const allowedOrigin =
     import.meta.env.ALLOWED_ORIGIN || request.headers.get("origin");
