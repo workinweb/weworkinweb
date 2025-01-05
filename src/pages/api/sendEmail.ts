@@ -1,4 +1,3 @@
-export const prerender = false;
 import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 
@@ -8,6 +7,7 @@ interface EmailPayload {
   message: string;
   name?: string;
 }
+export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   const allowedOrigin =
