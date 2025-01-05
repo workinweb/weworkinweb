@@ -22,8 +22,7 @@ export default function ContactForm() {
     setStatus("Sending...");
 
     try {
-      // const response = await fetch("/api/tick");
-      const response = await fetch("/api/sendEmail", {
+      const response = await fetch("/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
