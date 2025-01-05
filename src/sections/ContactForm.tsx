@@ -22,19 +22,20 @@ export default function ContactForm() {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          subject: `New Project Inquiry from ${formData.name}`,
-          message:
-            `Name: ${formData.name} Email: ${formData.email} Project Details: ${formData.project}
-          `.trim(),
-        }),
-      });
+      const response = await fetch("/api/tick");
+      // const response = await fetch("/api/send-email", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: formData.email,
+      //     subject: `New Project Inquiry from ${formData.name}`,
+      //     message:
+      //       `Name: ${formData.name} Email: ${formData.email} Project Details: ${formData.project}
+      //     `.trim(),
+      //   }),
+      // });
 
       if (response.ok) {
         setStatus("Thanks! We'll be in touch within 24 hours.");
