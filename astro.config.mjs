@@ -8,8 +8,17 @@ export default defineConfig({
   site: "https://workinweb.kbueno-studio.com",
   compressHTML: true,
   output: "hybrid",
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+    speedInsights: {
+      enabled: true,
+    },
+    functionPerRoute: true, // This ensures each API route gets its own function
+    maxDuration: 60, // Gives more time for email operations
+  }),
   routeRules: {
-    "/api/**": { prerender: false },
+    "/api/*": { prerender: false },
   },
 });
