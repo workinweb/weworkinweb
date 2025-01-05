@@ -11,6 +11,7 @@ export default defineConfig({
   adapter: vercel(),
   functionPerRoute: true,
   includeFiles: ["./src/pages/api/**/*"],
+  deploymentUrl: "workinweb.kbueno-studio.com",
   routeRules: {
     "/api/*": { prerender: false },
   },
