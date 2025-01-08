@@ -19,16 +19,16 @@ import {
 
 const menuItems = [
   { name: "Home", icon: Home, href: "/" },
-  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: true },
-  { name: "Features", icon: Blocks, href: "/features", onlyHome: true },
+  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: false },
+  { name: "Features", icon: Blocks, href: "/features", onlyHome: false },
   { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
   { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
   { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
 ];
 
 const desktopMenuItems = [
-  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: true },
-  { name: "Features", icon: Blocks, href: "/features", onlyHome: true },
+  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: false },
+  { name: "Features", icon: Blocks, href: "/features", onlyHome: false },
   { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
   { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
   { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
@@ -68,13 +68,15 @@ export default function Navbar() {
       className="fixed w-full backdrop-blur-xl shadow-sm dark:shadow-md"
       style={{ zIndex: 1000 }}
     >
-      <div className="max-w-6xl mx-auto px-4 py-3">
+      <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Logo />
 
           <div className="hidden md:flex items-center space-x-8">
-            {isHome &&
-              desktopMenuItems.map((item) => (
+            {desktopMenuItems.map((item) => {
+              if (!isHome && item.onlyHome) return null;
+
+              return (
                 <motion.a
                   key={item.name}
                   href={`${item.href}`}
@@ -83,7 +85,8 @@ export default function Navbar() {
                 >
                   {item.name}
                 </motion.a>
-              ))}
+              );
+            })}
             <ThemeToggle />
           </div>
 
