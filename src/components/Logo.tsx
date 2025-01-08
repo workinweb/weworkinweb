@@ -9,6 +9,7 @@ export default function Logo({
         <span className="text-amber-500 dark:text-amber-400">In</span>
         <span className="text-orange-500 dark:text-orange-400">Web</span>
       </div>
+
       {withDescription && (
         <div className="hidden sm:block text-sm text-foreground ">
           // We make it work

@@ -1,18 +1,20 @@
 ---
-import Navbar from '../components/Navbar';
-import Layout from '../layouts/Layout.astro';
-import Footer from '../sections/Footer.astro';
-import Showcase from '../sections/Showcase.astro';
+import Navbar from "../components/Navbar";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../sections/Footer.astro";
+import Showcase from "../sections/Showcase.astro";
 ---
 
-<Layout 
-  title="Web Development Portfolio & Case Studies | Success Stories | WorkInWeb"   
+<Layout
+  title="Web Development Portfolio & Case Studies | Success Stories | WorkInWeb"
   description="Explore our web development portfolio showcasing successful client projects. See how we've helped businesses achieve their goals with custom websites, e-commerce solutions, and web applications. View our work and results."
   image="/workinweb_logo.jpeg"
 >
-  <Navbar client:only="react"/>
-  <main>
+  <Navbar client:only="react" />
+
+  <main class="sm:pt-4">
     <Showcase />
   </main>
+
   <Footer />
-</Layout> 
+</Layout>

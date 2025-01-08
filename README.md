@@ -1,54 +1,59 @@
-# Astro Starter Kit: Basics
+# WorkInWeb - Professional Web Development Agency
 
-```sh
-npm create astro@latest -- --template basics
-```
+![WorkInWeb Banner](public/workinweb_logo.jpeg)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+A modern, fast, and SEO-optimized web development agency website built with Astro, React, and TailwindCSS. Featuring dark mode, smooth animations, and a responsive design.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Features
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- 🚀 **Built with Astro** - Ultra-fast performance
+- ⚛️ **React Components** - For interactive UI elements
+- 🎨 **TailwindCSS** - For beautiful, responsive styling
+- 🌙 **Dark Mode** - Automatic and manual theme switching
+- 📱 **Fully Responsive** - Works on all devices
+- 🔍 **SEO Optimized** - Meta tags and structured data
+- 📊 **Template Showcase** - Filterable portfolio gallery
+- 📬 **Contact Form** - With email integration
+- 🎭 **Smooth Animations** - Using Framer Motion
+- 🖼️ **Lottie Animations** - For engaging visual elements
 
-## 🚀 Project Structure
+## 🛠️ Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://astro.build)
+- [React](https://reactjs.org)
+- [TailwindCSS](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion)
+- [TypeScript](https://www.typescriptlang.org)
+- [Lucide Icons](https://lucide.dev)
+- [LottieFiles](https://lottiefiles.com)
 
-```text
-/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## 🚀 Quick Start
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+1. **Clone the repository**
+2. **Install dependencies**
+3. **Start development server**
+4. **Build for production**
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🎯 Key Features
 
-Any static assets, like images, can be placed in the `public/` directory.
+### 💼 Template Showcase
 
-## 🧞 Commands
+- Filterable gallery of web templates
+- Category-based filtering
+- Search functionality
+- Responsive grid layout
+- Smooth animations
 
-All commands are run from the root of the project, from a terminal:
+### 🌙 Dark Mode
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Automatic theme detection
+- Manual theme toggle
+- Persistent preference storage
+- Smooth transition effects
 
-## 👀 Want to learn more?
+### 📱 Responsive Design
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Mobile-first approach
+- Adaptive layouts
+- Touch-friendly interactions
+- Optimized images

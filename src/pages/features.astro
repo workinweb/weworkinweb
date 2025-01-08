@@ -1,0 +1,36 @@
+---
+import Navbar from "../components/Navbar";
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../sections/Features/ContactForm.astro";
+import FeaturesOverview from "../sections/Features/FeaturesOverview.astro";
+import LoadingAnimation from "../sections/Features/LoadingAnimation.astro";
+import MapView from "../sections/Features/MapView.astro";
+import Footer from "../sections/Footer.astro";
+import FeatureTitle from "../sections/Features/FeatureTitle.astro";
+---
+
+<Layout
+  title="Features | Your E-commerce"
+  description=""
+  image="/workinweb_logo.jpeg"
+>
+  <Navbar client:only="react" />
+
+  <main class="sm:pt-4">
+    <section class="relative py-20 overflow-hidden">
+      <FeatureTitle />
+
+      <div class="relative max-w-7xl mx-auto px-4">
+        <FeaturesOverview />
+
+        <div class="mt-8 space-y-8">
+          <ContactForm />
+          <MapView />
+          <LoadingAnimation />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<Footer />

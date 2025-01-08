@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import {
+  Blocks,
   Briefcase,
   ChevronRight,
   DollarSign,
@@ -19,6 +20,15 @@ import {
 const menuItems = [
   { name: "Home", icon: Home, href: "/" },
   { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: true },
+  { name: "Features", icon: Blocks, href: "/features", onlyHome: true },
+  { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
+  { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
+  { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
+];
+
+const desktopMenuItems = [
+  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: true },
+  { name: "Features", icon: Blocks, href: "/features", onlyHome: true },
   { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
   { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
   { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
@@ -55,7 +65,7 @@ export default function Navbar() {
       initial={{ y: 0 }}
       animate={{ y: shouldShow ? 0 : -100 }}
       transition={{ duration: 0.3 }}
-      className="fixed w-full  backdrop-blur-xl bg-background"
+      className="fixed w-full backdrop-blur-xl shadow-sm dark:shadow-md"
       style={{ zIndex: 1000 }}
     >
       <div className="max-w-6xl mx-auto px-4 py-3">
@@ -64,14 +74,14 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-8">
             {isHome &&
-              ["Services", "Pricing", "Contact"].map((item) => (
+              desktopMenuItems.map((item) => (
                 <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.name}
+                  href={`${item.href}`}
                   whileHover={{ scale: 1.05 }}
                   className="text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
                 >
-                  {item}
+                  {item.name}
                 </motion.a>
               ))}
             <ThemeToggle />
