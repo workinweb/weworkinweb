@@ -16,7 +16,7 @@ const journeyStages = [
       "Perfect for getting started with a professional online presence",
     features: [
       "Single page website with essential sections",
-      "Basic contact form integration",
+      "Basic contact form integration or other basic feature",
       "Mobile-responsive layout",
       "Basic SEO setup",
       "Hosting available ($20/monthly)",
@@ -40,7 +40,7 @@ const journeyStages = [
     description: "Expand your digital presence with more features and support",
     features: [
       "Up to 6 pages of dynamic content",
-      "Advanced contact forms or basic applications",
+      "Advanced contact forms and basic features",
       "Advanced SEO strategy",
       "Hosting available ($15 / monthly)",
       "Basic Analytics data",
@@ -68,6 +68,7 @@ const journeyStages = [
       "Custom number of pages & features",
       "Multilingual support if needed",
       "Priority maintenance & support",
+      "Basic AI powered features",
     ],
     notes: [
       "Custom quote based on requirements",
