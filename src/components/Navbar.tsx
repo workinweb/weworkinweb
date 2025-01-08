@@ -4,7 +4,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import {
@@ -39,27 +39,185 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [shouldShow, setShouldShow] = useState(true);
   const [isHome, setIsHome] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
+  const [activeSection, setActiveSection] = useState("");
 
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [0.9, 0.8]);
 
+  // Add a ref for the mobile menu button
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Updated smooth scrolling handler for better mobile support
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href === "/") {
+      // Reset active section when navigating to home
+      setActiveSection("");
+    } else if (href.startsWith("#")) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        setIsOpen(false);
+
+        setTimeout(() => {
+          const navbarHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition =
+            window.pageYOffset + elementPosition - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }, 100);
+      }
+    }
+  };
+
+  // Improved section detection with special handling for last section
+  const checkActiveSection = () => {
+    // Only check sections if we're on the home page
+    if (!isHome) {
+      setActiveSection("");
+      return;
+    }
+
+    const sections = ["services", "pricing", "contact"].map((id) =>
+      document.getElementById(id)
+    );
+
+    const navbarHeight = 80;
+    let current = "";
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Check if we're at the bottom of the page and on home page
+    const isAtBottom = scrollPosition >= documentHeight - 50; // 50px threshold
+
+    if (isAtBottom && isHome) {
+      // If at bottom and on home page, activate the last section
+      current = "contact";
+    } else {
+      sections.forEach((section) => {
+        if (section) {
+          const sectionTop = section.offsetTop - navbarHeight;
+          const sectionHeight = section.clientHeight;
+
+          // Improved section detection logic
+          if (
+            window.scrollY >= sectionTop - 100 && // Added offset for earlier detection
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id") || "";
+          }
+        }
+      });
+    }
+
+    setActiveSection(current);
+  };
+
   useEffect(() => {
-    setIsHome(window.location.pathname === "/");
+    const path = window.location.pathname;
+    const isHomePath = path === "/";
+    setIsHome(isHomePath);
+    setCurrentPath(path);
+
+    // Reset active section when not on home page
+    if (!isHomePath) {
+      setActiveSection("");
+    }
 
     const controlNavbar = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 100) {
-        setIsOpen(false);
         setShouldShow(false);
+        setIsOpen(false);
       } else {
         setShouldShow(true);
       }
       setLastScrollY(window.scrollY);
+      checkActiveSection();
     };
 
-    window.addEventListener("scroll", controlNavbar);
-    return () => window.removeEventListener("scroll", controlNavbar);
-  }, [lastScrollY]);
+    // Initial check for active section
+    checkActiveSection();
 
+    window.addEventListener("scroll", controlNavbar, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY, isHome]); // Added isHome to dependencies
+
+  // Update the click outside handler to exclude the menu button
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        isOpen &&
+        !target.closest(".mobile-menu-container") &&
+        !menuButtonRef.current?.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
+
+  // Add a specific handler for the menu button
+  const handleMenuToggle = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent event from bubbling up
+    setIsOpen(!isOpen);
+  };
+
+  // Modify the menu item rendering to include active states and smooth scrolling
+  const renderMenuItem = (item: (typeof menuItems)[0], isMobile = false) => {
+    if (!isHome && item.onlyHome) return null;
+
+    const isActive = item.href.startsWith("/")
+      ? currentPath === item.href &&
+        // Only show home as active if no hash section is active
+        (item.href === "/" ? !activeSection : true)
+      : item.href.slice(1) === activeSection;
+
+    return (
+      <motion.a
+        key={item.name}
+        href={item.href}
+        onClick={(e) => handleClick(e, item.href)}
+        whileHover={{ scale: 1.05 }}
+        className={`
+          ${
+            isMobile
+              ? "block py-2 px-4 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              : "text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+          }
+          ${isActive ? "border-b-2 border-orange-500" : ""}
+          ${
+            !isMobile && item.href.startsWith("#")
+              ? "hover:border-b-2 border-orange-500"
+              : ""
+          }
+        `}
+      >
+        {isMobile ? (
+          <span className="flex items-center">
+            <item.icon className="w-5 h-5 mr-2" />
+            {item.name}
+            <ChevronRight size={16} className="ml-auto" />
+          </span>
+        ) : (
+          item.name
+        )}
+      </motion.a>
+    );
+  };
+
+  // Update the return JSX to use the new renderMenuItem function
   return (
     <motion.nav
       initial={{ y: 0 }}
@@ -73,20 +231,7 @@ export default function Navbar() {
           <Logo />
 
           <div className="hidden md:flex items-center space-x-8">
-            {desktopMenuItems.map((item) => {
-              if (!isHome && item.onlyHome) return null;
-
-              return (
-                <motion.a
-                  key={item.name}
-                  href={`${item.href}`}
-                  whileHover={{ scale: 1.05 }}
-                  className="text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
-                >
-                  {item.name}
-                </motion.a>
-              );
-            })}
+            {desktopMenuItems.map((item) => renderMenuItem(item))}
             <ThemeToggle />
           </div>
 
@@ -94,8 +239,10 @@ export default function Navbar() {
             <ThemeToggle />
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-700 dark:text-slate-300"
+              ref={menuButtonRef}
+              onClick={handleMenuToggle}
+              className="text-slate-700 dark:text-slate-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle menu"
             >
               <span className="sr-only">Menu</span>
               <svg
@@ -123,30 +270,10 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-gray-900 overflow-hidden"
+            className="md:hidden bg-white dark:bg-gray-900 overflow-hidden mobile-menu-container"
           >
             <div className="px-4 py-2 space-y-1">
-              {menuItems.map((item, index) => {
-                if (!isHome && item.onlyHome) return null;
-
-                return (
-                  <motion.a
-                    key={item.name}
-                    href={`${item.href}`}
-                    className="block py-2 px-4 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                    onClick={() => setIsOpen(false)}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                  >
-                    <span className="flex items-center">
-                      <item.icon className="w-5 h-5 mr-2" />
-                      {item.name}
-                      <ChevronRight size={16} className="ml-auto" />
-                    </span>
-                  </motion.a>
-                );
-              })}
+              {menuItems.map((item) => renderMenuItem(item, true))}
             </div>
           </motion.div>
         )}
