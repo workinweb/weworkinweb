@@ -1,0 +1,90 @@
+---
+interface Props {
+  position?: "left" | "right";
+  title: string;
+  description: string;
+  subtitle: string;
+  list: string[];
+  img?: ImageMetadata | null;
+  imgTitle?: string;
+}
+
+const {
+  position = "left",
+  title,
+  description,
+  subtitle,
+  list = [],
+  img = null,
+  imgTitle = "",
+} = Astro.props;
+
+console.log("🚀 ~ img:", img);
+import { Image } from "astro:assets";
+---
+
+<div
+  class="flex flex-col md:flex-row bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
+>
+  {
+    position === "left" ? (
+      <>
+        <div class="flex-1 pr-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            {title}
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              {subtitle}
+            </h3>
+            <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+              {list.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 mt-6 md:mt-0">
+          <div class="bg-gray-100 dark:bg-gray-700 rounded-lg h-full p-4 flex items-center justify-center">
+            {img ? (
+              <Image src={img} alt={title} class="max-w-full h-auto rounded" />
+            ) : (
+              <p class="text-gray-500 dark:text-gray-400">{imgTitle}</p>
+            )}
+          </div>
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="md:w-1/2  md:mt-0">
+          <div class="bg-gray-100 dark:bg-gray-700 rounded-lg h-full p-4 flex items-center justify-center">
+            {img ? (
+              <Image src={img} alt={title} class="max-w-full h-auto rounded" />
+            ) : (
+              <p class="text-gray-500 dark:text-gray-400">{imgTitle}</p>
+            )}
+          </div>
+        </div>
+
+        <div class="flex-1 pl-6 mt-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            {title}
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              {subtitle}
+            </h3>
+            <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+              {list.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </>
+    )
+  }
+</div>

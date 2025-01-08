@@ -1,12 +1,13 @@
 ---
 import Navbar from "../components/Navbar";
+import FeatureCard from "../components/ui/FeatureCard.astro";
 import Layout from "../layouts/Layout.astro";
-import ContactForm from "../sections/Features/ContactForm.astro";
 import FeaturesOverview from "../sections/Features/FeaturesOverview.astro";
-import LoadingAnimation from "../sections/Features/LoadingAnimation.astro";
-import MapView from "../sections/Features/MapView.astro";
-import Footer from "../sections/Footer.astro";
 import FeatureTitle from "../sections/Features/FeatureTitle.astro";
+import Footer from "../sections/Footer.astro";
+import mapImage from "../assets/images/features/map.png";
+import contactImage from "../assets/images/features/contact.jpg";
+import animationGIF from "../assets/images/features/animation.gif";
 ---
 
 <Layout
@@ -22,11 +23,49 @@ import FeatureTitle from "../sections/Features/FeatureTitle.astro";
 
       <div class="relative max-w-7xl mx-auto px-4">
         <FeaturesOverview />
-
         <div class="mt-8 space-y-8">
-          <ContactForm />
-          <MapView />
-          <LoadingAnimation />
+          <FeatureCard
+            title="Contact Form"
+            description=" A customizable contact form solution that helps you connect with your users while protecting against spam."
+            subtitle="Key Features"
+            list={[
+              "Real-time form validation",
+              "Spam protection",
+              "Custom form fields",
+              "Auto-response emails",
+              "Mobile responsive design",
+            ]}
+            img={contactImage}
+          />
+
+          <FeatureCard
+            position="right"
+            title="Map View"
+            description="An interactive map view that makes it easy for customers to locate your business and get directions."
+            subtitle="Key Features"
+            list={[
+              "Interactive map markers",
+              "Custom styling options",
+              "Location clustering",
+              "Search functionality",
+              "Directions integration",
+            ]}
+            img={mapImage}
+          />
+
+          <FeatureCard
+            title="Loading Screen Animation"
+            description="A sleek loading animation that creates an engaging first impression while your application initializes and loads content."
+            subtitle="Key Features"
+            list={[
+              "Smooth transitions",
+              "Customizable animations",
+              "Progress indicators",
+              "Reduced perceived wait time",
+              "Brand-consistent design",
+            ]}
+            img={animationGIF}
+          />
         </div>
       </div>
     </section>
