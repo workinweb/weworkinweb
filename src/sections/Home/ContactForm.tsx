@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useState } from "react";
-import GlassCard from "../components/ui/GlassCard";
+import GlassCard from "../../components/Cards/GlassCard";
 
 interface FormData {
   name: string;

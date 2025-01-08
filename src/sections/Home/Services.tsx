@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
-import GlassCard from "../../components/ui/GlassCard";
+import GlassCard from "../../components/Cards/GlassCard";
 
 const services = [
   {

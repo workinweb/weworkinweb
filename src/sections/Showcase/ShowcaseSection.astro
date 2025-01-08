@@ -193,19 +193,20 @@ const categories = ["all", ...new Set(sortedTemplates.map((t) => t.category))];
       return matchesCategory && matchesSearch;
     });
 
-    templates.forEach((template, index) => {
-      const templateIndex = filteredTemplates.indexOf(template);
-      const shouldShow = templateIndex >= 0;
-
+    // Reset all templates first
+    templates.forEach((template) => {
+      template.style.display = "none";
       template.style.opacity = "0";
       template.style.transform = "translateY(20px)";
+      template.style.animation = "none";
+    });
 
-      setTimeout(() => {
-        template.style.display = shouldShow ? "block" : "none";
-        if (shouldShow) {
-          template.style.animation = `fadeIn 0.4s ease-out ${templateIndex * 0.1}s forwards`;
-        }
-      }, 300);
+    // Show and animate filtered templates
+    filteredTemplates.forEach((template, index) => {
+      template.style.display = "block";
+      // Force a reflow to ensure the animation restarts
+      void template.offsetWidth;
+      template.style.animation = `fadeIn 0.4s ease-out ${index * 0.1}s forwards`;
     });
   }
 

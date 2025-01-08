@@ -1,8 +1,8 @@
 ---
+import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar";
 import Layout from "../layouts/Layout.astro";
-import Footer from "../sections/Footer.astro";
-import Showcase from "../sections/Showcase.astro";
+import ShowcaseSection from "../sections/Showcase/ShowcaseSection.astro";
 ---
 
 <Layout
@@ -13,7 +13,7 @@ import Showcase from "../sections/Showcase.astro";
   <Navbar client:only="react" />
 
   <main class="sm:pt-4">
-    <Showcase />
+    <ShowcaseSection />
   </main>
 
   <Footer />
