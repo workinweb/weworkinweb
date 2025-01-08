@@ -1,8 +1,8 @@
 ---
 title: "Agence"
 description: "Professional agency landing page template"
-image: "./agence.png"
+image: "./images/agence.png"
 link: "https://agencex-astro.vercel.app/"
 code: "https://github.com/unoforge/agency-landing-page-Astrojs"
-category: "Service"
+category: "Landing"
 ---

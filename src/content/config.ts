@@ -9,7 +9,18 @@ const templatesCollection = defineCollection({
       image: image(),
       link: z.string().url(),
       code: z.string().url().optional(),
-      category: z.enum(["Restaurant", "Product", "Service", "Gallery"]),
+      category: z.enum([
+        "Blog",
+        "Portfolio",
+        "Landing",
+        "Business",
+        "Documentation",
+        "Personal",
+        "Agency",
+        "Restaurant",
+        "Education",
+        "Other",
+      ]),
     }),
 });
 
