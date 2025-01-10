@@ -34,8 +34,8 @@ const journeyStages = [
     name: "Growth Package",
     icon: <Zap className="w-8 h-8" />,
     price: {
+      providedDesign: "1,399",
       withDesign: "1,699",
-      providedDesign: "1,999",
     },
     description: "Expand your digital presence with more features and support",
     features: [
@@ -48,8 +48,8 @@ const journeyStages = [
       "Major Post-deployment changes: has a quote",
     ],
     notes: [
-      "Design provided by client: $1,699",
-      "Design created by us: $1,999",
+      "Design provided by client: $1,399",
+      "Design created by us: $1,699",
       "Includes monthly content updates",
     ],
     lottie: "https://assets2.lottiefiles.com/packages/lf20_3ntisyac.json",
@@ -80,6 +80,7 @@ const journeyStages = [
 
 export default function WebDevJourneyPricing() {
   const [selectedStage, setSelectedStage] = useState(journeyStages[0].id);
+  const [showWithDesign, setShowWithDesign] = useState(false);
 
   return (
     <section
@@ -94,9 +95,34 @@ export default function WebDevJourneyPricing() {
           className="text-center mb-16"
         >
           <h2 className="section-title">Investment Options</h2>
-          <p className="text-foreground text-xl">
+          <p className="text-foreground text-xl mb-8">
             Choose the perfect package for your digital journey
           </p>
+
+          <div className="inline-flex rounded-xl bg-white dark:bg-slate-800 p-1 shadow-lg">
+            <button
+              onClick={() => setShowWithDesign(false)}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300
+                ${
+                  !showWithDesign
+                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
+                    : "text-slate-600 dark:text-slate-300 hover:text-orange-500"
+                }`}
+            >
+              I have my own design
+            </button>
+            <button
+              onClick={() => setShowWithDesign(true)}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300
+                ${
+                  showWithDesign
+                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
+                    : "text-slate-600 dark:text-slate-300 hover:text-orange-500"
+                }`}
+            >
+              I need design help
+            </button>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -129,13 +155,26 @@ export default function WebDevJourneyPricing() {
               <p className="text-foreground dark:text-slate-300 mb-2">
                 {stage.description}
               </p>
-              <div className="text-3xl font-bold text-orange-500 dark:text-orange-400">
-                {stage.price.withDesign === "Custom" ? (
-                  "Custom Quote"
-                ) : (
-                  <>From ${stage.price.providedDesign}</>
-                )}
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={showWithDesign ? "withDesign" : "providedDesign"}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="text-3xl font-bold text-orange-500 dark:text-orange-400"
+                >
+                  {stage.price.withDesign === "Custom" ? (
+                    "Custom Quote"
+                  ) : (
+                    <>
+                      From $
+                      {showWithDesign
+                        ? stage.price.withDesign
+                        : stage.price.providedDesign}
+                    </>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>
