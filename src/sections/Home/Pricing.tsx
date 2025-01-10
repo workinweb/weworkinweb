@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Rocket, Zap, Building2 } from "lucide-react";
+import { Rocket, Zap, Building2, Clock } from "lucide-react";
 
 const journeyStages = [
   {
@@ -93,9 +93,9 @@ export default function WebDevJourneyPricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Transparent Pricing</h2>
+          <h2 className="section-title">Investment Options</h2>
           <p className="text-foreground text-xl">
-            Clear pricing structure with no hidden costs
+            Choose the perfect package for your digital journey
           </p>
         </motion.div>
 
@@ -147,7 +147,7 @@ export default function WebDevJourneyPricing() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="glass-card p-8"
+            className="glass-card p-8 relative"
           >
             {journeyStages.map(
               (stage) =>
@@ -198,13 +198,6 @@ export default function WebDevJourneyPricing() {
                           ))}
                         </ul>
                       </div>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="button-primary mt-8"
-                      >
-                        Get Started
-                      </motion.button>
                     </div>
                     <div className="flex items-center justify-center">
                       <Player
@@ -219,6 +212,13 @@ export default function WebDevJourneyPricing() {
             )}
           </motion.div>
         </AnimatePresence>
+
+        <div className="flex justify-end mt-4">
+          <div className="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400">
+            <Clock className="w-4 h-4" />
+            <p>Prices shown reflect current market rates and may be adjusted</p>
+          </div>
+        </div>
       </div>
     </section>
   );
