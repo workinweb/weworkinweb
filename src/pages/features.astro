@@ -4,6 +4,7 @@ import contactImage from "../assets/images/features/contact.jpg";
 import mapImage from "../assets/images/features/map.png";
 import languageImage from "../assets/images/features/language.webp";
 import livechatImage from "../assets/images/features/livechat.png";
+import darkmodeImage from "../assets/images/features/darkmode.jpg";
 
 import FeatureCard from "../components/Cards/FeatureCard.astro";
 import Footer from "../components/Footer.astro";
@@ -96,6 +97,15 @@ import FeatureTitle from "../sections/Features/FeatureTitle.astro";
               "Customize chat widget",
             ]}
             img={livechatImage}
+          />
+
+          <FeatureCard
+            position="right"
+            title="Dark Mode / Themes"
+            description="A dark mode or theme feature that allows your website to be easily customized to your users' preferences."
+            subtitle="Key Features"
+            list={["Dark Mode", "Palette themes", "Customize themes"]}
+            img={darkmodeImage}
           />
         </div>
       </div>

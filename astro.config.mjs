@@ -8,5 +8,5 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   compressHTML: true,
   output: "hybrid",
-  adapter: netlifyIntegration(),
+  adapter: vercel(),
 });
