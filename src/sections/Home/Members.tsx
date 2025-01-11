@@ -17,10 +17,10 @@ export default function Members() {
     },
     {
       quote:
-        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-      name: "Emily Watson",
-      designation: "Operations Director at CloudScale",
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "Cooperative efforts in software development yield solutions far greater than the sum of individual contributions.",
+      name: "Daniel Rodriguez",
+      designation: "Backend and Services Developer",
+      src: "https://placehold.co/48",
     },
     {
       quote:
