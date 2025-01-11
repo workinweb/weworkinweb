@@ -15,7 +15,8 @@ const services = [
     title: "Custom Development",
     description:
       "Tailored solutions and features built specifically for your business needs and goals.",
-    lottie: "https://assets7.lottiefiles.com/packages/lf20_q5qvqk8z.json",
+    lottie:
+      "https://lottie.host/40178beb-083f-42d6-b777-7cf8324762e1/MALtAb2wnn.json",
   },
 
   {

@@ -1,6 +1,6 @@
 import { AnimatedTestimonials } from "../../components/ui/animated-testimonials";
 
-export function Testimonials() {
+export default function Members() {
   const testimonials = [
     {
       quote:
@@ -12,9 +12,9 @@ export function Testimonials() {
     {
       quote:
         "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-      name: "Michael Rodriguez",
+      name: "Daniel Caluff",
       designation: "CTO at InnovateSphere",
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/members/caluff.jpeg",
     },
     {
       quote:
