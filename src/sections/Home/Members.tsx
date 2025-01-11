@@ -4,16 +4,15 @@ export default function Members() {
   const testimonials = [
     {
       quote:
-        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
+        "The meticulous attention to detail and cutting-edge features have revolutionized our workflow. This solution is precisely what we 'byte' for!",
       name: "Kevin Bueno",
       designation: "Founder and Frontend Developer of WorkInWeb",
       src: "/members/kevin.JPEG",
     },
     {
-      quote:
-        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
+      quote: "Code is my canvas, and the web is my masterpiece.",
       name: "Daniel Caluff",
-      designation: "CTO at InnovateSphere",
+      designation: "Frontend Developer of WorkInWeb",
       src: "/members/caluff.jpeg",
     },
     {
