@@ -2,3 +2,55 @@
 const defaultLang = "en";
 return Astro.redirect(`/${defaultLang}`);
 ---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Redirecting...</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #f1f5f9, #fff7ed);
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #f97316;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        animation: rotation 1s linear infinite;
+      }
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .text {
+        position: absolute;
+        margin-top: 80px;
+        color: #475569;
+      }
+    </style>
+    <meta http-equiv="refresh" content={`0;url=/${defaultLang}`} />
+  </head>
+  <body>
+    <div>
+      <div class="loader"></div>
+      <p class="text">Redirecting...</p>
+    </div>
+  </body>
+</html>
