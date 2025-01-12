@@ -24,7 +24,7 @@ export const translations = {
     "hero.subtitle":
       "From concept to reality, we craft beautiful websites that engage your audience and grow your business.",
     "hero.cta1": "Start your project",
-    "hero.cta2": "View Our Work",
+    "hero.cta2": "View our work",
 
     "services.title": "Expert Web Development Services",
     "services.subtitle":
@@ -303,7 +303,7 @@ export const translations = {
     "hero.subtitle":
       "Del concepto a la realidad, creamos hermosos sitios web que cautivan a tu audiencia y hacen crecer tu negocio.",
     "hero.cta1": "Inicia tu proyecto",
-    "hero.cta2": "Ver Nuestro Trabajo",
+    "hero.cta2": "Ver nuestro trabajo",
 
     "services.title": "Servicios Expertos de Desarrollo Web",
     "services.subtitle":

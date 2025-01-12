@@ -18,8 +18,8 @@ const t = useTranslations(lang);
 ---
 
 <Layout
-  title={t("showcase.page.title")}
-  description={t("showcase.page.description")}
+  title={t("showcase.page.title") as string}
+  description={t("showcase.page.description") as string}
   image="/workinweb_logo.jpeg"
 >
   <Navbar client:only="react" />

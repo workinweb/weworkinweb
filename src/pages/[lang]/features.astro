@@ -61,8 +61,8 @@ const features = [
 ---
 
 <Layout
-  title={t("features.page.title")}
-  description={t("features.page.description")}
+  title={t("features.page.title") as string}
+  description={t("features.page.description") as string}
   image="/workinweb_logo.jpeg"
 >
   <Navbar client:only="react" />
@@ -78,12 +78,16 @@ const features = [
           {
             features.map((feature) => (
               <FeatureCard
-                title={t(`features.card.${feature.id}.title`)}
-                description={t(`features.card.${feature.id}.description`)}
-                subtitle={t(`features.card.${feature.id}.subtitle`)}
-                list={t(`features.card.${feature.id}.features`)}
+                title={t(`features.card.${feature.id}.title`) as string}
+                description={
+                  t(`features.card.${feature.id}.description`) as string
+                }
+                subtitle={t(`features.card.${feature.id}.subtitle`) as string}
+                list={
+                  t(`features.card.${feature.id}.features`) as Array<string>
+                }
                 img={feature.image}
-                position={feature.position}
+                position={feature.position as "left" | "right"}
               />
             ))
           }

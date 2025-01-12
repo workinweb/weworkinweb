@@ -24,8 +24,8 @@ const t = useTranslations(lang);
 ---
 
 <Layout
-  title={t("page.home.title")}
-  description={t("page.home.description")}
+  title={t("page.home.title") as string}
+  description={t("page.home.description") as string}
   image="/workinweb_logo.jpeg"
 >
   <Navbar client:only="react" />
