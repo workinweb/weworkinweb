@@ -1,6 +1,10 @@
 ---
 import Logo from "../components/Logo";
 import { Mail, Phone, MapPin, FileText, ScrollText, Lock } from "lucide-react";
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
@@ -9,20 +13,18 @@ import { Mail, Phone, MapPin, FileText, ScrollText, Lock } from "lucide-react";
       <div class="space-y-6">
         <Logo withDescription={false} />
         <p class="text-slate-300 text-sm leading-relaxed">
-          Transforming ideas into exceptional web experiences. We don't just
-          build websites; we craft digital solutions that work for your
-          business.
+          {t("footer.paragraph")}
         </p>
       </div>
 
       <div>
-        <h3 class="text-lg font-semibold mb-6">Legal</h3>
+        <h3 class="text-lg font-semibold mb-6">{t("footer.legal.title")}</h3>
         <ul class="space-y-4">
           {
             [
-              { text: "Terms & Conditions", icon: FileText },
-              { text: "License Agreement", icon: ScrollText },
-              { text: "Privacy Policy", icon: Lock },
+              { text: t("footer.legal.terms"), icon: FileText },
+              { text: t("footer.legal.license"), icon: ScrollText },
+              { text: t("footer.legal.privacy"), icon: Lock },
             ].map((item) => {
               const Icon = item.icon;
               return (
@@ -41,7 +43,7 @@ import { Mail, Phone, MapPin, FileText, ScrollText, Lock } from "lucide-react";
       </div>
 
       <div>
-        <h3 class="text-lg font-semibold mb-6">Follow Us</h3>
+        <h3 class="text-lg font-semibold mb-6">{t("footer.follow.title")}</h3>
         <ul class="space-y-4">
           <li>
             <a
@@ -77,7 +79,7 @@ import { Mail, Phone, MapPin, FileText, ScrollText, Lock } from "lucide-react";
       </div>
 
       <div>
-        <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+        <h3 class="text-lg font-semibold mb-6">{t("footer.contact.title")}</h3>
         <ul class="space-y-4">
           <li class="flex items-center text-slate-300">
             <Mail className="h-5 w-5 mr-3" />
@@ -113,7 +115,7 @@ import { Mail, Phone, MapPin, FileText, ScrollText, Lock } from "lucide-react";
     <div
       class="mt-12 pt-8 border-t border-slate-700 text-center text-slate-400"
     >
-      <p>© {new Date().getFullYear()} WorkInWeb. All rights reserved.</p>
+      <p>{t("footer.copyright")}</p>
     </div>
   </div>
 </footer>

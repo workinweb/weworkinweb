@@ -1,17 +1,30 @@
 ---
-import animationGIF from "../assets/images/features/animation.gif";
-import contactImage from "../assets/images/features/contact.jpg";
-import mapImage from "../assets/images/features/map.png";
-import languageImage from "../assets/images/features/language.webp";
-import livechatImage from "../assets/images/features/livechat.png";
-import darkmodeImage from "../assets/images/features/darkmode.jpg";
+import animationGIF from "../../assets/images/features/animation.gif";
+import contactImage from "../../assets/images/features/contact.jpg";
+import mapImage from "../../assets/images/features/map.png";
+import languageImage from "../../assets/images/features/language.webp";
+import livechatImage from "../../assets/images/features/livechat.png";
+import darkmodeImage from "../../assets/images/features/darkmode.jpg";
 
-import FeatureCard from "../components/Cards/FeatureCard.astro";
-import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar";
-import Layout from "../layouts/Layout.astro";
-import FeaturesOverview from "../sections/Features/FeaturesOverview.astro";
-import FeatureTitle from "../sections/Features/FeatureTitle.astro";
+import FeatureCard from "../../components/Cards/FeatureCard.astro";
+import Footer from "../../components/Footer.astro";
+import Navbar from "../../components/Navbar";
+import Layout from "../../layouts/Layout.astro";
+import FeaturesOverview from "../../sections/Features/FeaturesOverview.astro";
+import FeatureTitle from "../../sections/Features/FeatureTitle.astro";
+
+import {
+  getLangFromUrl,
+  languages,
+  useTranslations,
+} from "../../i18n/translations";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout

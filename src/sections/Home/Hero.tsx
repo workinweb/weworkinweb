@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { getLangFromUrl } from "../../i18n/translations";
 
 export default function Hero() {
+  const url = new URL(window.location.href);
+  const lang = getLangFromUrl(url);
+
   return (
     <section className="min-h-screen relative overflow-hidden flex items-center">
       {/* Background Pattern */}
@@ -35,7 +39,7 @@ export default function Hero() {
                 Start Your Project
               </motion.a>
               <motion.a
-                href="/showcase"
+                href={`/${lang}/showcase`}
                 className="px-8 py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-foreground hover:border-orange-500 dark:hover:border-orange-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-center w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

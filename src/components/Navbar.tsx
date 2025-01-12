@@ -4,9 +4,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import ThemeToggle from "./ThemeToggle";
-import Logo from "./Logo";
+
 import {
   Blocks,
   Briefcase,
@@ -16,19 +14,45 @@ import {
   Home,
   Mail,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { getLangFromUrl } from "../i18n/translations";
+import { LanguageSelector } from "./LanguageSelector";
+import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
-const menuItems = [
-  { name: "Home", icon: Home, href: "/" },
-  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: false },
-  { name: "Features", icon: Blocks, href: "/features", onlyHome: false },
+// Update menuItems with dynamic language paths
+const getMenuItems = (lang: string) => [
+  { name: "Home", icon: Home, href: `/${lang}` },
+  {
+    name: "Our Work",
+    icon: Briefcase,
+    href: `/${lang}/showcase`,
+    onlyHome: false,
+  },
+  {
+    name: "Features",
+    icon: Blocks,
+    href: `/${lang}/features`,
+    onlyHome: false,
+  },
   { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
   { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
   { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
 ];
 
-const desktopMenuItems = [
-  { name: "Our Work", icon: Briefcase, href: "/showcase", onlyHome: false },
-  { name: "Features", icon: Blocks, href: "/features", onlyHome: false },
+const getDesktopMenuItems = (lang: string) => [
+  {
+    name: "Our Work",
+    icon: Briefcase,
+    href: `/${lang}/showcase`,
+    onlyHome: false,
+  },
+  {
+    name: "Features",
+    icon: Blocks,
+    href: `/${lang}/features`,
+    onlyHome: false,
+  },
   { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
   { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
   { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
@@ -41,12 +65,15 @@ export default function Navbar() {
   const [isHome, setIsHome] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
   const [activeSection, setActiveSection] = useState("");
+  const [currentLang, setCurrentLang] = useState("");
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [0.9, 0.8]);
 
   // Add a ref for the mobile menu button
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const langMenuRef = useRef<HTMLDivElement>(null);
 
   // Updated smooth scrolling handler for better mobile support
   const handleClick = (
@@ -121,8 +148,12 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    const url = new URL(window.location.href);
+    const lang = getLangFromUrl(url);
+    setCurrentLang(lang);
+
     const path = window.location.pathname;
-    const isHomePath = path === "/";
+    const isHomePath = path === `/${lang}` || path === `/${lang}/`;
     setIsHome(isHomePath);
     setCurrentPath(path);
 
@@ -151,23 +182,6 @@ export default function Navbar() {
     };
   }, [lastScrollY, isHome]); // Added isHome to dependencies
 
-  // Update the click outside handler to exclude the menu button
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (
-        isOpen &&
-        !target.closest(".mobile-menu-container") &&
-        !menuButtonRef.current?.contains(target)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isOpen]);
-
   // Add a specific handler for the menu button
   const handleMenuToggle = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent event from bubbling up
@@ -175,13 +189,17 @@ export default function Navbar() {
   };
 
   // Modify the menu item rendering to include active states and smooth scrolling
-  const renderMenuItem = (item: (typeof menuItems)[0], isMobile = false) => {
+  const renderMenuItem = (
+    item: (typeof getMenuItems extends (lang: string) => infer R
+      ? R
+      : never)[0],
+    isMobile = false
+  ) => {
     if (!isHome && item.onlyHome) return null;
 
     const isActive = item.href.startsWith("/")
       ? currentPath === item.href &&
-        // Only show home as active if no hash section is active
-        (item.href === "/" ? !activeSection : true)
+        (item.href === `/${currentLang}` ? !activeSection : true)
       : item.href.slice(1) === activeSection;
 
     return (
@@ -230,13 +248,30 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Logo />
 
-          <div className="hidden md:flex items-center space-x-8">
-            {desktopMenuItems.map((item) => renderMenuItem(item))}
-            <ThemeToggle />
+          <div className="hidden md:flex items-center space-x-6">
+            {getDesktopMenuItems(currentLang).map((item) =>
+              renderMenuItem(item)
+            )}
+
+            <div className="flex items-center space-x-4">
+              <LanguageSelector
+                shouldShow={shouldShow}
+                size="desktop"
+                currentLang={currentLang}
+              />
+              <ThemeToggle />
+            </div>
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
+            <div className="flex items-center space-x-4">
+              <LanguageSelector
+                shouldShow={shouldShow}
+                size="mobile"
+                currentLang={currentLang}
+              />
+              <ThemeToggle />
+            </div>
 
             <button
               ref={menuButtonRef}
@@ -273,7 +308,9 @@ export default function Navbar() {
             className="md:hidden bg-white dark:bg-gray-900 overflow-hidden mobile-menu-container"
           >
             <div className="px-4 py-2 space-y-1">
-              {menuItems.map((item) => renderMenuItem(item, true))}
+              {getMenuItems(currentLang).map((item) =>
+                renderMenuItem(item, true)
+              )}
             </div>
           </motion.div>
         )}
