@@ -48,7 +48,13 @@ import { Image } from "astro:assets";
         <div class="md:w-1/2 mt-6 md:mt-0">
           <div class="bg-gray-100 dark:bg-gray-700 rounded-lg h-full p-4 flex items-center justify-center">
             {img ? (
-              <Image src={img} alt={title} class="max-w-full h-auto rounded" />
+              <Image
+                src={img}
+                alt={title}
+                class="max-w-full h-auto rounded"
+                loading="lazy"
+                decoding="async"
+              />
             ) : (
               <p class="text-gray-500 dark:text-gray-400">{imgTitle}</p>
             )}
@@ -60,7 +66,13 @@ import { Image } from "astro:assets";
         <div class="md:w-1/2  md:mt-0">
           <div class="bg-gray-100 dark:bg-gray-700 rounded-lg h-full p-4 flex items-center justify-center">
             {img ? (
-              <Image src={img} alt={title} class="max-w-full h-auto rounded" />
+              <Image
+                src={img}
+                alt={title}
+                class="max-w-full h-auto rounded"
+                loading="lazy"
+                decoding="async"
+              />
             ) : (
               <p class="text-gray-500 dark:text-gray-400">{imgTitle}</p>
             )}
