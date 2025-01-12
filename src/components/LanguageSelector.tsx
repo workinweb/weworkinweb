@@ -46,8 +46,6 @@ export const LanguageSelector = ({
     };
   }, []);
 
-  return null;
-
   return (
     <div className="relative " ref={langMenuRef}>
       <button

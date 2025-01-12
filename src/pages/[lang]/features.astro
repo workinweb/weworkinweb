@@ -25,11 +25,44 @@ export function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const features = [
+  {
+    id: "contactForm",
+    image: contactImage,
+    position: "left",
+  },
+  {
+    id: "mapView",
+    image: mapImage,
+    position: "right",
+  },
+  {
+    id: "loading",
+    image: animationGIF,
+    position: "left",
+  },
+  {
+    id: "multilingual",
+    image: languageImage,
+    position: "right",
+  },
+  {
+    id: "liveChat",
+    image: livechatImage,
+    position: "left",
+  },
+  {
+    id: "darkMode",
+    image: darkmodeImage,
+    position: "right",
+  },
+];
 ---
 
 <Layout
-  title="Features | Your E-commerce"
-  description=""
+  title={t("features.page.title")}
+  description={t("features.page.description")}
   image="/workinweb_logo.jpeg"
 >
   <Navbar client:only="react" />
@@ -42,84 +75,18 @@ const t = useTranslations(lang);
         <FeaturesOverview />
 
         <div class="mt-8 space-y-8">
-          <FeatureCard
-            title="Contact Form"
-            description=" A customizable contact form solution that helps you connect with your users while protecting against spam."
-            subtitle="Key Features"
-            list={[
-              "Real-time form validation",
-              "Spam protection",
-              "Custom form fields",
-              "Auto-response emails",
-              "Mobile responsive design",
-            ]}
-            img={contactImage}
-          />
-
-          <FeatureCard
-            position="right"
-            title="Map View"
-            description="An interactive map view that makes it easy for customers to locate your business and get directions."
-            subtitle="Key Features"
-            list={[
-              "Interactive map markers",
-              "Custom styling options",
-              "Location clustering",
-              "Search functionality",
-              "Go to Maps App",
-            ]}
-            img={mapImage}
-          />
-
-          <FeatureCard
-            title="Loading Screen Animation"
-            description="A sleek loading animation that creates an engaging first impression while your application initializes and loads content."
-            subtitle="Key Features"
-            list={[
-              "Smooth transitions",
-              "Customizable animations",
-              "Progress indicators",
-              "Reduced perceived wait time",
-              "Brand-consistent design",
-            ]}
-            img={animationGIF}
-          />
-
-          <FeatureCard
-            position="right"
-            title="Multi-Language Support"
-            description="A multi-language support feature that allows your website to be easily translated into multiple languages."
-            subtitle="Key Features"
-            list={[
-              "Language selection",
-              "Translation support",
-              "Language detection",
-              "User-friendly interface",
-              "SEO benefits",
-            ]}
-            img={languageImage}
-          />
-
-          <FeatureCard
-            title="Live-Chat / Chat-bot Integration (Third Parties) "
-            description="A live-chat or chat-bot integration feature that allows your website to user to chat with your business."
-            subtitle="Key Features"
-            list={[
-              "Live-chat integration",
-              "Chat-bot integration",
-              "Customize chat widget",
-            ]}
-            img={livechatImage}
-          />
-
-          <FeatureCard
-            position="right"
-            title="Dark Mode / Themes"
-            description="A dark mode or theme feature that allows your website to be easily customized to your users' preferences."
-            subtitle="Key Features"
-            list={["Dark Mode", "Palette themes", "Customize themes"]}
-            img={darkmodeImage}
-          />
+          {
+            features.map((feature) => (
+              <FeatureCard
+                title={t(`features.card.${feature.id}.title`)}
+                description={t(`features.card.${feature.id}.description`)}
+                subtitle={t(`features.card.${feature.id}.subtitle`)}
+                list={t(`features.card.${feature.id}.features`)}
+                img={feature.image}
+                position={feature.position}
+              />
+            ))
+          }
         </div>
       </div>
     </section>

@@ -2,6 +2,11 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { ExternalLink, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
 
 const templates = await getCollection("templates");
 const sortedTemplates = templates
@@ -9,15 +14,16 @@ const sortedTemplates = templates
   .map((template) => ({
     slug: template.slug,
     title: template.data.title,
-    description: template.data.description,
+    description:
+      template.data[`${lang}-description`] || template.data.description,
     image: template.data.image,
     link: template.data.link,
     code: template.data.code,
-    category: template.data.category,
+    category: template.data[`${lang}-category`] || template.data.category,
   }));
 
 const categories = ["all", ...new Set(sortedTemplates.map((t) => t.category))];
-const itemsPerPage = 9; // Show 9 items per page (3x3 grid)
+const itemsPerPage = 9;
 ---
 
 <section class="relative py-20 overflow-hidden">
@@ -32,12 +38,11 @@ const itemsPerPage = 9; // Show 9 items per page (3x3 grid)
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4">
-    <!-- Header section remains the same -->
     <div class="mb-10 text-center">
       <h1
         class="text-5xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent inline-block"
       >
-        Templates
+        {t("showcase.title")}
       </h1>
       <div
         class="h-1 w-24 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mt-4 rounded-full"
@@ -47,22 +52,19 @@ const itemsPerPage = 9; // Show 9 items per page (3x3 grid)
       <p
         class="text-lg text-slate-600 dark:text-slate-300 mt-6 max-w-2xl mx-auto"
       >
-        Preview Your Future Online Presence Explore our showcase of professional
-        landing page designs to envision how your business could look online
+        {t("showcase.subtitle")}
       </p>
     </div>
 
-    <!-- Search and category filters remain the same -->
     <div class="flex flex-col gap-6 mb-4">
       <div class="relative mx-auto w-full max-w-2xl mb-4 sm:mb-8">
         <Search
           className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400"
         />
-
         <input
           type="search"
           id="search-input"
-          placeholder="Search templates..."
+          placeholder={t("showcase.search.placeholder")}
           class="w-full pl-12 text-foreground pr-4 py-3 rounded-xl bg-white dark:bg-slate-800 shadow-lg focus:ring-2 focus:ring-orange-500 outline-none"
         />
       </div>
@@ -75,18 +77,16 @@ const itemsPerPage = 9; // Show 9 items per page (3x3 grid)
             categories.map((category) => (
               <button
                 class={`category-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 
-                hover:scale-105 hover:shadow-lg text-foreground
-                ${
-                  category === "all"
-                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white"
-                    : "bg-white dark:bg-slate-800"
-                }
-                data-[active=true]:bg-gradient-to-r data-[active=true]:from-orange-500 data-[active=true]:to-amber-500 data-[active=true]:text-white
-                data-[active=false]:bg-white data-[active=false]:dark:bg-slate-800`}
+              hover:scale-105 hover:shadow-lg text-foreground
+              ${category === "all" ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white" : "bg-white dark:bg-slate-800"}
+              data-[active=true]:bg-gradient-to-r data-[active=true]:from-orange-500 data-[active=true]:to-amber-500 data-[active=true]:text-white
+              data-[active=false]:bg-white data-[active=false]:dark:bg-slate-800`}
                 data-category={category}
                 data-active={category === "all"}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category === "all"
+                  ? t("showcase.category.all")
+                  : category.charAt(0).toUpperCase() + category.slice(1)}
               </button>
             ))
           }
@@ -152,6 +152,7 @@ const itemsPerPage = 9; // Show 9 items per page (3x3 grid)
         id="prev-page"
         class="p-2 rounded-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-orange-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
         disabled
+        aria-label={t("showcase.pagination.prev")}
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
@@ -159,6 +160,7 @@ const itemsPerPage = 9; // Show 9 items per page (3x3 grid)
       <button
         id="next-page"
         class="p-2 rounded-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-orange-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
+        aria-label={t("showcase.pagination.next")}
       >
         <ChevronRight className="w-6 h-6" />
       </button>

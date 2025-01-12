@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useState } from "react";
 import GlassCard from "../../components/Cards/GlassCard";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
 interface FormData {
   name: string;
@@ -10,6 +11,10 @@ interface FormData {
 }
 
 export default function ContactForm() {
+  const url = new URL(window.location.href);
+  const lang = getLangFromUrl(url);
+  const t = useTranslations(lang);
+
   const [status, setStatus] = useState("");
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -19,7 +24,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Sending...");
+    setStatus(t("contact.form.sending"));
 
     try {
       const response = await fetch("/api/sendEmail", {
@@ -37,13 +42,13 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        setStatus("Thanks! We'll be in touch within 24 hours.");
+        setStatus(t("contact.form.success"));
         setFormData({ name: "", email: "", project: "" });
       } else {
-        setStatus("Something went wrong. Please try again.");
+        setStatus(t("contact.form.error"));
       }
     } catch (error) {
-      setStatus("Something went wrong. Please try again.");
+      setStatus(t("contact.form.error"));
     }
   };
 
@@ -68,10 +73,9 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="section-title">Let's Build Something Great</h2>
+            <h2 className="section-title">{t("contact.title")}</h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-              Tell us about your project and we'll get back to you within 24
-              hours with a plan to make it happen.
+              {t("contact.subtitle")}
             </p>
 
             <div className="mb-8">
@@ -99,7 +103,7 @@ export default function ContactForm() {
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>Free consultation</span>
+                <span>{t("contact.benefits.consultation")}</span>
               </div>
               <div className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
                 <svg
@@ -115,7 +119,7 @@ export default function ContactForm() {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>Quick response time</span>
+                <span>{t("contact.benefits.response")}</span>
               </div>
               <div className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
                 <svg
@@ -131,7 +135,7 @@ export default function ContactForm() {
                     d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span>Clear, upfront pricing</span>
+                <span>{t("contact.benefits.pricing")}</span>
               </div>
             </div>
           </motion.div>
@@ -148,7 +152,7 @@ export default function ContactForm() {
                     htmlFor="name"
                     className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Your Name
+                    {t("contact.form.name.label")}
                   </label>
                   <input
                     type="text"
@@ -165,7 +169,7 @@ export default function ContactForm() {
                     htmlFor="email"
                     className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Email Address
+                    {t("contact.form.email.label")}
                   </label>
                   <input
                     type="email"
@@ -182,7 +186,7 @@ export default function ContactForm() {
                     htmlFor="project"
                     className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Tell us about your project
+                    {t("contact.form.project.label")}
                   </label>
                   <textarea
                     id="project"
@@ -191,12 +195,12 @@ export default function ContactForm() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
-                    placeholder="What would you like to achieve?"
+                    placeholder={t("contact.form.project.placeholder")}
                   ></textarea>
                 </div>
 
                 <button type="submit" className="button-primary w-full">
-                  Let's Talk
+                  {t("contact.form.submit")}
                 </button>
 
                 {status && (

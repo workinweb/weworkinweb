@@ -1,3 +1,11 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
 <div>
   <div
     class="absolute inset-0 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800"
@@ -14,7 +22,7 @@
       <h1
         class="text-5xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent inline-block"
       >
-        Powerful Features for Your Business
+        {t("features.title")}
       </h1>
       <div
         class="h-1 w-72 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mt-4 rounded-full"
@@ -24,8 +32,7 @@
       <p
         class="text-lg text-slate-600 dark:text-slate-300 mt-6 max-w-2xl mx-auto"
       >
-        Preview Your Future Online Presence Explore our showcase of professional
-        landing page designs to envision how your business could look online
+        {t("features.subtitle")}
       </p>
     </div>
   </div>

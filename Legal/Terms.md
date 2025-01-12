@@ -45,3 +45,51 @@ This [website/landing page] may contain links to third-party websites or service
   - Harmful, misleading, or deceptive.
   - In violation of intellectual property rights or other third-party rights.
   - The Client's actions or requests pose a significant risk to Workinweb's reputation or business.
+
+# Términos de Uso
+
+Bienvenido a [Nombre del Sitio Web/Página de Aterrizaje], creado por Workinweb. Al acceder y utilizar este producto, usted acepta cumplir y estar sujeto a los siguientes términos de uso. Por favor, léalos cuidadosamente.
+
+## 1. Introducción
+
+Estos Términos de Uso rigen su uso de este [sitio web/página de aterrizaje]. Al usar este [sitio web/página de aterrizaje], usted acepta estos Términos de Uso en su totalidad. Si no está de acuerdo con alguna parte de estos Términos de Uso, no utilice este [sitio web/página de aterrizaje].
+
+## 2. Derechos de Propiedad Intelectual
+
+Tras la entrega y aprobación del código por parte del cliente, Workinweb no tiene más derechos sobre el código. El cliente tiene la propiedad total y puede modificar el código y utilizarlo como considere conveniente. Sin embargo, el código se considera de código abierto, y Workinweb conserva el derecho de copiar y reutilizar el código o partes de él en proyectos futuros.
+
+## 3. Uso del [Sitio Web/Página de Aterrizaje]
+
+"Tras la entrega y aprobación del código por parte del cliente, Workinweb otorga al cliente una licencia no exclusiva y perpetua para usar el código entregado para sus propios fines comerciales.
+
+### El cliente acepta que el uso del [sitio web/página de aterrizaje] no:
+
+- Dañará la reputación, marca y negocio de Workinweb.
+- Participará en ninguna actividad ilegal, no ética o dañina.
+- Implicará el uso del código de manera directamente competitiva con los servicios o productos propios de Workinweb.
+
+Workinweb se reserva el derecho de revisar el uso del [sitio web/página de aterrizaje] por parte del cliente y puede solicitar modificaciones o tomar medidas para prevenir el mal uso."
+
+## 4. Uso Aceptable
+
+No debe utilizar este [sitio web/página de aterrizaje] de ninguna manera que cause, o pueda causar, daño al [sitio web/página de aterrizaje] o deterioro de la disponibilidad o accesibilidad del [sitio web/página de aterrizaje]; o de cualquier manera que sea ilegal, fraudulenta o dañina, o en conexión con cualquier propósito o actividad ilegal, fraudulenta o dañina.
+
+## 5. Limitación de Responsabilidad
+
+La información en este [sitio web/página de aterrizaje] se proporciona de forma gratuita, y usted reconoce que sería irrazonable hacernos responsables con respecto a este [sitio web/página de aterrizaje] y la información en este [sitio web/página de aterrizaje]. Si bien nos esforzamos por asegurar que la información en este [sitio web/página de aterrizaje] sea correcta, no garantizamos su integridad o exactitud; ni nos comprometemos a asegurar que el [sitio web/página de aterrizaje] permanezca disponible o que el material en el [sitio web/página de aterrizaje] se mantenga actualizado.
+
+En la máxima medida permitida por la ley aplicable, excluimos todas las representaciones, garantías y condiciones relacionadas con este [sitio web/página de aterrizaje] y el uso de este [sitio web/página de aterrizaje] (incluyendo, sin limitación, cualquier garantía implícita por ley de calidad satisfactoria, idoneidad para el propósito y/o el uso de cuidado y habilidad razonables).
+
+## 6. Servicios de Terceros
+
+Este [sitio web/página de aterrizaje] puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por Workinweb. No tenemos control sobre, ni somos responsables del contenido o disponibilidad de esos sitios después del final del contrato.
+
+### Workinweb se reserva el derecho de terminar inmediatamente este Acuerdo mediante notificación por escrito al Cliente si
+
+- El Cliente solicita la creación de un sitio web o características del sitio web que son ilegales, no éticas o violan cualquier ley o regulación aplicable.
+- El Cliente proporciona contenido o materiales para el sitio web que son considerados por Workinweb como:
+  - Ilegales, no éticos o difamatorios.
+  - Ofensivos, obscenos o discriminatorios.
+  - Dañinos, engañosos o engañosos.
+  - En violación de derechos de propiedad intelectual u otros derechos de terceros.
+  - Las acciones o solicitudes del Cliente representan un riesgo significativo para la reputación o el negocio de Workinweb.

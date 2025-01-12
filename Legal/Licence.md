@@ -35,3 +35,41 @@ This Agreement constitutes the entire agreement between the parties regarding th
 ## Modifications
 
 Any modifications or amendments to this Agreement must be in writing and signed by both parties.
+
+# Acuerdo de Licencia de Workinweb para Páginas de Aterrizaje y Sitios Web
+
+## Introducción
+
+Este Acuerdo de Licencia ("Acuerdo") se realiza entre Workinweb ("Proveedor") y [Nombre del Cliente] ("Cliente") para el desarrollo y entrega de páginas de aterrizaje y sitios web.
+
+## Entrega del Código
+
+Tras la entrega del código final al Cliente, el Proveedor no tiene más responsabilidad sobre el código. El Cliente reconoce y acepta que el Proveedor no será responsable de ningún problema o daño que surja del uso, modificación o implementación del código.
+
+## Propiedad y Licencia
+
+Se otorga al Cliente una licencia no exclusiva, perpetua e irrevocable para usar el código proporcionado de la manera que considere conveniente. El Proveedor conserva el derecho de replicar, reutilizar y distribuir el código en cualquier forma para otros proyectos. El código se considera de código abierto.
+
+## Terminación de Servicios
+
+Ni el Cliente ni el Proveedor están obligados a continuar utilizando ninguno de los servicios proporcionados, incluyendo pero no limitado a servicios de alojamiento. Cualquiera de las partes puede terminar estos servicios en cualquier momento mediante notificación por escrito.
+
+## Alojamiento y Otros Servicios
+
+Los servicios de alojamiento y cualquier otro servicio proporcionado por el Proveedor se terminarán si el Cliente no paga las tarifas durante dos meses consecutivos. El Cliente acepta pagar todas las tarifas asociadas con el alojamiento y cualquier otro servicio de manera oportuna. El Proveedor no será responsable de ningún tiempo de inactividad o interrupciones en los servicios de alojamiento, o cualquier otro servicio proporcionado después de finalizar el contrato.
+
+## Limitación de Responsabilidad
+
+El Proveedor no será responsable de ningún daño directo, indirecto, incidental, consecuente o punitivo que surja de o en conexión con el uso o la imposibilidad de usar el código proporcionado, incluso si el Proveedor ha sido advertido de la posibilidad de tales daños. El Proveedor no es responsable de ningún mal funcionamiento del código después del final del contrato debido a cambios en otros servicios, bibliotecas u otros factores externos. El Cliente acepta que el sitio funcionaba según lo previsto en el momento de la terminación del contrato.
+
+## Ley Aplicable
+
+Este Acuerdo se regirá e interpretará de acuerdo con las leyes de [Su Estado/País], sin tener en cuenta sus principios de conflicto de leyes.
+
+## Acuerdo Completo
+
+Este Acuerdo constituye el acuerdo completo entre las partes con respecto al asunto del presente y reemplaza todos los acuerdos y entendimientos previos, ya sean escritos u orales, relacionados con dicho asunto.
+
+## Modificaciones
+
+Cualquier modificación o enmienda a este Acuerdo debe ser por escrito y firmada por ambas partes.

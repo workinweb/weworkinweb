@@ -7,7 +7,6 @@ const t = useTranslations(lang);
 ---
 
 <section class="min-h-screen relative overflow-hidden flex items-center">
-  {/* Background Pattern */}
   <div
     class="absolute inset-0 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800"
   >
@@ -25,12 +24,12 @@ const t = useTranslations(lang);
         <h1
           class="text-5xl md:text-6xl xl:text-7xl text-foreground font-bold mb-6 leading-tight"
         >
-          We Make Your <br />
-          <span class="gradient-text">Web Ideas Work</span>
+          {t("hero.title1")}
+          <br />
+          <span class="gradient-text"> {t("hero.title2")} </span>
         </h1>
         <p class="text-lg md:text-xl xl:text-2xl text-foreground mb-8 max-w-xl">
-          From concept to reality, we craft beautiful websites that engage your
-          audience and grow your business.
+          {t("hero.subtitle")}
         </p>
         <div
           class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto sm:justify-center lg:justify-start"
@@ -39,13 +38,13 @@ const t = useTranslations(lang);
             href="#contact"
             class="button-primary text-center w-full sm:w-auto transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            Start Your Project
+            {t("hero.cta1")}
           </a>
           <a
             href={`/${lang}/showcase`}
             class="px-8 py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-foreground hover:border-orange-500 dark:hover:border-orange-400 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-300 hover:scale-105 active:scale-95 text-center w-full sm:w-auto"
           >
-            View Our Work
+            {t("hero.cta2")}
           </a>
         </div>
       </div>

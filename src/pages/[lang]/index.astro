@@ -7,13 +7,13 @@ import Hero from "../../sections/Home/Hero.astro";
 import Members from "../../sections/Home/Members";
 import Pricing from "../../sections/Home/Pricing";
 import Services from "../../sections/Home/Services";
-import WebAnimation from "../../sections/Home/WebAnimation";
 
 import {
   getLangFromUrl,
-  useTranslations,
   languages,
+  useTranslations,
 } from "../../i18n/translations";
+import WebAnimation from "../../sections/Home/WebAnimation.astro";
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -29,10 +29,11 @@ const t = useTranslations(lang);
   image="/workinweb_logo.jpeg"
 >
   <Navbar client:only="react" />
+
   <main>
     <Hero />
     <Services client:only="react" />
-    <WebAnimation client:only="react" />
+    <WebAnimation />
     <Members client:only="react" />
     <Pricing client:only="react" />
     <ContactForm client:only="react" />

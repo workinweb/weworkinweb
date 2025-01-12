@@ -1,0 +1,37 @@
+---
+import LottieReact from "../../components/LottieReact";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+  class="py-10 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800"
+>
+  <div class="max-w-7xl mx-auto px-4">
+    <div
+      class="text-center mb-12 opacity-0 transform translate-y-4 transition-all duration-700 ease-out animate-[scaleIn_0.8s_ease-out_forwards]"
+    >
+      <h2 class="text-4xl font-bold mb-4 text-foreground">
+        {t("webAnimation.title")}
+      </h2>
+      <p class="text-foreground text-lg">
+        {t("webAnimation.subtitle")}
+      </p>
+    </div>
+
+    <div
+      class="max-w-2xl mx-auto opacity-0 transform translate-y-4 transition-all duration-700 delay-300 ease-out animate-[scaleIn_0.8s_ease-out_forwards]"
+    >
+      <LottieReact
+        client:only="react"
+        autoplay
+        loop
+        src="https://assets5.lottiefiles.com/packages/lf20_w51pcehl.json"
+        className="w-full"
+        style={{ maxWidth: "700px" }}
+      />
+    </div>
+  </div>
+</section>

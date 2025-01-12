@@ -1,188 +1,73 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+
+const features = [
+  {
+    id: "contactForm",
+    color: "blue",
+    icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  },
+  {
+    id: "mapView",
+    color: "green",
+    icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    id: "loading",
+    color: "yellow",
+    icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+  },
+  {
+    id: "multilingual",
+    color: "red",
+    icon: "M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129",
+  },
+  {
+    id: "liveChat",
+    color: "indigo",
+    icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+  },
+  {
+    id: "darkMode",
+    color: "purple",
+    icon: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z",
+  },
+];
+---
+
 <div class="flex flex-wrap justify-center gap-6 col-span-full w-full">
-  <div
-    class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105"
-  >
-    <div
-      class="h-12 w-12 bg-blue-500 rounded-lg mb-4 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        ></path>
-      </svg>
-    </div>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-      Contact Form
-    </h3>
-    <p class="text-gray-600 dark:text-gray-300">
-      Seamlessly connect with your customers through our intuitive contact form.
-      Receive inquiries directly to your inbox.
-    </p>
-  </div>
-
-  <div
-    class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105"
-  >
-    <div
-      class="h-12 w-12 bg-green-500 rounded-lg mb-4 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-        ></path>
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-      </svg>
-    </div>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-      Map View
-    </h3>
-    <p class="text-gray-600 dark:text-gray-300">
-      Interactive map integration to help customers find your physical locations
-      easily. Perfect for businesses with multiple stores.
-    </p>
-  </div>
-
-  <div
-    class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105"
-  >
-    <div
-      class="h-12 w-12 bg-yellow-500 rounded-lg mb-4 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-        ></path>
-      </svg>
-    </div>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-      Loading Screen Animation
-    </h3>
-    <p class="text-gray-600 dark:text-gray-300">
-      Smooth and engaging loading animations to keep your users entertained
-      while content loads. Enhances the overall user experience.
-    </p>
-  </div>
-
-  <div
-    class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105"
-  >
-    <div
-      class="h-12 w-12 bg-red-500 rounded-lg mb-4 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-        ></path>
-      </svg>
-    </div>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-      Multilingual Support
-    </h3>
-    <p class="text-gray-600 dark:text-gray-300">
-      Smooth and engaging loading animations to keep your users entertained
-      while content loads. Enhances the overall user experience.
-    </p>
-  </div>
-
-  <div
-    class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105"
-  >
-    <div
-      class="h-12 w-12 bg-indigo-500 rounded-lg mb-4 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-        ></path>
-      </svg>
-    </div>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-      Live Chat Integration
-    </h3>
-    <p class="text-gray-600 dark:text-gray-300">
-      Integrate popular third-party live chat and chatbot solutions to provide
-      real-time customer support and automated assistance to your website
-      visitors.
-    </p>
-  </div>
-
-  <div
-    class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105"
-  >
-    <div
-      class="h-12 w-12 bg-purple-500 rounded-lg mb-4 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-        ></path>
-      </svg>
-    </div>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-      Dark Mode & Themes
-    </h3>
-    <p class="text-gray-600 dark:text-gray-300">
-      Customize your website's appearance with dark mode or theme options.
-      Enhance user experience by allowing them to choose their preferred visual
-      style or a provided palette.
-    </p>
-  </div>
+  {
+    features.map((feature) => (
+      <div class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105">
+        <div
+          class={`h-12 w-12 bg-${feature.color}-500 rounded-lg mb-4 flex items-center justify-center`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d={feature.icon}
+            />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          {t(`features.${feature.id}.title`)}
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          {t(`features.${feature.id}.description`)}
+        </p>
+      </div>
+    ))
+  }
 </div>

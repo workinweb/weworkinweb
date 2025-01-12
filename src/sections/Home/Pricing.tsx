@@ -2,83 +2,42 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Rocket, Zap, Building2, Clock } from "lucide-react";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
 const journeyStages = [
   {
-    id: "seedling",
-    name: "Basic Landing",
+    id: "basic",
     icon: <Rocket className="w-8 h-8" />,
     price: {
       withDesign: "1,199",
       providedDesign: "899",
     },
-    description:
-      "Perfect for getting started with a professional online presence",
-    features: [
-      "Single page website with essential sections",
-      "Basic contact form integration or other basic feature",
-      "Mobile-responsive layout",
-      "Basic SEO setup",
-      "Hosting available ($20/monthly)",
-      "Post-deployment changes: has a quote",
-    ],
-    notes: [
-      "Design provided by client: $899",
-      "Design created by us: $1,199",
-      "You own the code",
-    ],
     lottie: "https://assets2.lottiefiles.com/packages/lf20_qm8zig3v.json",
   },
   {
-    id: "sapling",
-    name: "Growth Package",
+    id: "growth",
     icon: <Zap className="w-8 h-8" />,
     price: {
       providedDesign: "1,399",
       withDesign: "1,699",
     },
-    description: "Expand your digital presence with more features and support",
-    features: [
-      "Up to 6 pages of dynamic content",
-      "Advanced contact forms and basic features",
-      "Advanced SEO strategy",
-      "Hosting available ($15 / monthly)",
-      "Basic Analytics data",
-      "Basic Post-deployment changes: free",
-      "Major Post-deployment changes: has a quote",
-    ],
-    notes: [
-      "Design provided by client: $1,399",
-      "Design created by us: $1,699",
-      "Includes monthly content updates",
-    ],
     lottie: "https://assets2.lottiefiles.com/packages/lf20_3ntisyac.json",
   },
   {
-    id: "forest",
-    name: "Custom Solution",
+    id: "custom",
     icon: <Building2 className="w-8 h-8" />,
     price: {
       withDesign: "Custom",
       providedDesign: "Custom",
     },
-    description: "Full-scale web solutions for established businesses",
-    features: [
-      "Web Application Front-end development",
-      "Custom number of pages & features",
-      "Multilingual support if needed",
-      "Priority maintenance & support",
-      "Basic AI powered features",
-    ],
-    notes: [
-      "Custom quote based on requirements",
-      "Flexible maintenance plans available",
-    ],
     lottie: "https://assets7.lottiefiles.com/packages/lf20_yd8fbnml.json",
   },
 ];
 
 export default function WebDevJourneyPricing() {
+  const url = new URL(window.location.href);
+  const lang = getLangFromUrl(url);
+  const t = useTranslations(lang);
   const [selectedStage, setSelectedStage] = useState(journeyStages[0].id);
   const [showWithDesign, setShowWithDesign] = useState(false);
 
@@ -94,9 +53,9 @@ export default function WebDevJourneyPricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Investment Options</h2>
+          <h2 className="section-title">{t("pricing.title")}</h2>
           <p className="text-foreground text-xl mb-8">
-            Choose the perfect package for your digital journey
+            {t("pricing.subtitle")}
           </p>
 
           <div className="inline-flex rounded-xl bg-white dark:bg-slate-800 p-1 shadow-lg">
@@ -109,7 +68,7 @@ export default function WebDevJourneyPricing() {
                     : "text-slate-600 dark:text-slate-300 hover:text-orange-500"
                 }`}
             >
-              I have my own design
+              {t("pricing.designToggle.own")}
             </button>
             <button
               onClick={() => setShowWithDesign(true)}
@@ -120,7 +79,7 @@ export default function WebDevJourneyPricing() {
                     : "text-slate-600 dark:text-slate-300 hover:text-orange-500"
                 }`}
             >
-              I need design help
+              {t("pricing.designToggle.need")}
             </button>
           </div>
         </motion.div>
@@ -149,11 +108,11 @@ export default function WebDevJourneyPricing() {
                   {stage.icon}
                 </div>
                 <h3 className="text-2xl font-semibold text-foreground dark:text-slate-100">
-                  {stage.name}
+                  {t(`pricing.${stage.id}.name`)}
                 </h3>
               </div>
               <p className="text-foreground dark:text-slate-300 mb-2">
-                {stage.description}
+                {t(`pricing.${stage.id}.description`)}
               </p>
               <AnimatePresence mode="wait">
                 <motion.div
@@ -164,10 +123,10 @@ export default function WebDevJourneyPricing() {
                   className="text-3xl font-bold text-orange-500 dark:text-orange-400"
                 >
                   {stage.price.withDesign === "Custom" ? (
-                    "Custom Quote"
+                    t("pricing.custom.notes")[0]
                   ) : (
                     <>
-                      From $
+                      {t("pricing.from")}
                       {showWithDesign
                         ? stage.price.withDesign
                         : stage.price.providedDesign}
@@ -194,47 +153,51 @@ export default function WebDevJourneyPricing() {
                   <div key={stage.id} className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h3 className="text-3xl font-bold text-foreground dark:text-slate-100 mb-4">
-                        {stage.name} Features
+                        {t(`pricing.${stage.id}.name`)}
                       </h3>
                       <ul className="space-y-3">
-                        {stage.features.map((feature, index) => (
-                          <motion.li
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="flex items-center text-foreground dark:text-slate-300"
-                          >
-                            <svg
-                              className="w-5 h-5 text-orange-500 dark:text-orange-400 mr-3"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
+                        {t(`pricing.${stage.id}.features`).map(
+                          (feature: string, index: number) => (
+                            <motion.li
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.1 }}
+                              className="flex items-center text-foreground dark:text-slate-300"
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                            {feature}
-                          </motion.li>
-                        ))}
+                              <svg
+                                className="w-5 h-5 text-orange-500 dark:text-orange-400 mr-3"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              {feature}
+                            </motion.li>
+                          )
+                        )}
                       </ul>
                       <div className="mt-6 p-4 bg-orange-100 dark:bg-slate-800 rounded-lg">
                         <h4 className="font-semibold mb-2 text-orange-700 dark:text-orange-400">
-                          Important Notes
+                          {t("pricing.notes.title")}
                         </h4>
                         <ul className="space-y-2">
-                          {stage.notes.map((note, index) => (
-                            <li
-                              key={index}
-                              className="text-sm text-orange-600 dark:text-orange-300"
-                            >
-                              • {note}
-                            </li>
-                          ))}
+                          {t(`pricing.${stage.id}.notes`).map(
+                            (note: string, index: number) => (
+                              <li
+                                key={index}
+                                className="text-sm text-orange-600 dark:text-orange-300"
+                              >
+                                • {note}
+                              </li>
+                            )
+                          )}
                         </ul>
                       </div>
                     </div>
@@ -255,7 +218,7 @@ export default function WebDevJourneyPricing() {
         <div className="flex justify-end mt-4">
           <div className="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400">
             <Clock className="w-4 h-4" />
-            <p>Prices shown reflect current market rates and may be adjusted</p>
+            <p>{t("pricing.note")}</p>
           </div>
         </div>
       </div>

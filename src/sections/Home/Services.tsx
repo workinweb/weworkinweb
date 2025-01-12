@@ -1,28 +1,21 @@
 import { motion } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
 import GlassCard from "../../components/Cards/GlassCard";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
 const services = [
   {
-    title: "Website Design",
-    description:
-      "Stand out with a beautiful, professional website that captures your brand's unique personality.",
+    key: "websiteDesign",
     lottie:
       "https://lottie.host/40178beb-083f-42d6-b777-7cf8324762e1/MALtAb2wnn.json",
   },
-
   {
-    title: "Custom Development",
-    description:
-      "Tailored solutions and features built specifically for your business needs and goals.",
+    key: "customDevelopment",
     lottie:
       "https://lottie.host/40178beb-083f-42d6-b777-7cf8324762e1/MALtAb2wnn.json",
   },
-
   {
-    title: "Website Maintenance",
-    description:
-      "Keep your site running smoothly with regular updates, performance optimization, and technical support.",
+    key: "maintenance",
     lottie:
       "https://lottie.host/b97724e1-a4fb-4661-8ebd-e515f6029205/aDrUtu5cgZ.json",
     style: {
@@ -30,30 +23,27 @@ const services = [
       width: "120",
     },
   },
-
   {
-    title: "SEO & Analytics",
-    description:
-      "Optimize your website's performance with data-driven SEO strategies and detailed analytics tracking.",
+    key: "seo",
     lottie: "https://assets9.lottiefiles.com/packages/lf20_3rqwsqnj.json",
   },
   {
-    title: "Fast & Reliable Hosting",
-    description:
-      "Your website stays fast and available 24/7 with our premium hosting solutions.",
+    key: "hosting",
     lottie:
       "https://lottie.host/3f96e703-1a68-4405-af70-f904f2779736/pGXXDCG49i.json",
   },
   {
-    title: "Responsive Design",
-    description:
-      "Your website will look great on any device, from desktops to mobile phones.",
+    key: "responsive",
     lottie:
       "https://lottie.host/3b3f41c5-d174-40e3-835f-95ad8a9b187c/lF9pPQKy9l.json",
   },
 ];
 
 export default function Services() {
+  const url = new URL(window.location.href);
+  const lang = getLangFromUrl(url);
+  const t = useTranslations(lang);
+
   return (
     <section
       id="services"
@@ -66,10 +56,9 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Expert Web Development Services</h2>
+          <h2 className="section-title">{t("services.title")}</h2>
           <p className="text-foreground text-lg max-w-2xl mx-auto">
-            From design to deployment, we provide comprehensive web solutions
-            that help your business thrive in the digital world.
+            {t("services.subtitle")}
           </p>
         </motion.div>
 
@@ -85,9 +74,11 @@ export default function Services() {
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-foreground">
-                {service.title}
+                {t(`services.${service.key}.title`)}
               </h3>
-              <p className="text-foreground">{service.description}</p>
+              <p className="text-foreground">
+                {t(`services.${service.key}.description`)}
+              </p>
             </GlassCard>
           ))}
         </div>

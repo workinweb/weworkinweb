@@ -15,47 +15,67 @@ import {
   Mail,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { getLangFromUrl } from "../i18n/translations";
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
 import { LanguageSelector } from "./LanguageSelector";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
-// Update menuItems with dynamic language paths
-const getMenuItems = (lang: string) => [
-  { name: "Home", icon: Home, href: `/${lang}` },
+// Update menuItems with translations
+const getMenuItems = (lang: string, t: (key: string) => string) => [
+  { name: t("nav.home"), icon: Home, href: `/${lang}` },
   {
-    name: "Our Work",
+    name: t("nav.work"),
     icon: Briefcase,
     href: `/${lang}/showcase`,
     onlyHome: false,
   },
   {
-    name: "Features",
+    name: t("nav.features"),
     icon: Blocks,
     href: `/${lang}/features`,
     onlyHome: false,
   },
-  { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
-  { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
-  { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
+  {
+    name: t("nav.services"),
+    icon: Handshake,
+    href: "#services",
+    onlyHome: true,
+  },
+  {
+    name: t("nav.pricing"),
+    icon: DollarSign,
+    href: "#pricing",
+    onlyHome: true,
+  },
+  { name: t("nav.contact"), icon: Mail, href: "#contact", onlyHome: true },
 ];
 
-const getDesktopMenuItems = (lang: string) => [
+const getDesktopMenuItems = (lang: string, t: (key: string) => string) => [
   {
-    name: "Our Work",
+    name: t("nav.work"),
     icon: Briefcase,
     href: `/${lang}/showcase`,
     onlyHome: false,
   },
   {
-    name: "Features",
+    name: t("nav.features"),
     icon: Blocks,
     href: `/${lang}/features`,
     onlyHome: false,
   },
-  { name: "Services", icon: Handshake, href: "#services", onlyHome: true },
-  { name: "Pricing", icon: DollarSign, href: "#pricing", onlyHome: true },
-  { name: "Contact", icon: Mail, href: "#contact", onlyHome: true },
+  {
+    name: t("nav.services"),
+    icon: Handshake,
+    href: "#services",
+    onlyHome: true,
+  },
+  {
+    name: t("nav.pricing"),
+    icon: DollarSign,
+    href: "#pricing",
+    onlyHome: true,
+  },
+  { name: t("nav.contact"), icon: Mail, href: "#contact", onlyHome: true },
 ];
 
 export default function Navbar() {
@@ -72,6 +92,10 @@ export default function Navbar() {
 
   // Add a ref for the mobile menu button
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const url = new URL(window.location.href);
+  const lang = getLangFromUrl(url);
+  const t = useTranslations(lang);
 
   // Updated smooth scrolling handler for better mobile support
   const handleClick = (
@@ -188,7 +212,10 @@ export default function Navbar() {
 
   // Modify the menu item rendering to include active states and smooth scrolling
   const renderMenuItem = (
-    item: (typeof getMenuItems extends (lang: string) => infer R
+    item: (typeof getMenuItems extends (
+      lang: string,
+      t: (key: string) => string
+    ) => infer R
       ? R
       : never)[0],
     isMobile = false
@@ -244,10 +271,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <Logo />
+          <Logo lang={lang} />
 
           <div className="hidden md:flex items-center space-x-6">
-            {getDesktopMenuItems(currentLang).map((item) =>
+            {getDesktopMenuItems(currentLang, t).map((item) =>
               renderMenuItem(item)
             )}
 
@@ -275,9 +302,9 @@ export default function Navbar() {
               ref={menuButtonRef}
               onClick={handleMenuToggle}
               className="text-slate-700 dark:text-slate-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle menu"
+              aria-label={t("nav.menu")}
             >
-              <span className="sr-only">Menu</span>
+              <span className="sr-only">{t("nav.menu")}</span>
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -306,7 +333,7 @@ export default function Navbar() {
             className="md:hidden bg-white dark:bg-gray-900 overflow-hidden mobile-menu-container"
           >
             <div className="px-4 py-2 space-y-1">
-              {getMenuItems(currentLang).map((item) =>
+              {getMenuItems(currentLang, t).map((item) =>
                 renderMenuItem(item, true)
               )}
             </div>
