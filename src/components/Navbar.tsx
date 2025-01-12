@@ -268,6 +268,7 @@ export default function Navbar() {
       transition={{ duration: 0.3 }}
       className="fixed w-full backdrop-blur-xl shadow-sm dark:shadow-md"
       style={{ zIndex: 1000 }}
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
@@ -303,6 +304,8 @@ export default function Navbar() {
               onClick={handleMenuToggle}
               className="text-slate-700 dark:text-slate-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label={t("nav.menu")}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               <span className="sr-only">{t("nav.menu")}</span>
               <svg

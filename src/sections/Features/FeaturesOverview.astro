@@ -44,7 +44,8 @@ const features = [
     features.map((feature) => (
       <div class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform hover:scale-105">
         <div
-          class={`h-12 w-12 bg-${feature.color}-500 rounded-lg mb-4 flex items-center justify-center`}
+          style={`background-color: var(--${feature.color}-500)`}
+          class="h-12 w-12 rounded-lg mb-4 flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,3 +72,14 @@ const features = [
     ))
   }
 </div>
+
+<style>
+  :root {
+    --blue-500: rgb(59 130 246);
+    --green-500: rgb(34 197 94);
+    --yellow-500: rgb(234 179 8);
+    --red-500: rgb(239 68 68);
+    --indigo-500: rgb(99 102 241);
+    --purple-500: rgb(168 85 247);
+  }
+</style>

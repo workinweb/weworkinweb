@@ -26,7 +26,10 @@ const categories = ["all", ...new Set(sortedTemplates.map((t) => t.category))];
 const itemsPerPage = 9;
 ---
 
-<section class="relative py-20 overflow-hidden">
+<section
+  class="relative py-20 overflow-hidden"
+  aria-labelledby="showcase-title"
+>
   <div
     class="absolute inset-0 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800"
   >
@@ -40,6 +43,7 @@ const itemsPerPage = 9;
   <div class="relative max-w-7xl mx-auto px-4">
     <div class="mb-10 text-center">
       <h1
+        id="showcase-title"
         class="text-5xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent inline-block"
       >
         {t("showcase.title")}

@@ -160,7 +160,7 @@ export const translations = {
     "contact.form.project.placeholder": "What would you like to achieve?",
     "contact.form.submit": "Let's Talk",
     "contact.form.sending": "Sending...",
-    "contact.form.success": "Thanks! We'll be in touch within 24 hours.",
+    "contact.form.success": "Thanks! your email is sent, We'll be in touch",
     "contact.form.error": "Something went wrong. Please try again.",
 
     "contact.benefits.consultation": "Free consultation",
@@ -441,8 +441,7 @@ export const translations = {
     "contact.form.project.placeholder": "¿Qué te gustaría lograr?",
     "contact.form.submit": "Hablemos",
     "contact.form.sending": "Enviando...",
-    "contact.form.success":
-      "¡Gracias! Nos pondremos en contacto dentro de 24 horas.",
+    "contact.form.success": "¡Gracias! Nos pondremos en contacto pronto.",
     "contact.form.error": "Algo salió mal. Por favor, inténtalo de nuevo.",
 
     "contact.benefits.consultation": "Consulta gratuita",

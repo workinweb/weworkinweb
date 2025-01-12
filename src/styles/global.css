@@ -68,6 +68,14 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
+
+  .text-muted-foreground {
+    @apply text-slate-700 dark:text-slate-300;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600 dark:outline-blue-400;
+  }
 }
 
 .gradient-text {
@@ -83,7 +91,7 @@
 }
 
 .button-primary {
-  @apply bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 dark:focus:ring-offset-slate-900;
+  @apply bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:outline-none dark:focus:ring-offset-slate-900;
 }
 
 .navbarGlass {

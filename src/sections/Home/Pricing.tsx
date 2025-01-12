@@ -44,6 +44,7 @@ export default function WebDevJourneyPricing() {
   return (
     <section
       id="pricing"
+      aria-labelledby="pricing-title"
       className="py-20 bg-gradient-to-br from-slate-50 to-orange-50 dark:from-slate-900 dark:to-slate-800"
     >
       <div className="max-w-7xl mx-auto px-4">
@@ -53,13 +54,21 @@ export default function WebDevJourneyPricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">{t("pricing.title")}</h2>
+          <h2 id="pricing-title" className="section-title">
+            {t("pricing.title")}
+          </h2>
           <p className="text-foreground text-xl mb-8">
             {t("pricing.subtitle")}
           </p>
 
-          <div className="inline-flex rounded-xl bg-white dark:bg-slate-800 p-1 shadow-lg">
+          <div
+            role="radiogroup"
+            aria-label={t("pricing.designToggle.label")}
+            className="inline-flex rounded-xl bg-white dark:bg-slate-800 p-1 shadow-lg"
+          >
             <button
+              role="radio"
+              aria-checked={!showWithDesign}
               onClick={() => setShowWithDesign(false)}
               className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300
                 ${

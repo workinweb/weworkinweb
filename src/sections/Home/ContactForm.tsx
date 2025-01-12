@@ -10,21 +10,59 @@ interface FormData {
   project: string;
 }
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  project?: string;
+}
+
 export default function ContactForm() {
   const url = new URL(window.location.href);
   const lang = getLangFromUrl(url);
   const t = useTranslations(lang);
 
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<string>("");
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     project: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      newErrors.name = t("contact.form.errors.name") as string;
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = t("contact.form.errors.email") as string;
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = t("contact.form.errors.emailInvalid") as string;
+      isValid = false;
+    }
+
+    if (!formData.project.trim()) {
+      newErrors.project = t("contact.form.errors.project") as string;
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus(t("contact.form.sending"));
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setStatus(t("contact.form.sending") as string);
 
     try {
       const response = await fetch("/api/sendEmail", {
@@ -42,23 +80,32 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        setStatus(t("contact.form.success"));
+        setStatus(t("contact.form.success") as string);
         setFormData({ name: "", email: "", project: "" });
+        setErrors({});
       } else {
-        setStatus(t("contact.form.error"));
+        setStatus(t("contact.form.error") as string);
       }
     } catch (error) {
-      setStatus(t("contact.form.error"));
+      setStatus(t("contact.form.error") as string);
     }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.id]: e.target.value,
+      [id]: value,
     }));
+    // Clear error when user starts typing
+    if (errors[id as keyof FormErrors]) {
+      setErrors((prev) => ({
+        ...prev,
+        [id]: undefined,
+      }));
+    }
   };
 
   return (
@@ -152,16 +199,34 @@ export default function ContactForm() {
                     htmlFor="name"
                     className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    {t("contact.form.name.label")}
+                    {t("contact.form.name.label")}{" "}
+                    <span aria-hidden="true">*</span>
                   </label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                    aria-required="true"
+                    aria-invalid={errors.name ? "true" : "false"}
+                    aria-describedby={errors.name ? "name-error" : undefined}
+                    className={`w-full px-4 py-2 rounded-lg border ${
+                      errors.name
+                        ? "border-red-500"
+                        : "border-slate-300 dark:border-slate-600"
+                    } bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500`}
                   />
+                  {errors.name && (
+                    <p
+                      id="name-error"
+                      className="text-red-500 text-sm mt-1"
+                      role="alert"
+                    >
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -177,8 +242,24 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                    aria-required="true"
+                    aria-invalid={errors.email ? "true" : "false"}
+                    aria-describedby={errors.email ? "email-error" : undefined}
+                    className={`w-full px-4 py-2 rounded-lg border ${
+                      errors.email
+                        ? "border-red-500"
+                        : "border-slate-300 dark:border-slate-600"
+                    } bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500`}
                   />
+                  {errors.email && (
+                    <p
+                      id="email-error"
+                      className="text-red-500 text-sm mt-1"
+                      role="alert"
+                    >
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -194,9 +275,29 @@ export default function ContactForm() {
                     value={formData.project}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500"
-                    placeholder={t("contact.form.project.placeholder")}
+                    aria-required="true"
+                    aria-invalid={errors.project ? "true" : "false"}
+                    aria-describedby={
+                      errors.project ? "project-error" : undefined
+                    }
+                    className={`w-full px-4 py-2 rounded-lg border ${
+                      errors.project
+                        ? "border-red-500"
+                        : "border-slate-300 dark:border-slate-600"
+                    } bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500`}
+                    placeholder={
+                      t("contact.form.project.placeholder") as string
+                    }
                   ></textarea>
+                  {errors.project && (
+                    <p
+                      id="project-error"
+                      className="text-red-500 text-sm mt-1"
+                      role="alert"
+                    >
+                      {errors.project}
+                    </p>
+                  )}
                 </div>
 
                 <button type="submit" className="button-primary w-full">
@@ -204,7 +305,13 @@ export default function ContactForm() {
                 </button>
 
                 {status && (
-                  <p className="text-center text-green-600 dark:text-green-400">
+                  <p
+                    className={`text-center ${
+                      status === t("contact.form.error")
+                        ? "text-red-600 dark:text-red-400"
+                        : "text-green-600 dark:text-green-400"
+                    }`}
+                  >
                     {status}
                   </p>
                 )}
