@@ -157,6 +157,9 @@ const structuredData = {
     <slot />
     <script>
       // Check for saved theme preference
+      import { inject } from "@vercel/analytics";
+      inject();
+
       const theme = (() => {
         if (
           typeof localStorage !== "undefined" &&
