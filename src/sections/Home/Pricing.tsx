@@ -201,7 +201,7 @@ export default function WebDevJourneyPricing() {
                             (note: string, index: number) => (
                               <li
                                 key={index}
-                                className="text-sm text-orange-600 dark:text-orange-300"
+                                className="text-sm text-foreground dark:text-orange-200"
                               >
                                 • {note}
                               </li>
