@@ -1,9 +1,22 @@
-import { Check, Globe } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Globe, Check, ChevronDown } from "lucide-react";
 import { languages } from "../i18n/translations";
 
+// Define flag emoji codes for each language
+const languageFlags = {
+  en: "🇺🇸",
+  es: "🇪🇸",
+  fr: "🇫🇷",
+  de: "🇩🇪",
+  it: "🇮🇹",
+  pt: "🇵🇹",
+  ja: "🇯🇵",
+  ko: "🇰🇷",
+  zh: "🇨🇳",
+};
+
 interface LanguageSelectorProps {
-  size: string;
+  size: "mobile" | "desktop";
   shouldShow: boolean;
   currentLang: string;
 }
@@ -47,7 +60,7 @@ export const LanguageSelector = ({
   }, []);
 
   return (
-    <div className="relative " ref={langMenuRef}>
+    <div className="relative" ref={langMenuRef}>
       <button
         onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
         className={`flex items-center space-x-2 ${
@@ -61,21 +74,37 @@ export const LanguageSelector = ({
       </button>
 
       {isLangMenuOpen && (
-        <div className="absolute right-0 mt-2 py-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {Object.entries(languages).map(([code, name]) => (
-            <button
-              key={code}
-              onClick={() => handleLanguageChange(code)}
-              className="flex items-center justify-between w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150"
-            >
-              {name}
-              {code === currentLang && (
-                <Check size={16} className="text-primary" />
-              )}
-            </button>
-          ))}
+        <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 transform opacity-100 scale-100 transition-all duration-200">
+          <div className="p-2 space-y-1">
+            {Object.entries(languages).map(([code, name]) => (
+              <button
+                key={code}
+                onClick={() => handleLanguageChange(code)}
+                className={`
+                  flex items-center justify-between w-full px-3 py-2 text-sm
+                  rounded-md text-left
+                  ${
+                    code === currentLang
+                      ? "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400"
+                      : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  }
+                  transition-colors duration-150
+                `}
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-lg">{languageFlags[code]}</span>
+                  {name}
+                </span>
+                {code === currentLang && (
+                  <Check size={16} className="text-orange-400" />
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
   );
 };
+
+export default LanguageSelector;
