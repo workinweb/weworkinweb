@@ -8,11 +8,13 @@ import {
 import {
   Blocks,
   Briefcase,
+  ChevronDown,
   ChevronRight,
   DollarSign,
   Handshake,
   Home,
   Mail,
+  Check,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { getLangFromUrl, useTranslations } from "../i18n/translations";
@@ -63,6 +65,9 @@ const getDesktopMenuItems = (lang: string, t: (key: string) => string) => [
     href: `/${lang}/features`,
     onlyHome: false,
   },
+];
+
+const getDesktopDropdownItems = (t: (key: string) => string) => [
   {
     name: t("nav.services"),
     icon: Handshake,
@@ -80,6 +85,7 @@ const getDesktopMenuItems = (lang: string, t: (key: string) => string) => [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [shouldShow, setShouldShow] = useState(true);
   const [isHome, setIsHome] = useState(false);
@@ -90,8 +96,9 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [0.9, 0.8]);
 
-  // Add a ref for the mobile menu button
+  // Add refs for menus
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const url = new URL(window.location.href);
   const lang = getLangFromUrl(url);
@@ -103,13 +110,13 @@ export default function Navbar() {
     href: string
   ) => {
     if (href === "/") {
-      // Reset active section when navigating to home
       setActiveSection("");
     } else if (href.startsWith("#")) {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
         setIsOpen(false);
+        setIsDropdownOpen(false);
 
         setTimeout(() => {
           const navbarHeight = 80;
@@ -126,9 +133,25 @@ export default function Navbar() {
     }
   };
 
+  // Click outside handler for dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   // Improved section detection with special handling for last section
   const checkActiveSection = () => {
-    // Only check sections if we're on the home page
     if (!isHome) {
       setActiveSection("");
       return;
@@ -143,11 +166,9 @@ export default function Navbar() {
     const scrollPosition = window.scrollY + window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
 
-    // Check if we're at the bottom of the page and on home page
-    const isAtBottom = scrollPosition >= documentHeight - 50; // 50px threshold
+    const isAtBottom = scrollPosition >= documentHeight - 50;
 
     if (isAtBottom && isHome) {
-      // If at bottom and on home page, activate the last section
       current = "contact";
     } else {
       sections.forEach((section) => {
@@ -155,9 +176,8 @@ export default function Navbar() {
           const sectionTop = section.offsetTop - navbarHeight;
           const sectionHeight = section.clientHeight;
 
-          // Improved section detection logic
           if (
-            window.scrollY >= sectionTop - 100 && // Added offset for earlier detection
+            window.scrollY >= sectionTop - 100 &&
             window.scrollY < sectionTop + sectionHeight
           ) {
             current = section.getAttribute("id") || "";
@@ -179,7 +199,6 @@ export default function Navbar() {
     setIsHome(isHomePath);
     setCurrentPath(path);
 
-    // Reset active section when not on home page
     if (!isHomePath) {
       setActiveSection("");
     }
@@ -188,6 +207,7 @@ export default function Navbar() {
       if (window.scrollY > lastScrollY && window.scrollY > 100) {
         setShouldShow(false);
         setIsOpen(false);
+        setIsDropdownOpen(false);
       } else {
         setShouldShow(true);
       }
@@ -195,22 +215,19 @@ export default function Navbar() {
       checkActiveSection();
     };
 
-    // Initial check for active section
     checkActiveSection();
 
     window.addEventListener("scroll", controlNavbar, { passive: true });
     return () => {
       window.removeEventListener("scroll", controlNavbar);
     };
-  }, [lastScrollY, isHome]); // Added isHome to dependencies
+  }, [lastScrollY, isHome]);
 
-  // Add a specific handler for the menu button
   const handleMenuToggle = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent event from bubbling up
+    e.stopPropagation();
     setIsOpen(!isOpen);
   };
 
-  // Modify the menu item rendering to include active states and smooth scrolling
   const renderMenuItem = (
     item: (typeof getMenuItems extends (
       lang: string,
@@ -260,7 +277,6 @@ export default function Navbar() {
     );
   };
 
-  // Update the return JSX to use the new renderMenuItem function
   return (
     <motion.nav
       initial={{ y: 0 }}
@@ -277,6 +293,68 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-6">
             {getDesktopMenuItems(currentLang, t).map((item) =>
               renderMenuItem(item)
+            )}
+
+            {isHome && (
+              <div className="relative" ref={dropdownRef}>
+                <motion.button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  aria-label={
+                    currentLang === "es"
+                      ? "Menú de exploración"
+                      : "Explore menu"
+                  }
+                  whileHover={{ scale: 1.05 }}
+                  aria-expanded={isDropdownOpen}
+                  className={`flex gap-2 items-center text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors ${
+                    activeSection &&
+                    ["services", "pricing", "contact"].includes(activeSection)
+                      ? "text-orange-500 dark:text-orange-400"
+                      : ""
+                  }`}
+                >
+                  <span>{currentLang === "es" ? "Explorar" : "Explore"}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`transform transition-transform ${
+                      isDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </motion.button>
+
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 transform opacity-100 scale-100 transition-all duration-200">
+                    <div className="p-2 space-y-1">
+                      {getDesktopDropdownItems(t).map((item) => (
+                        <motion.a
+                          key={item.name}
+                          href={item.href}
+                          onClick={(e) => handleClick(e, item.href)}
+                          className={`
+                            flex items-center justify-between w-full px-3 py-2 text-sm
+                            rounded-md text-left
+                            ${
+                              item.href.slice(1) === activeSection
+                                ? "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400"
+                                : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+                            }
+                            transition-colors duration-150
+                          `}
+                          whileHover={{ x: 5 }}
+                        >
+                          <span className="flex items-center gap-2">
+                            <item.icon className="w-4 h-4" />
+                            {item.name}
+                          </span>
+                          {item.href.slice(1) === activeSection && (
+                            <Check size={16} className="text-orange-400" />
+                          )}
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             )}
 
             <div className="flex items-center space-x-4">

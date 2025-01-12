@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { languages } from "../i18n/translations";
+import { motion } from "framer-motion";
 
 // Define flag emoji codes for each language
 const languageFlags = {
@@ -68,19 +69,25 @@ export const LanguageSelector = ({
         }
         className={`flex items-center space-x-2 ${
           size === "mobile" ? "p-2" : "px-3 py-2"
-        } rounded-full bg-slate-200 dark:bg-slate-700 text-gray-700 dark:text-gray-200 hover:hover:text-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-primary`}
+        } rounded-full bg-slate-200 dark:bg-slate-700 text-gray-700 dark:text-gray-200 dark:hover:text-orange-400 hover:text-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-primary`}
       >
         <Globe size={18} />
         {size === "desktop" && (
           <span className="text-sm font-medium">{languages[currentLang]}</span>
         )}
+        <ChevronDown
+          size={16}
+          className={`transform transition-transform ${
+            isLangMenuOpen ? "rotate-180" : ""
+          }`}
+        />
       </button>
 
       {isLangMenuOpen && (
         <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 transform opacity-100 scale-100 transition-all duration-200">
           <div className="p-2 space-y-1">
             {Object.entries(languages).map(([code, name]) => (
-              <button
+              <motion.button
                 key={code}
                 onClick={() => handleLanguageChange(code)}
                 className={`
@@ -93,6 +100,7 @@ export const LanguageSelector = ({
                   }
                   transition-colors duration-150
                 `}
+                whileHover={{ x: 5 }}
               >
                 <span className="flex items-center gap-2">
                   <span className="text-lg">{languageFlags[code]}</span>
@@ -101,7 +109,7 @@ export const LanguageSelector = ({
                 {code === currentLang && (
                   <Check size={16} className="text-orange-400" />
                 )}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
