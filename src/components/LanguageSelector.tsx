@@ -63,6 +63,9 @@ export const LanguageSelector = ({
     <div className="relative" ref={langMenuRef}>
       <button
         onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+        aria-label={
+          currentLang === "es" ? "Seleccionar idioma" : "Select language"
+        }
         className={`flex items-center space-x-2 ${
           size === "mobile" ? "p-2" : "px-3 py-2"
         } rounded-full bg-slate-200 dark:bg-slate-700 text-gray-700 dark:text-gray-200 hover:hover:text-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-primary`}
