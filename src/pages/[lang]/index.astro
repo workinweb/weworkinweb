@@ -3,7 +3,7 @@ import Footer from "../../components/Footer.astro";
 import Navbar from "../../components/Navbar";
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../../sections/Home/ContactForm";
-import Hero from "../../sections/Home/Hero";
+import Hero from "../../sections/Home/Hero.astro";
 import Members from "../../sections/Home/Members";
 import Pricing from "../../sections/Home/Pricing";
 import Services from "../../sections/Home/Services";
@@ -30,7 +30,7 @@ const t = useTranslations(lang);
 >
   <Navbar client:only="react" />
   <main>
-    <Hero client:only="react" />
+    <Hero />
     <Services client:only="react" />
     <WebAnimation client:only="react" />
     <Members client:only="react" />

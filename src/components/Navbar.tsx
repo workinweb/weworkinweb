@@ -66,14 +66,12 @@ export default function Navbar() {
   const [currentPath, setCurrentPath] = useState("");
   const [activeSection, setActiveSection] = useState("");
   const [currentLang, setCurrentLang] = useState("");
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [0.9, 0.8]);
 
   // Add a ref for the mobile menu button
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const langMenuRef = useRef<HTMLDivElement>(null);
 
   // Updated smooth scrolling handler for better mobile support
   const handleClick = (

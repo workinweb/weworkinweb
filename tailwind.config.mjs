@@ -1,3 +1,5 @@
+import { slide } from "astro/virtual-modules/transitions.js";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -7,8 +9,32 @@ export default {
       animation: {
         gradient: "gradient 8s linear infinite",
         float: "float 6s ease-in-out infinite",
+        slideInLeft: "slideInLeft 0.8s ease-out forwards",
+        scaleIn: "scaleIn 0.8s ease-out forwards",
       },
       keyframes: {
+        slideInLeft: {
+          from: {
+            opacity: "0",
+            transform: "translateX(-20px)",
+          },
+          to: {
+            opacity: 1,
+            transform: "translateX(0)",
+          },
+        },
+
+        scaleIn: {
+          from: {
+            opacity: "0",
+            transform: "scale(0.8)",
+          },
+          to: {
+            opacity: 1,
+            transform: "scale(1)",
+          },
+        },
+
         gradient: {
           "0%, 100%": {
             "background-size": "200% 200%",
