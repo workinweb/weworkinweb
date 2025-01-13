@@ -9,8 +9,10 @@ const journeyStages = [
     id: "basic",
     icon: <Rocket className="w-8 h-8" />,
     price: {
-      withDesign: "1,199",
-      providedDesign: "899",
+      // withDesign: "1,199",
+      // providedDesign: "899",
+      withDesign: "x,xxx",
+      providedDesign: "x,xxx",
     },
     style: {
       height: "350px",
@@ -23,8 +25,10 @@ const journeyStages = [
     id: "growth",
     icon: <Zap className="w-8 h-8" />,
     price: {
-      providedDesign: "1,399",
-      withDesign: "1,699",
+      // providedDesign: "1,399",
+      // withDesign: "1,699",
+      providedDesign: "x,xxx",
+      withDesign: "x,xxx",
     },
     style: {
       height: "450px",

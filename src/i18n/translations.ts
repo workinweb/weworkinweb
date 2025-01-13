@@ -90,8 +90,8 @@ export const translations = {
       "Post-deployment changes: has a quote",
     ],
     "pricing.basic.notes": [
-      "Design provided by client: $899",
-      "Design created by us: $1,199",
+      "Design provided by client: $x,xxx",
+      "Design created by us: $x,xxx",
       "You own the code",
     ],
 
@@ -108,8 +108,8 @@ export const translations = {
       "Major Post-deployment changes: has a quote",
     ],
     "pricing.growth.notes": [
-      "Design provided by client: $1,399",
-      "Design created by us: $1,699",
+      "Design provided by client: $x,xxx",
+      "Design created by us: $x,xxx",
       "Includes monthly content updates",
     ],
 
@@ -368,8 +368,8 @@ export const translations = {
       "Cambios post-implementación: requiere cotización",
     ],
     "pricing.basic.notes": [
-      "Diseño proporcionado por el cliente: $899",
-      "Diseño creado por nosotros: $1,199",
+      "Diseño proporcionado por el cliente: $x,xxx",
+      "Diseño creado por nosotros: $x,xxx",
       "El código es de tu propiedad",
     ],
 
@@ -386,8 +386,8 @@ export const translations = {
       "Cambios mayores post-implementación: requiere cotización",
     ],
     "pricing.growth.notes": [
-      "Diseño proporcionado por el cliente: $1,399",
-      "Diseño creado por nosotros: $1,699",
+      "Diseño proporcionado por el cliente: $x,xxx",
+      "Diseño creado por nosotros: $x,xxx",
       "Incluye actualizaciones mensuales de contenido",
     ],
 
