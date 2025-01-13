@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://workinweb.dev/es</loc>
+    <loc>https://weworkinweb.com/es</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://workinweb.dev/en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://workinweb.dev/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weworkinweb.com/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es"/>
   </url>
   <url>
-    <loc>https://workinweb.dev/es/features</loc>
+    <loc>https://weworkinweb.com/es/features</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://workinweb.dev/en/features"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://workinweb.dev/es/features"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weworkinweb.com/en/features"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es/features"/>
   </url>
   <url>
-    <loc>https://workinweb.dev/es/showcase</loc>
+    <loc>https://weworkinweb.com/es/showcase</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://workinweb.dev/en/showcase"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://workinweb.dev/es/showcase"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weworkinweb.com/en/showcase"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es/showcase"/>
   </url>
 </urlset> 

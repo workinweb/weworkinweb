@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://workinweb.dev/sitemap-index.xml 
+Sitemap: https://weworkinweb.com/sitemap-index.xml 
