@@ -1,5 +1,5 @@
 ---
-title: "Mltiverse"
+title: "Multiverse"
 description: "Say hello to Multiverse, a slick, one-page gallery design with a fully functional lightbox."
 en-description: "Say hello to Multiverse, a slick, one-page gallery design with a fully functional lightbox."
 es-description: "Salude a Multiverse, un diseño de galería elegante de una página con un lightbox totalmente funcional."
