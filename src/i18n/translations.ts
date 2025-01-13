@@ -7,8 +7,9 @@ export const defaultLang = "en";
 
 export const translations = {
   en: {
-    "page.home.title": "Welcome to our site",
-    "page.home.description": "This is a multilingual website built with Astro",
+    "page.home.title": "Welcome to WorkinWeb",
+    "page.home.description":
+      "Professional web development agency specializing in websites for your business",
 
     "nav.home": "Home",
     "nav.about": "About",
@@ -195,7 +196,7 @@ export const translations = {
     "features.darkMode.description":
       "Customize your website's appearance with dark mode or theme options. Enhance user experience by allowing them to choose their preferred visual style or a provided palette.",
 
-    "features.page.title": "Features | Your E-commerce",
+    "features.page.title": "Features | WorkInWeb",
     "features.page.description":
       "Explore our comprehensive suite of web development features",
 
@@ -267,8 +268,7 @@ export const translations = {
       "Customize themes",
     ],
 
-    "showcase.page.title":
-      "Web Development Portfolio & Case Studies | Success Stories | WorkInWeb",
+    "showcase.page.title": "Showcase | WorkInWeb",
     "showcase.page.description":
       "Explore our web development portfolio showcasing successful client projects. See how we've helped businesses achieve their goals with custom websites, e-commerce solutions, and web applications.",
 
@@ -285,7 +285,7 @@ export const translations = {
   },
 
   es: {
-    "page.home.title": "Bienvenido a nuestro sitio",
+    "page.home.title": "Bienvenido a WorkInWeb",
     "page.home.description":
       "Este es un sitio web multilingüe construido con Astro",
 
@@ -476,7 +476,7 @@ export const translations = {
     "features.darkMode.description":
       "Customize your website's appearance with dark mode or theme options. Enhance user experience by allowing them to choose their preferred visual style or a provided palette.",
 
-    "features.page.title": "Características | Tu E-commerce",
+    "features.page.title": "Características | WorkinWeb",
     "features.page.description":
       "Explora nuestra completa suite de características de desarrollo web",
 
@@ -548,8 +548,7 @@ export const translations = {
       "Temas personalizables",
     ],
 
-    "showcase.page.title":
-      "Portafolio de Desarrollo Web y Casos de Éxito | Historias de Éxito | WorkInWeb",
+    "showcase.page.title": "Modelos | WorkInWeb",
     "showcase.page.description":
       "Explora nuestro portafolio de desarrollo web mostrando proyectos exitosos de clientes. Descubre cómo hemos ayudado a empresas a alcanzar sus objetivos con sitios web personalizados, soluciones de comercio electrónico y aplicaciones web.",
 
