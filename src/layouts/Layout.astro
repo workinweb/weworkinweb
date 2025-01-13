@@ -89,6 +89,27 @@ const structuredData = {
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
 
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="author" content="WorkInWeb" />
+    <meta
+      name="copyright"
+      content={`© ${new Date().getFullYear()} WorkInWeb`}
+    />
+    <meta name="theme-color" content="#f97316" />
+
+    <!-- Language Alternates -->
+    <link rel="alternate" href={`${Astro.url.origin}/en`} hreflang="en" />
+    <link rel="alternate" href={`${Astro.url.origin}/es`} hreflang="es" />
+    <link rel="alternate" href={Astro.url.origin} hreflang="x-default" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
     <!-- Additional SEO Meta Tags -->
     <meta
       name="robots"
@@ -102,9 +123,6 @@ const structuredData = {
     <meta name="theme-color" content="#f97316" />
     <meta name="rating" content="General" />
     <meta name="revisit-after" content="7 days" />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
@@ -140,22 +158,7 @@ const structuredData = {
       set:html={JSON.stringify(structuredData)}
     />
 
-    <!-- Alternate Languages -->
-    <link
-      rel="alternate"
-      href={`${Astro.url.origin}/en${Astro.url.pathname}`}
-      hreflang="en"
-    />
-    <link
-      rel="alternate"
-      href={`${Astro.url.origin}/es${Astro.url.pathname}`}
-      hreflang="es"
-    />
-    <link rel="alternate" href={Astro.url.origin} hreflang="x-default" />
     <ViewTransitions />
-
-    <!-- Add this in the head section, after the canonical URL -->
-    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
   </head>
   <body>
     <slot />
