@@ -25,18 +25,6 @@ export default function Members() {
       designation: t("members.daniel.designation"),
       src: "https://placehold.co/48",
     },
-    {
-      quote: t("members.james.quote"),
-      name: t("members.james.name"),
-      designation: t("members.james.designation"),
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote: t("members.lisa.quote"),
-      name: t("members.lisa.name"),
-      designation: t("members.lisa.designation"),
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
   ];
 
   return (

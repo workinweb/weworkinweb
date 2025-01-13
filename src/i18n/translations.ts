@@ -129,7 +129,7 @@ export const translations = {
     ],
 
     "members.kevin.quote":
-      "The meticulous attention to detail and cutting-edge features have revolutionized our workflow. This solution is precisely what we 'byte' for!",
+      "The meticulous attention to detail and cutting-edge features have revolutionized our workflow. And this is precisely what we 'byte' for!",
     "members.kevin.name": "Kevin Bueno",
     "members.kevin.designation": "Founder and Frontend Developer of WorkInWeb",
 
@@ -407,7 +407,7 @@ export const translations = {
     ],
 
     "members.kevin.quote":
-      "La meticulosa atención al detalle y las características de vanguardia han revolucionado nuestro flujo de trabajo. ¡Esta solución es precisamente lo que necesitábamos!",
+      "La meticulosa atención al detalle y las características de vanguardia han revolucionado nuestro flujo de trabajo. ¡Por esto nuestras soluciones están de acuerdo a código!",
     "members.kevin.name": "Kevin Bueno",
     "members.kevin.designation":
       "Fundador y Desarrollador Frontend de WorkInWeb",
