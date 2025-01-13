@@ -12,7 +12,12 @@ const journeyStages = [
       withDesign: "1,199",
       providedDesign: "899",
     },
-    lottie: "https://assets2.lottiefiles.com/packages/lf20_qm8zig3v.json",
+    style: {
+      height: "350px",
+      width: "350px",
+    },
+    lottie:
+      "https://lottie.host/21b104f4-9720-4630-9653-e551329d0eec/BCO3cj1I1k.json",
   },
   {
     id: "growth",
@@ -21,7 +26,12 @@ const journeyStages = [
       providedDesign: "1,399",
       withDesign: "1,699",
     },
-    lottie: "https://assets2.lottiefiles.com/packages/lf20_3ntisyac.json",
+    style: {
+      height: "450px",
+      width: "450px",
+    },
+    lottie:
+      "https://lottie.host/e6e61e65-9928-4491-9024-83ea3d8277d3/SBpHNXbJzR.json ",
   },
   {
     id: "custom",
@@ -30,7 +40,12 @@ const journeyStages = [
       withDesign: "Custom",
       providedDesign: "Custom",
     },
-    lottie: "https://assets7.lottiefiles.com/packages/lf20_yd8fbnml.json",
+    lottie:
+      "https://lottie.host/49345e90-9a9a-4f64-a793-c92114a6e092/L1FzpS7B7A.json",
+    style: {
+      height: "350px",
+      width: "350px",
+    },
   },
 ];
 
@@ -215,7 +230,7 @@ export default function WebDevJourneyPricing() {
                         autoplay
                         loop
                         src={stage.lottie}
-                        style={{ height: "300px", width: "300px" }}
+                        style={{ ...stage.style }}
                       />
                     </div>
                   </div>
