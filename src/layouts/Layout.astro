@@ -20,6 +20,7 @@ const {
 
 // Enhanced meta keywords for web development
 const keywords = [
+  "WorkInWeb",
   "web development",
   "website design",
   "custom web applications",
@@ -152,6 +153,9 @@ const structuredData = {
     />
     <link rel="alternate" href={Astro.url.origin} hreflang="x-default" />
     <ViewTransitions />
+
+    <!-- Add this in the head section, after the canonical URL -->
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
   </head>
   <body>
     <slot />
