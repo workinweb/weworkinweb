@@ -1,4 +1,8 @@
-User-agent: *
+
+
+User-agent: * 
+Disallow: /admin/ 
+Disallow: /login/ 
 Allow: /
 
 # Sitemaps
