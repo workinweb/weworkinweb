@@ -11,6 +11,7 @@ const templatesCollection = defineCollection({
       image: image(),
       link: z.string().url(),
       code: z.string().url().optional(),
+      isPaidTemplate: z.boolean().optional(),
       "en-category": z.enum([
         "Blog",
         "Portfolio",
