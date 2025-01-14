@@ -78,6 +78,7 @@ const features = [
           {
             features.map((feature) => (
               <FeatureCard
+                id={feature.id}
                 title={t(`features.card.${feature.id}.title`) as string}
                 description={
                   t(`features.card.${feature.id}.description`) as string

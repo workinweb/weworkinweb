@@ -1,5 +1,6 @@
 ---
 interface Props {
+  id: string;
   position?: "left" | "right";
   title: string;
   description: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const {
+  id,
   position = "left",
   title,
   description,
@@ -22,7 +24,8 @@ const {
 import { Image } from "astro:assets";
 ---
 
-<div
+<section
+  id={id}
   class="flex flex-col md:flex-row bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
 >
   {
@@ -98,4 +101,4 @@ import { Image } from "astro:assets";
       </>
     )
   }
-</div>
+</section>
