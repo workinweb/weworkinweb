@@ -26,15 +26,27 @@ const t = useTranslations(lang);
           <ul class="space-y-4">
             {
               [
-                { text: t("footer.legal.terms"), icon: FileText },
-                { text: t("footer.legal.license"), icon: ScrollText },
-                { text: t("footer.legal.privacy"), icon: Lock },
+                {
+                  text: t("footer.legal.terms"),
+                  icon: FileText,
+                  href: `/${lang}/terms`,
+                },
+                {
+                  text: t("footer.legal.license"),
+                  icon: ScrollText,
+                  href: `/${lang}/license-agreement`,
+                },
+                {
+                  text: t("footer.legal.privacy"),
+                  icon: Lock,
+                  href: `/${lang}/privacy-policy`,
+                },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
                   <li>
                     <a
-                      href={`/${item.text.toLowerCase().replace(/\s+/g, "-")}`}
+                      href={item.href}
                       class="text-slate-300 hover:text-white transition-colors flex items-center"
                     >
                       <Icon className="h-5 w-5 mr-2" /> {item.text}

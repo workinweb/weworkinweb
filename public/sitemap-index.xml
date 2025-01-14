@@ -2,8 +2,10 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://weworkinweb.com/sitemap-en.xml</loc>
+    <lastmod>2024-03-20</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://weworkinweb.com/sitemap-es.xml</loc>
+    <lastmod>2024-03-20</lastmod>
   </sitemap>
 </sitemapindex> 

@@ -1,9 +1,12 @@
-User-agent: * 
-Disallow: /admin/ 
-Disallow: /login/ 
+User-agent: *
 Allow: /
-Allow: /en/
-Allow: /es/
+
+# Legal pages
+Allow: /*/terms
+Allow: /*/license-agreement
+Allow: /*/privacy-policy
 
 # Sitemaps
-Sitemap: https://weworkinweb.com/sitemap-index.xml 
+Sitemap: https://weworkinweb.com/sitemap-index.xml
+Sitemap: https://weworkinweb.com/sitemap-en.xml
+Sitemap: https://weworkinweb.com/sitemap-es.xml 

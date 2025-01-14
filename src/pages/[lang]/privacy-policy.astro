@@ -1,0 +1,73 @@
+---
+import Footer from "../../components/Footer.astro";
+import Navbar from "../../components/Navbar";
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, languages } from "../../i18n/translations";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const { default: Content } = await import(
+  `../../content/lic/${lang}/PRIVACY.md`
+);
+---
+
+<Layout
+  title="Privacy Policy | WorkInWeb"
+  description="WorkInWeb privacy policy and data protection information"
+>
+  <Navbar client:only="react" />
+
+  <main class="max-w-4xl mx-auto px-4 py-20">
+    {
+      lang === "en" ? (
+        <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 mb-8">
+          <p class="text-yellow-800 dark:text-yellow-200">
+            <strong>Note:</strong> This is a placeholder document. The privacy
+            policy presented here is for demonstration purposes only and may not
+            reflect the final privacy policy of WorkInWeb. Please check back
+            later for the official privacy policy.
+          </p>
+        </div>
+      ) : (
+        <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 mb-8">
+          <p class="text-yellow-800 dark:text-yellow-200">
+            <strong>Nota:</strong> Este es un documento provisional. La política
+            de privacidad presentada aquí es solo para fines de demostración y
+            puede no reflejar la política de privacidad final de WorkInWeb.
+            Vuelva más tarde para ver la política de privacidad oficial.
+          </p>
+        </div>
+      )
+    }
+
+    <article
+      class="prose prose-slate dark:prose-invert
+      prose-headings:font-bold
+      prose-h1:text-3xl
+      prose-h2:text-2xl
+      prose-h3:text-xl
+      prose-p:text-gray-600 dark:prose-p:text-gray-300
+      prose-a:text-blue-600 dark:prose-a:text-blue-400
+      prose-strong:text-gray-900 dark:prose-strong:text-white
+      prose-ul:list-disc
+      prose-ol:list-decimal
+      prose-li:my-1
+      prose-blockquote:border-l-4
+      prose-blockquote:border-gray-300
+      prose-blockquote:pl-4
+      prose-blockquote:italic
+      prose-code:bg-gray-100
+      prose-code:dark:bg-gray-800
+      prose-code:p-1
+      prose-code:rounded
+      max-w-none"
+    >
+      <Content />
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
