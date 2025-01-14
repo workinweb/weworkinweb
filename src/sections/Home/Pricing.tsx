@@ -31,8 +31,8 @@ const journeyStages = [
       withDesign: "x,xxx",
     },
     style: {
-      height: "450px",
-      width: "450px",
+      height: { md: "400px", default: "450px" },
+      width: { md: "400px", default: "450px" },
     },
     lottie:
       "https://lottie.host/e6e61e65-9928-4491-9024-83ea3d8277d3/SBpHNXbJzR.json ",
@@ -114,14 +114,14 @@ export default function WebDevJourneyPricing() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {journeyStages.map((stage) => (
-            <motion.div
+            <motion.button
               key={stage.id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`glass-card cursor-pointer p-6 ${
                 selectedStage === stage.id
-                  ? "border-orange-500/50 dark:border-orange-500/50"
-                  : ""
+                  ? "border-orange-500/50 dark:border-orange-500/50 text-left"
+                  : "text-left"
               }`}
               onClick={() => setSelectedStage(stage.id)}
             >
@@ -162,7 +162,7 @@ export default function WebDevJourneyPricing() {
                   )}
                 </motion.div>
               </AnimatePresence>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
 
@@ -173,12 +173,12 @@ export default function WebDevJourneyPricing() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="glass-card p-8 relative"
+            className="glass-card p-6 md:p-8 relative"
           >
             {journeyStages.map(
               (stage) =>
                 stage.id === selectedStage && (
-                  <div key={stage.id} className="grid md:grid-cols-2 gap-8">
+                  <div key={stage.id} className="md:grid md:grid-cols-2 gap-8 ">
                     <div>
                       <h3 className="text-3xl font-bold text-foreground dark:text-slate-100 mb-4">
                         {t(`pricing.${stage.id}.name`)}

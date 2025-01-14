@@ -83,11 +83,11 @@
 }
 
 .glass-card {
-  @apply bg-white/80 dark:bg-slate-900/90 backdrop-blur-lg border border-slate-200 dark:border-slate-800/50 rounded-xl shadow-xl text-foreground dark:text-slate-100;
+  @apply bg-white/80 dark:bg-slate-900/90  border border-slate-200 dark:border-slate-800/50 rounded-xl shadow-xl text-foreground dark:text-slate-100;
 }
 
 .section-title {
-  @apply text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-400 dark:to-amber-400;
+  @apply text-5xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-400 dark:to-amber-400;
 }
 
 .button-primary {
