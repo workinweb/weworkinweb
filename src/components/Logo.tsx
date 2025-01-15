@@ -12,7 +12,7 @@ export default function Logo({
     <a
       href={`/${lang}`}
       className="flex items-center space-x-2"
-      aria-label="WorkinWeb Logo"
+      aria-label="WorkInWeb Logo"
     >
       <div className={`${textSize} font-bold`}>
         <span className="text-orange-500 dark:text-orange-400">Work</span>

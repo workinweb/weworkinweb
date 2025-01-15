@@ -7,7 +7,7 @@ export const defaultLang = "en";
 
 export const translations = {
   en: {
-    "page.home.title": "Welcome to WorkinWeb",
+    "page.home.title": "Welcome to WorkInWeb",
     "page.home.description":
       "Professional web development agency specializing in websites for your business",
 
@@ -476,7 +476,7 @@ export const translations = {
     "features.darkMode.description":
       "Customize your website's appearance with dark mode or theme options. Enhance user experience by allowing them to choose their preferred visual style or a provided palette.",
 
-    "features.page.title": "Características | WorkinWeb",
+    "features.page.title": "Características | WorkInWeb",
     "features.page.description":
       "Explora nuestra completa suite de características de desarrollo web",
 
