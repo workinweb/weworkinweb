@@ -287,7 +287,7 @@ export const translations = {
   es: {
     "page.home.title": "Bienvenido a WorkInWeb",
     "page.home.description":
-      "Este es un sitio web multilingüe construido con Astro",
+      "Agencia de desarrollo web profesional especializada en sitios web para tu negocio",
 
     "nav.home": "Inicio",
     "nav.about": "Sobre Nosotros",
