@@ -1,6 +1,6 @@
 # WorkInWeb - Professional Web Development Agency
 
-![WorkInWeb Banner](public/workinweb_logo.jpeg)
+![WorkInWeb Banner](public/logo/logo_text.svg)
 
 A modern, fast, and SEO-optimized web development agency website built with Astro, React, and TailwindCSS. Featuring dark mode, smooth animations, and a responsive design.
 
