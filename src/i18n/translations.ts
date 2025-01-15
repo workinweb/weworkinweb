@@ -133,24 +133,15 @@ export const translations = {
     "members.kevin.name": "Kevin Bueno",
     "members.kevin.designation": "Founder and Frontend Developer of WorkInWeb",
 
-    "members.caluff.quote": "Code is my canvas, and the web is my masterpiece.",
+    "members.caluff.quote":
+      "Leading the charge in front-end innovation, ensuring every website looks and feels amazing.",
     "members.caluff.name": "Daniel Caluff",
     "members.caluff.designation": "Frontend Developer of WorkInWeb",
 
     "members.daniel.quote":
-      "Cooperative efforts in software development yield solutions far greater than the sum of individual contributions.",
+      "Ensuring secure, scalable solutions that keep your data safe and your applications responsive.",
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Backend and Services Developer",
-
-    "members.james.quote":
-      "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-    "members.james.name": "James Kim",
-    "members.james.designation": "Engineering Lead at DataPro",
-
-    "members.lisa.quote":
-      "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-    "members.lisa.name": "Lisa Thompson",
-    "members.lisa.designation": "VP of Technology at FutureNet",
 
     "contact.title": "Let's Build Something Great",
     "contact.subtitle":
@@ -413,24 +404,14 @@ export const translations = {
       "Fundador y Desarrollador Frontend de WorkInWeb",
 
     "members.caluff.quote":
-      "El código es mi lienzo y la web es mi obra maestra.",
+      "Llevando la innovación en el desarrollo front-end, asegurando que cada sitio web se vea y funcione genial.",
     "members.caluff.name": "Daniel Caluff",
     "members.caluff.designation": "Desarrollador Frontend de WorkInWeb",
 
     "members.daniel.quote":
-      "Los esfuerzos cooperativos en el desarrollo de software producen soluciones mucho mayores que la suma de las contribuciones individuales.",
+      "Garantizando soluciones seguras y escalables que mantienen tus datos seguros y tus aplicaciones responsivas.",
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Desarrollador Backend y de Servicios",
-
-    "members.james.quote":
-      "Soporte excepcional y características robustas. Es raro encontrar un producto que cumpla todas sus promesas.",
-    "members.james.name": "James Kim",
-    "members.james.designation": "Líder de Ingeniería en DataPro",
-
-    "members.lisa.quote":
-      "La escalabilidad y el rendimiento han sido revolucionarios para nuestra organización. Altamente recomendado para cualquier negocio en crecimiento.",
-    "members.lisa.name": "Lisa Thompson",
-    "members.lisa.designation": "VP de Tecnología en FutureNet",
 
     "contact.title": "Construyamos Algo Grandioso",
     "contact.subtitle":
