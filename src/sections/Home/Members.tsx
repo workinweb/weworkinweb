@@ -17,7 +17,7 @@ export default function Members() {
       quote: t("members.caluff.quote"),
       name: t("members.caluff.name"),
       designation: t("members.caluff.designation"),
-      src: "/members/caluff.jpeg",
+      src: "/members/caluff.jpg",
     },
     {
       quote: t("members.daniel.quote"),
