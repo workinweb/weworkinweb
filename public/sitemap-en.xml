@@ -6,25 +6,24 @@
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://weworkinweb.com/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://weworkinweb.com"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es"/>
   </url>
   <url>
     <loc>https://weworkinweb.com/en/features</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es/features"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://weworkinweb.com/en/features"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es/features"/>
   </url>
   <url>
     <loc>https://weworkinweb.com/en/showcase</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es/showcase"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://weworkinweb.com/en/showcase"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weworkinweb.com/es/showcase"/>
   </url>
   <url>
     <loc>https://weworkinweb.com/en/terms</loc>
