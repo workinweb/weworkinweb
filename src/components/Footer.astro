@@ -1,6 +1,5 @@
 ---
-import Logo from "../components/Logo";
-import { Mail, Phone, MapPin, FileText, ScrollText, Lock } from "lucide-react";
+import { FileText, Lock, Mail, MapPin, Phone, ScrollText } from "lucide-react";
 import { getLangFromUrl, useTranslations } from "../i18n/translations";
 
 const lang = getLangFromUrl(Astro.url);
@@ -71,7 +70,7 @@ const t = useTranslations(lang);
           <ul class="space-y-4">
             <li>
               <a
-                href="https://linkedin.com/company/workinweb"
+                href="https://www.linkedin.com/in/kevin-bueno-0a8809218/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-slate-300 hover:text-white transition-colors flex items-center"
@@ -87,26 +86,6 @@ const t = useTranslations(lang);
                   ></path>
                 </svg>
                 LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://x.com/workinweb"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-slate-300 hover:text-white transition-colors flex items-center"
-                aria-label="Follow us on X (Twitter)"
-              >
-                <svg
-                  class="h-5 w-5 mr-3"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                  ></path>
-                </svg>
-                X (Twitter)
               </a>
             </li>
           </ul>
