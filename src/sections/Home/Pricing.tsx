@@ -8,12 +8,7 @@ const journeyStages = [
   {
     id: "basic",
     icon: <Rocket className="w-8 h-8" />,
-    price: {
-      // withDesign: "1,199",
-      // providedDesign: "899",
-      withDesign: "x,xxx",
-      providedDesign: "x,xxx",
-    },
+    price: "1,000",
     style: {
       height: "350px",
       width: "350px",
@@ -24,12 +19,7 @@ const journeyStages = [
   {
     id: "growth",
     icon: <Zap className="w-8 h-8" />,
-    price: {
-      // providedDesign: "1,399",
-      // withDesign: "1,699",
-      providedDesign: "x,xxx",
-      withDesign: "x,xxx",
-    },
+    price: "2,000",
     style: {
       height: { md: "400px", default: "450px" },
       width: { md: "400px", default: "450px" },
@@ -40,10 +30,7 @@ const journeyStages = [
   {
     id: "custom",
     icon: <Building2 className="w-8 h-8" />,
-    price: {
-      withDesign: "Custom",
-      providedDesign: "Custom",
-    },
+    price: "Custom",
     lottie:
       "https://lottie.host/49345e90-9a9a-4f64-a793-c92114a6e092/L1FzpS7B7A.json",
     style: {
@@ -80,7 +67,7 @@ export default function WebDevJourneyPricing() {
             {t("pricing.subtitle")}
           </p>
 
-          <div
+          {/* <div
             role="radiogroup"
             aria-label={t("pricing.designToggle.label")}
             className="inline-flex rounded-xl bg-white dark:bg-slate-800 p-1 shadow-lg"
@@ -109,7 +96,7 @@ export default function WebDevJourneyPricing() {
             >
               {t("pricing.designToggle.need")}
             </button>
-          </div>
+          </div> */}
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -144,20 +131,18 @@ export default function WebDevJourneyPricing() {
               </p>
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={showWithDesign ? "withDesign" : "providedDesign"}
+                  key={stage.id}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   className="text-3xl font-bold text-orange-500 dark:text-orange-400"
                 >
-                  {stage.price.withDesign === "Custom" ? (
+                  {stage.price === "Custom" ? (
                     t("pricing.custom.notes")[0]
                   ) : (
                     <>
                       {t("pricing.from")}
-                      {showWithDesign
-                        ? stage.price.withDesign
-                        : stage.price.providedDesign}
+                      {stage.price}
                     </>
                   )}
                 </motion.div>

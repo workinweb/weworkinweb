@@ -10,7 +10,6 @@ export const translations = {
     "page.home.title": "Welcome to WorkInWeb",
     "page.home.description":
       "Professional web development agency specializing in websites for your business",
-
     "nav.home": "Home",
     "nav.about": "About",
     "nav.contact": "Contact",
@@ -86,12 +85,13 @@ export const translations = {
       "Basic contact form integration or other basic feature",
       "Mobile-responsive layout",
       "Basic SEO setup",
-      "Hosting available ($20/monthly)",
+      "Hosting available ($30 / monthly)",
       "Post-deployment changes: has a quote",
     ],
     "pricing.basic.notes": [
-      "Design provided by client: $x,xxx",
-      "Design created by us: $x,xxx",
+      "Price range: $1,000 - $2,000",
+      "Final price depends on project complexity, time and specific requirements",
+      "We work with you to find the best solution within your budget",
       "You own the code",
     ],
 
@@ -102,14 +102,15 @@ export const translations = {
       "Up to 6 pages of dynamic content",
       "Advanced contact forms and basic features",
       "Advanced SEO strategy",
-      "Hosting available ($15 / monthly)",
+      "Hosting available ($20 / monthly)",
       "Basic Analytics data",
       "Basic Post-deployment changes: free",
       "Major Post-deployment changes: has a quote",
     ],
     "pricing.growth.notes": [
-      "Design provided by client: $x,xxx",
-      "Design created by us: $x,xxx",
+      "Price range: $2,000 - $3,500",
+      "Final price depends on project complexity, time and specific requirements",
+      "We work with you to find the best solution within your budget",
       "Includes monthly content updates",
     ],
 
@@ -145,7 +146,7 @@ export const translations = {
 
     "contact.title": "Let's Build Something Great",
     "contact.subtitle":
-      "Tell us about your project and we'll get back to you within 24 hours with a plan to make it happen.",
+      "Tell us about your project and we'll get back to you quickly with a plan to make it happen.",
     "contact.form.name.label": "Your Name",
     "contact.form.email.label": "Email Address",
     "contact.form.project.label": "Tell us about your project",
@@ -355,12 +356,13 @@ export const translations = {
       "Integración básica de formulario de contacto u otra función básica",
       "Diseño adaptable a móviles",
       "Configuración básica de SEO",
-      "Hosting disponible ($20/mensual)",
+      "Hosting disponible ($30 / mensual)",
       "Cambios post-implementación: requiere cotización",
     ],
     "pricing.basic.notes": [
-      "Diseño proporcionado por el cliente: $x,xxx",
-      "Diseño creado por nosotros: $x,xxx",
+      "Rango de precio: $1,000 - $2,000",
+      "El precio final depende de la complejidad, tiempo y requisitos específicos del proyecto",
+      "Trabajamos contigo para encontrar la mejor solución dentro de tu presupuesto",
       "El código es de tu propiedad",
     ],
 
@@ -371,14 +373,15 @@ export const translations = {
       "Hasta 6 páginas de contenido dinámico",
       "Formularios de contacto avanzados y funciones básicas",
       "Estrategia SEO avanzada",
-      "Hosting disponible ($15 / mensual)",
+      "Hosting disponible ($20 / mensual)",
       "Datos analíticos básicos",
       "Cambios básicos post-implementación: gratis",
       "Cambios mayores post-implementación: requiere cotización",
     ],
     "pricing.growth.notes": [
-      "Diseño proporcionado por el cliente: $x,xxx",
-      "Diseño creado por nosotros: $x,xxx",
+      "Rango de precio: $2,000 - $3,500",
+      "El precio final depende de la complejidad, tiempo y requisitos específicos del proyecto",
+      "Trabajamos contigo para encontrar la mejor solución dentro de tu presupuesto",
       "Incluye actualizaciones mensuales de contenido",
     ],
 
@@ -415,7 +418,7 @@ export const translations = {
 
     "contact.title": "Construyamos Algo Grandioso",
     "contact.subtitle":
-      "Cuéntanos sobre tu proyecto y nos pondremos en contacto contigo dentro de las 24 horas con un plan para hacerlo realidad.",
+      "Cuéntanos sobre tu proyecto y nos pondremos en contacto contigo rápidamente con un plan para hacerlo realidad.",
     "contact.form.name.label": "Tu Nombre",
     "contact.form.email.label": "Correo Electrónico",
     "contact.form.project.label": "Cuéntanos sobre tu proyecto",
