@@ -144,9 +144,9 @@ export const translations = {
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Backend and Services Developer",
 
-    "contact.title": "Let's Build Something Great",
+    "contact.title": "Let's Make Your Project Happen",
     "contact.subtitle":
-      "Tell us about your project and we'll get back to you quickly with a plan to make it happen.",
+      "Get a free consultation! Share your ideas with us and we'll work together to find the perfect solution that fits your budget. No commitment required.",
     "contact.form.name.label": "Your Name",
     "contact.form.email.label": "Email Address",
     "contact.form.project.label": "Tell us about your project",
@@ -156,9 +156,20 @@ export const translations = {
     "contact.form.success": "Thanks! your email is sent, We'll be in touch",
     "contact.form.error": "Something went wrong. Please try again.",
 
-    "contact.benefits.consultation": "Free consultation",
+    "contact.benefits.consultation": "Free project assessment",
     "contact.benefits.response": "Quick response time",
-    "contact.benefits.pricing": "Clear, upfront pricing",
+    "contact.benefits.pricing": "Flexible pricing options",
+
+    "contact.benefits.title": "Why Work With Us",
+    "contact.stats.support": "Support",
+    "contact.stats.satisfaction": "Satisfaction",
+    "contact.stats.response": "Response",
+
+    "contact.benefits.care": "We care about quality and your satisfaction",
+    "contact.benefits.ownership":
+      "We listen to your feedback and implement your vision",
+    "contact.benefits.collaboration":
+      "Close collaboration throughout the process",
 
     "features.title": "Powerful Features for Your Business",
     "features.subtitle":
@@ -274,6 +285,11 @@ export const translations = {
     "showcase.template.view": "View Live Site",
     "showcase.pagination.prev": "Previous page",
     "showcase.pagination.next": "Next page",
+
+    "contact.form.errors.name": "Please enter your name",
+    "contact.form.errors.email": "Please enter your email",
+    "contact.form.errors.emailInvalid": "Please enter a valid email",
+    "contact.form.errors.project": "Please tell us about your project",
   },
 
   es: {
@@ -416,9 +432,9 @@ export const translations = {
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Desarrollador Backend y de Servicios",
 
-    "contact.title": "Construyamos Algo Grandioso",
+    "contact.title": "Hagamos Realidad Tu Proyecto",
     "contact.subtitle":
-      "Cuéntanos sobre tu proyecto y nos pondremos en contacto contigo rápidamente con un plan para hacerlo realidad.",
+      "¡Obtén una consulta gratuita! Comparte tus ideas con nosotros y trabajaremos juntos para encontrar la solución perfecta que se ajuste a tu presupuesto. Sin compromiso.",
     "contact.form.name.label": "Tu Nombre",
     "contact.form.email.label": "Correo Electrónico",
     "contact.form.project.label": "Cuéntanos sobre tu proyecto",
@@ -428,9 +444,20 @@ export const translations = {
     "contact.form.success": "¡Gracias! Nos pondremos en contacto pronto.",
     "contact.form.error": "Algo salió mal. Por favor, inténtalo de nuevo.",
 
-    "contact.benefits.consultation": "Consulta gratuita",
+    "contact.benefits.consultation": "Evaluación gratuita del proyecto",
     "contact.benefits.response": "Respuesta rápida",
-    "contact.benefits.pricing": "Precios claros y directos",
+    "contact.benefits.pricing": "Opciones de precio flexibles",
+
+    "contact.benefits.title": "Por Qué Trabajar Con Nosotros",
+    "contact.stats.support": "Soporte",
+    "contact.stats.satisfaction": "Satisfacción",
+    "contact.stats.response": "Respuesta",
+
+    "contact.benefits.care": "Nos importa la calidad y tu satisfacción",
+    "contact.benefits.ownership":
+      "Escuchamos tu feedback e implementamos tu visión",
+    "contact.benefits.collaboration":
+      "Colaboración cercana durante todo el proceso",
 
     "features.title": "Características Poderosas para tu Negocio",
     "features.subtitle":
@@ -546,6 +573,12 @@ export const translations = {
     "showcase.template.view": "Ver Sitio Web",
     "showcase.pagination.prev": "Página anterior",
     "showcase.pagination.next": "Página siguiente",
+
+    "contact.form.errors.name": "Por favor ingresa tu nombre",
+    "contact.form.errors.email": "Por favor ingresa tu correo electrónico",
+    "contact.form.errors.emailInvalid":
+      "Por favor ingresa un correo electrónico válido",
+    "contact.form.errors.project": "Por favor cuéntanos sobre tu proyecto",
   },
 };
 
