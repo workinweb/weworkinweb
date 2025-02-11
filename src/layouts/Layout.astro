@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   description,
-  image = "/logo/logo_notext.svg", // Updated default OG image
+  image = "/logo/logo_notext.png", // Updated default OG image
   canonicalURL = Astro.url.href,
   type = "website",
 } = Astro.props;
@@ -152,7 +152,7 @@ const structuredData = {
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="/logo/logo_notext.png" />
     <meta name="twitter:site" content="@workinweb" />
     <meta name="twitter:creator" content="@workinweb" />
     <meta name="twitter:url" content={canonicalURL} />
