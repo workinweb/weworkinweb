@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { ExternalLink, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { getLangFromUrl, useTranslations } from "../../i18n/translations";
-import ShowcaseClient from "./ShowcaseClient.astro";
+import ShowcaseClient from "./ShowcaseClient.tsx";
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
@@ -46,7 +46,13 @@ const templates = await getCollection("templates");
       </p>
     </div>
 
-    <ShowcaseClient templates={templates} lang={lang} client:load />
+    <ShowcaseClient
+      templates={templates
+        .sort((a, b) => a.data.title.localeCompare(b.data.title))
+        .map((templateData) => templateData.data)}
+      lang={lang}
+      client:only="react"
+    />
   </div>
 </section>
 
