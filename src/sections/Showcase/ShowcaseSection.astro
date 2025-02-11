@@ -212,6 +212,16 @@ const itemsPerPage = 9;
     const nextButton = document.getElementById("next-page");
     const paginationNumbers = document.getElementById("pagination-numbers");
 
+    console.log("Elements found:", {
+      // Debug log
+      categoryButtons: categoryButtons.length,
+      templates: templates.length,
+      searchInput: !!searchInput,
+      prevButton: !!prevButton,
+      nextButton: !!nextButton,
+      paginationNumbers: !!paginationNumbers,
+    });
+
     const itemsPerPage = 9;
     let currentPage = 1;
 
