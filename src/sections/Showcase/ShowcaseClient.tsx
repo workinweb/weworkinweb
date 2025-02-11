@@ -31,6 +31,8 @@ export default function ShowcaseClient({
   const categories = ["all", ...new Set(templates.map((t) => t.category))];
 
   const filteredTemplates = templates.filter((template) => {
+    console.log("🚀 ~ filteredTemplates ~ template:", template);
+
     const matchesCategory =
       activeCategory === "all" || template.category === activeCategory;
     const matchesSearch = template.title
@@ -136,11 +138,11 @@ export default function ShowcaseClient({
                     {template.title}
                   </h2>
                   <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">
-                    {template.description}
+                    {template[`${lang}-description`]}
                   </p>
                   <div className="flex justify-between items-center">
                     <span className="px-3 py-1 text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-500 rounded-full">
-                      {template.category}
+                      {template[`${lang}-category`]}
                     </span>
                     <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-orange-500 transition-colors duration-300" />
                   </div>
@@ -190,7 +192,7 @@ export default function ShowcaseClient({
         </button>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .scrollbar-thin::-webkit-scrollbar {
           height: 6px;
         }
