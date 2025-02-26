@@ -293,6 +293,11 @@ export const translations = {
     "contact.form.errors.email": "Please enter your email",
     "contact.form.errors.emailInvalid": "Please enter a valid email",
     "contact.form.errors.project": "Please tell us about your project",
+
+    "blog.page.title": "Blog | WorkInWeb",
+    "blog.page.description":
+      "Explore our latest articles, news, and insights about web development and digital solutions",
+    "blog.title": "Latest Articles",
   },
 
   es: {
@@ -584,6 +589,11 @@ export const translations = {
     "contact.form.errors.emailInvalid":
       "Por favor ingresa un correo electrónico válido",
     "contact.form.errors.project": "Por favor cuéntanos sobre tu proyecto",
+
+    "blog.page.title": "Blog | WorkInWeb",
+    "blog.page.description":
+      "Explora nuestros últimos artículos, noticias y perspectivas sobre desarrollo web y soluciones digitales",
+    "blog.title": "Artículos Recientes",
   },
 };
 

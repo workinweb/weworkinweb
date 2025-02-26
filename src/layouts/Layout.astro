@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -146,19 +146,19 @@ const structuredData = {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:image" content={image} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="/logo/logo_notext.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@workinweb" />
     <meta name="twitter:creator" content="@workinweb" />
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.url)} />
+    <meta name="twitter:image" content={image} />
 
     <!-- Preload Critical Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -174,7 +174,7 @@ const structuredData = {
       set:html={JSON.stringify(structuredData)}
     />
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />
