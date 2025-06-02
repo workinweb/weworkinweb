@@ -8,7 +8,6 @@ const journeyStages = [
   {
     id: "basic",
     icon: <Rocket className="w-8 h-8" />,
-    price: "1,000",
     style: {
       height: "350px",
       width: "350px",
@@ -19,7 +18,6 @@ const journeyStages = [
   {
     id: "growth",
     icon: <Zap className="w-8 h-8" />,
-    price: "2,000",
     style: {
       height: { md: "400px", default: "450px" },
       width: { md: "400px", default: "450px" },
@@ -30,7 +28,6 @@ const journeyStages = [
   {
     id: "custom",
     icon: <Building2 className="w-8 h-8" />,
-    price: "Custom",
     lottie:
       "https://lottie.host/49345e90-9a9a-4f64-a793-c92114a6e092/L1FzpS7B7A.json",
     style: {
@@ -66,37 +63,6 @@ export default function WebDevJourneyPricing() {
           <p className="text-foreground text-xl mb-8">
             {t("pricing.subtitle")}
           </p>
-
-          {/* <div
-            role="radiogroup"
-            aria-label={t("pricing.designToggle.label")}
-            className="inline-flex rounded-xl bg-white dark:bg-slate-800 p-1 shadow-lg"
-          >
-            <button
-              role="radio"
-              aria-checked={!showWithDesign}
-              onClick={() => setShowWithDesign(false)}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300
-                ${
-                  !showWithDesign
-                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
-                    : "text-slate-600 dark:text-slate-300 hover:text-orange-500"
-                }`}
-            >
-              {t("pricing.designToggle.own")}
-            </button>
-            <button
-              onClick={() => setShowWithDesign(true)}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300
-                ${
-                  showWithDesign
-                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
-                    : "text-slate-600 dark:text-slate-300 hover:text-orange-500"
-                }`}
-            >
-              {t("pricing.designToggle.need")}
-            </button>
-          </div> */}
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -129,24 +95,6 @@ export default function WebDevJourneyPricing() {
               <p className="text-foreground dark:text-slate-300 mb-2">
                 {t(`pricing.${stage.id}.description`)}
               </p>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={stage.id}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="text-3xl font-bold text-orange-500 dark:text-orange-400"
-                >
-                  {stage.price === "Custom" ? (
-                    t("pricing.custom.notes")[0]
-                  ) : (
-                    <>
-                      {t("pricing.from")}
-                      {stage.price}
-                    </>
-                  )}
-                </motion.div>
-              </AnimatePresence>
             </motion.button>
           ))}
         </div>
