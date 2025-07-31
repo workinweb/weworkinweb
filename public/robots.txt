@@ -4,7 +4,6 @@ Allow: /
 # Legal pages
 Allow: /*/terms
 Allow: /*/license-agreement
-Allow: /*/privacy-policy
 
 # Sitemaps
 Sitemap: https://weworkinweb.com/sitemap-index.xml

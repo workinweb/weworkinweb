@@ -37,7 +37,6 @@ export const translations = {
     "footer.legal.title": "Legal",
     "footer.legal.terms": "Terms & Conditions",
     "footer.legal.license": "License Agreement",
-    "footer.legal.privacy": "Privacy Policy",
     "footer.follow.title": "Follow Us",
     "footer.contact.title": "Contact Us",
 
@@ -329,7 +328,6 @@ export const translations = {
     "footer.legal.title": "Legal",
     "footer.legal.terms": "Términos y Condiciones",
     "footer.legal.license": "Acuerdo de Licencia",
-    "footer.legal.privacy": "Política de Privacidad",
     "footer.follow.title": "Síguenos",
     "footer.contact.title": "Contáctenos",
     "footer.paragraph":
