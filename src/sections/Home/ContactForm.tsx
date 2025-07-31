@@ -378,15 +378,17 @@ export default function ContactForm() {
                 </button>
 
                 {status && (
-                  <p
-                    className={`text-center ${
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`text-center mt-4 py-3 px-4 rounded-lg font-medium ${
                       status === t("contact.form.error")
-                        ? "text-red-600 dark:text-red-400"
-                        : "text-green-600 dark:text-green-400"
+                        ? "bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400"
+                        : "bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400"
                     }`}
                   >
                     {status}
-                  </p>
+                  </motion.p>
                 )}
               </form>
             </GlassCard>
