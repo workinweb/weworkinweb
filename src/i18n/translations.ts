@@ -13,18 +13,19 @@ export const translations = {
     "nav.home": "Home",
     "nav.about": "About",
     "nav.contact": "Contact",
-    "nav.work": "Our Work",
+    "nav.work": "Templates",
     "nav.features": "Features",
     "nav.services": "Services",
     "nav.pricing": "Pricing",
     "nav.menu": "Menu",
+    "nav.successStories": "Success Stories",
 
     "hero.title1": "We Make Your",
     "hero.title2": "Web Ideas Work",
     "hero.subtitle":
       "From concept to reality, we craft beautiful websites that engage your audience and grow your business.",
     "hero.cta1": "Start your project",
-    "hero.cta2": "View our work",
+    "hero.cta2": "View templates",
 
     "services.title": "Expert Web Development Services",
     "services.subtitle":
@@ -32,6 +33,23 @@ export const translations = {
 
     "webAnimation.title": "Building the Web, One Line at a Time",
     "webAnimation.subtitle": "Watch your ideas come to life through code",
+
+    "success.title": "Success Stories",
+    "success.subtitle": "Real results shared by clients we've helped",
+    "success.galloexpress.description":
+      "E-commerce website for commercial goods and handling logistics of the business.",
+    "success.galloexpress.name": "Gallo Express",
+    "success.galloexpress.designation": "Logistics & Delivery",
+
+    "success.evanhomecare.description":
+      "Landing page for a home care services company in Orlando, Florida.",
+    "success.evanhomecare.name": "Evan Home Care",
+    "success.evanhomecare.designation": "Home Care Services",
+
+    "success.thefloridaclinic.description":
+      "Landing page for an aesthetic clinic in Miami, Florida.",
+    "success.thefloridaclinic.name": "The Florida Clinic Aesthetics",
+    "success.thefloridaclinic.designation": "Healthcare",
 
     "footer.copyright": "Copyright © 2025 WorkInWeb. All rights reserved.",
     "footer.legal.title": "Legal",
@@ -303,18 +321,19 @@ export const translations = {
     "nav.home": "Inicio",
     "nav.about": "Sobre Nosotros",
     "nav.contact": "Contacto",
-    "nav.work": "Nuestro Trabajo",
+    "nav.work": "Plantillas",
     "nav.features": "Características",
     "nav.services": "Servicios",
     "nav.pricing": "Precios",
     "nav.menu": "Menú",
+    "nav.successStories": "Historias de Éxito",
 
     "hero.title1": "Hacemos Tus",
     "hero.title2": "Ideas Web Realidad",
     "hero.subtitle":
       "Del concepto a la realidad, creamos hermosos sitios web que cautivan a tu audiencia y hacen crecer tu negocio.",
     "hero.cta1": "Inicia tu proyecto",
-    "hero.cta2": "Ver nuestro trabajo",
+    "hero.cta2": "Ver plantillas",
 
     "services.title": "Servicios Expertos de Desarrollo Web",
     "services.subtitle":
@@ -322,6 +341,22 @@ export const translations = {
 
     "webAnimation.title": "Construyendo la Web, Una Línea a la Vez",
     "webAnimation.subtitle": "Mira tus ideas cobrar vida a través del código",
+
+    "success.title": "Historias de Éxito",
+    "success.subtitle":
+      "Resultados reales compartidos por clientes a los que hemos ayudado",
+    "success.galloexpress.description":
+      "Tienda en línea para bienes comerciales y gestión logística del negocio.",
+    "success.galloexpress.name": "Gallo Express",
+    "success.galloexpress.designation": "Logística y Entregas",
+    "success.evanhomecare.description":
+      "Sitio web para servicios de cuidado en el hogar en Orlando, Florida.",
+    "success.evanhomecare.name": "Evan Home Care",
+    "success.evanhomecare.designation": "Servicios de Cuidado en el Hogar",
+    "success.thefloridaclinic.description":
+      "Sitio web para un centro de estética en Miami, Florida.",
+    "success.thefloridaclinic.name": "The Florida Clinic",
+    "success.thefloridaclinic.designation": "Salud",
 
     "footer.copyright":
       "Copyright © 2025 WorkInWeb. Todos los derechos reservados.",

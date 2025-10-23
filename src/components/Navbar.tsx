@@ -75,6 +75,12 @@ const getDesktopDropdownItems = (t: (key: string) => string) => [
     onlyHome: true,
   },
   {
+    name: t("nav.successStories"),
+    icon: Briefcase,
+    href: "#success-stories",
+    onlyHome: true,
+  },
+  {
     name: t("nav.pricing"),
     icon: DollarSign,
     href: "#pricing",
@@ -157,8 +163,8 @@ export default function Navbar() {
       return;
     }
 
-    const sections = ["services", "pricing", "contact"].map((id) =>
-      document.getElementById(id)
+    const sections = ["services", "success-stories", "pricing", "contact"].map(
+      (id) => document.getElementById(id)
     );
 
     const navbarHeight = 80;
@@ -308,7 +314,12 @@ export default function Navbar() {
                   aria-expanded={isDropdownOpen}
                   className={`flex gap-2 items-center text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors ${
                     activeSection &&
-                    ["services", "pricing", "contact"].includes(activeSection)
+                    [
+                      "services",
+                      "success-stories",
+                      "pricing",
+                      "contact",
+                    ].includes(activeSection)
                       ? "text-orange-500 dark:text-orange-400"
                       : ""
                   }`}
