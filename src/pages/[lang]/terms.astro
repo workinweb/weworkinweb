@@ -20,29 +20,6 @@ const { default: Content } = await import(`../../content/lic/${lang}/TERMS.md`);
   <Navbar client:only="react" />
 
   <main class="max-w-4xl mx-auto px-4 py-20">
-    {
-      lang === "en" ? (
-        <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 mb-8">
-          <p class="text-yellow-800 dark:text-yellow-200">
-            <strong>Note:</strong> This is a placeholder document. The terms and
-            conditions presented here are for demonstration purposes only and
-            may not reflect the final legal terms of WorkInWeb. Please check
-            back later for the official terms of service.
-          </p>
-        </div>
-      ) : (
-        <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 mb-8">
-          <p class="text-yellow-800 dark:text-yellow-200">
-            <strong>Nota:</strong> Este es un documento provisional. Los
-            términos y condiciones presentados aquí son solo para fines de
-            demostración y pueden no reflejar los términos legales finales de
-            WorkInWeb. Vuelva más tarde para ver los términos de servicio
-            oficiales.
-          </p>
-        </div>
-      )
-    }
-
     <article
       class="prose prose-slate dark:prose-invert
       prose-headings:font-bold
