@@ -187,7 +187,9 @@ const structuredData = {
     <script>
       // Check for saved theme preference
       import { inject } from "@vercel/analytics";
+      import { injectSpeedInsights } from "@vercel/speed-insights";
       inject();
+      injectSpeedInsights();
 
       const theme = (() => {
         if (
