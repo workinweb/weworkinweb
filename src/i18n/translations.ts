@@ -331,13 +331,13 @@ export const translations = {
     "hero.title1": "Hacemos Tus",
     "hero.title2": "Ideas Web Realidad",
     "hero.subtitle":
-      "Del concepto a la realidad, creamos hermosos sitios web que cautivan a tu audiencia y hacen crecer tu negocio.",
+      "Del concepto a la realidad, creamos sitios web que cautivan a tu audiencia y hacen crecer tu negocio.",
     "hero.cta1": "Inicia tu proyecto",
     "hero.cta2": "Ver plantillas",
 
     "services.title": "Servicios Expertos de Desarrollo Web",
     "services.subtitle":
-      "Desde el diseño hasta la implementación, proporcionamos soluciones web integrales que ayudan a tu negocio a prosperar en el mundo digital.",
+      "Desde el diseño hasta el despliegue, ofrecemos soluciones web integrales que ayudan a tu negocio a prosperar en el mundo digital.",
 
     "webAnimation.title": "Construyendo la Web, Una Línea a la Vez",
     "webAnimation.subtitle": "Mira tus ideas cobrar vida a través del código",
@@ -346,16 +346,16 @@ export const translations = {
     "success.subtitle":
       "Resultados reales compartidos por clientes a los que hemos ayudado",
     "success.galloexpress.description":
-      "Tienda en línea para bienes comerciales y gestión logística del negocio.",
+      "Sitio de comercio electrónico para bienes comerciales y gestión logística del negocio.",
     "success.galloexpress.name": "Gallo Express",
     "success.galloexpress.designation": "Logística y Entregas",
     "success.evanhomecare.description":
-      "Sitio web para servicios de cuidado en el hogar en Orlando, Florida.",
+      "Landing page para una empresa de cuidados en el hogar en Orlando, Florida.",
     "success.evanhomecare.name": "Evan Home Care",
-    "success.evanhomecare.designation": "Servicios de Cuidado en el Hogar",
+    "success.evanhomecare.designation": "Cuidados en el Hogar",
     "success.thefloridaclinic.description":
-      "Sitio web para un centro de estética en Miami, Florida.",
-    "success.thefloridaclinic.name": "The Florida Clinic",
+      "Landing page para una clínica de estética en Miami, Florida.",
+    "success.thefloridaclinic.name": "The Florida Clinic Aesthetics",
     "success.thefloridaclinic.designation": "Salud",
 
     "footer.copyright":
@@ -370,27 +370,27 @@ export const translations = {
 
     "services.websiteDesign.title": "Diseño Web",
     "services.websiteDesign.description":
-      "Destaca con un sitio web hermoso y profesional que capture la personalidad única de tu marca.",
+      "Destaca con un sitio web atractivo y profesional que capture la personalidad única de tu marca.",
 
-    "services.customDevelopment.title": "Desarrollo Personalizado",
+    "services.customDevelopment.title": "Desarrollo a Medida",
     "services.customDevelopment.description":
-      "Soluciones y características diseñadas específicamente para las necesidades y objetivos de tu negocio.",
+      "Soluciones y funcionalidades creadas específicamente para las necesidades y objetivos de tu negocio.",
 
     "services.maintenance.title": "Mantenimiento Web",
     "services.maintenance.description":
-      "Mantén tu sitio funcionando sin problemas con actualizaciones regulares, optimización de rendimiento y soporte técnico.",
+      "Mantén tu sitio al día con actualizaciones periódicas, optimización de rendimiento y soporte técnico.",
 
     "services.seo.title": "SEO y Analítica",
     "services.seo.description":
-      "Optimiza el rendimiento de tu sitio web con estrategias SEO basadas en datos y seguimiento detallado de análisis.",
+      "Optimiza el rendimiento de tu sitio con estrategias SEO basadas en datos y seguimiento detallado con analítica.",
 
-    "services.hosting.title": "Hosting Rápido y Confiable",
+    "services.hosting.title": "Hosting Rápido y Fiable",
     "services.hosting.description":
-      "Tu sitio web permanece rápido y disponible 24/7 con nuestras soluciones premium de alojamiento.",
+      "Tu sitio rápido y disponible 24/7 con nuestras soluciones premium de hosting.",
 
     "services.responsive.title": "Diseño Responsivo",
     "services.responsive.description":
-      "Tu sitio web se verá excelente en cualquier dispositivo, desde computadoras de escritorio hasta teléfonos móviles.",
+      "Tu sitio se verá genial en cualquier dispositivo, de escritorio a móvil.",
 
     "pricing.title": "Opciones de Inversión",
     "pricing.subtitle": "Elige el paquete perfecto para tu viaje digital",
@@ -403,52 +403,48 @@ export const translations = {
 
     "pricing.basic.name": "Landing Básica",
     "pricing.basic.description":
-      "Perfecto para comenzar con una presencia profesional en línea",
+      "Perfecto para empezar con una presencia profesional en línea",
     "pricing.basic.features": [
-      "Sitio web de una página con secciones esenciales",
-      "Integración básica de formulario de contacto u otra función básica",
+      "Sitio de una página con secciones esenciales",
+      "Integración de formulario de contacto básico u otra funcionalidad básica",
       "Diseño adaptable a móviles",
       "Configuración básica de SEO",
-      "Hosting disponible ($20 / mensual)",
-      "Cambios post-implementación: requiere cotización",
+      "Hosting disponible",
+      "Cambios posteriores al despliegue: con cotización",
     ],
     "pricing.basic.notes": [
-      "Rango de precio: $1,000 - $2,000",
-      "El precio del hosting depende del tráfico mensual y el uso de recursos",
-      "El precio final depende de la complejidad, tiempo y requisitos específicos del proyecto",
+      "El precio final depende de la complejidad, el tiempo y los requisitos concretos del proyecto",
       "Trabajamos contigo para encontrar la mejor solución dentro de tu presupuesto",
       "El código es de tu propiedad",
     ],
 
     "pricing.growth.name": "Paquete de Crecimiento",
     "pricing.growth.description":
-      "Expande tu presencia digital con más funciones y soporte",
+      "Amplía tu presencia digital con más funciones y soporte",
     "pricing.growth.features": [
       "Hasta 6 páginas de contenido dinámico",
       "Formularios de contacto avanzados y funciones básicas",
       "Estrategia SEO avanzada",
-      "Hosting disponible ($20 / mensual)",
-      "Datos analíticos básicos",
-      "Cambios básicos post-implementación: gratis",
-      "Cambios mayores post-implementación: requiere cotización",
+      "Hosting disponible",
+      "Datos de analítica básica",
+      "Cambios básicos posteriores al despliegue",
+      "Cambios mayores posteriores al despliegue",
     ],
     "pricing.growth.notes": [
-      "Rango de precio: $2,000 - $3,500",
-      "El precio del hosting depende del tráfico mensual y el uso de recursos",
-      "El precio final depende de la complejidad, tiempo y requisitos específicos del proyecto",
+      "El precio final depende de la complejidad, el tiempo y los requisitos concretos del proyecto",
       "Trabajamos contigo para encontrar la mejor solución dentro de tu presupuesto",
       "Incluye actualizaciones mensuales de contenido",
     ],
 
-    "pricing.custom.name": "Solución Personalizada",
+    "pricing.custom.name": "Solución a Medida",
     "pricing.custom.description":
       "Soluciones web completas para negocios establecidos",
     "pricing.custom.features": [
-      "Desarrollo Front-end de aplicaciones web",
-      "Número personalizado de páginas y funciones",
-      "Soporte multilingüe si se necesita",
-      "Mantenimiento y soporte prioritario",
-      "Funciones básicas potenciadas por IA",
+      "Desarrollo front-end de aplicaciones web",
+      "Número de páginas y funciones a medida",
+      "Soporte multilingüe si lo necesitas",
+      "Mantenimiento y soporte prioritarios",
+      "Funciones básicas con IA",
     ],
     "pricing.custom.notes": [
       "Cotización personalizada",
@@ -456,32 +452,33 @@ export const translations = {
     ],
 
     "members.kevin.quote":
-      "La meticulosa atención al detalle y las características de vanguardia han revolucionado nuestro flujo de trabajo. ¡Por esto nuestras soluciones están de acuerdo a código!",
+      "La meticulosa atención al detalle y las funciones de vanguardia han revolucionado nuestro flujo de trabajo. ¡Y es exactamente por lo que apostamos!",
     "members.kevin.name": "Kevin Bueno",
     "members.kevin.designation":
       "Fundador y Desarrollador Frontend de WorkInWeb",
 
     "members.caluff.quote":
-      "Llevando la innovación en el desarrollo front-end, asegurando que cada sitio web se vea y funcione genial.",
+      "Liderando la innovación en front-end, para que cada sitio luzca y funcione increíble.",
     "members.caluff.name": "Daniel Caluff",
     "members.caluff.designation": "Desarrollador Frontend de WorkInWeb",
 
     "members.daniel.quote":
-      "Garantizando soluciones seguras y escalables que mantienen tus datos seguros y tus aplicaciones responsivas.",
+      "Garantizando soluciones seguras y escalables que protegen tus datos y mantienen tus aplicaciones ágiles.",
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Desarrollador Backend y de Servicios",
 
     "contact.title": "Hagamos Realidad Tu Proyecto",
     "contact.subtitle":
-      "¡Obtén una consulta gratuita! Comparte tus ideas con nosotros y trabajaremos juntos para encontrar la solución perfecta que se ajuste a tu presupuesto. Sin compromiso.",
+      "¡Consulta gratuita! Cuéntanos tus ideas y buscaremos juntos la solución que mejor se adapte a tu presupuesto. Sin compromiso.",
     "contact.form.name.label": "Tu Nombre",
     "contact.form.email.label": "Correo Electrónico",
     "contact.form.project.label": "Cuéntanos sobre tu proyecto",
     "contact.form.project.placeholder": "¿Qué te gustaría lograr?",
     "contact.form.submit": "Hablemos",
     "contact.form.sending": "Enviando...",
-    "contact.form.success": "¡Gracias! Nos pondremos en contacto pronto.",
-    "contact.form.error": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "contact.form.success":
+      "¡Gracias! Tu correo se ha enviado. Nos pondremos en contacto.",
+    "contact.form.error": "Algo ha ido mal. Por favor, inténtalo de nuevo.",
 
     "contact.benefits.consultation": "Evaluación gratuita del proyecto",
     "contact.benefits.response": "Respuesta rápida",
@@ -496,133 +493,132 @@ export const translations = {
     "contact.benefits.ownership":
       "Escuchamos tu feedback e implementamos tu visión",
     "contact.benefits.collaboration":
-      "Colaboración cercana durante todo el proceso",
+      "Colaboración estrecha durante todo el proceso",
 
-    "features.title": "Características Poderosas para tu Negocio",
+    "features.title": "Funciones Potentes para Tu Negocio",
     "features.subtitle":
-      "Visualiza tu Futura Presencia en Línea. Explora nuestra muestra de diseños de páginas de destino profesionales para imaginar cómo podría verse tu negocio en línea",
+      "Vislumbra tu futura presencia en línea. Explora nuestra muestra de diseños de landing para imaginar cómo podría verse tu negocio online.",
 
     "features.contactForm.title": "Formulario de Contacto",
     "features.contactForm.description":
-      "Conéctate sin problemas con tus clientes a través de nuestro formulario de contacto intuitivo. Recibe consultas directamente en tu bandeja de entrada.",
+      "Conecta con tus clientes mediante nuestro formulario intuitivo. Recibe consultas directamente en tu bandeja de entrada.",
 
     "features.mapView.title": "Vista de Mapa",
     "features.mapView.description":
-      "Integración de mapas interactivos para ayudar a los clientes a encontrar tus ubicaciones físicas fácilmente. Perfecto para negocios con múltiples tiendas.",
+      "Integración de mapas interactivos para que los clientes encuentren tus ubicaciones fácilmente. Ideal para negocios con varias tiendas.",
 
     "features.loading.title": "Animación de Pantalla de Carga",
     "features.loading.description":
-      "Animaciones suaves y atractivas para mantener a tus usuarios entretenidos mientras se carga el contenido. Mejora la experiencia general del usuario.",
+      "Animaciones fluidas y atractivas mientras se carga el contenido. Mejoran la experiencia de usuario.",
 
     "features.multilingual.title": "Soporte Multilingüe",
     "features.multilingual.description":
-      "Alcanza una audiencia global ofreciendo tu contenido en múltiples idiomas. El soporte de traducción incorporado facilita la expansión de tu alcance.",
+      "Llega a una audiencia global ofreciendo tu contenido en varios idiomas. Traducción integrada para ampliar tu alcance.",
 
     "features.liveChat.title": "Integración de Chat en Vivo",
     "features.liveChat.description":
-      "Integra soluciones populares de chat en vivo y chatbot para proporcionar soporte al cliente en tiempo real y asistencia automatizada a los visitantes de tu sitio web.",
+      "Integra chat en vivo y chatbots de terceros para soporte en tiempo real y asistencia automatizada a los visitantes.",
 
     "features.darkMode.title": "Modo Oscuro y Temas",
     "features.darkMode.description":
-      "Customize your website's appearance with dark mode or theme options. Enhance user experience by allowing them to choose their preferred visual style or a provided palette.",
+      "Personaliza la apariencia de tu sitio con modo oscuro o temas. Mejora la experiencia permitiendo elegir el estilo visual o paleta que prefieran.",
 
     "features.page.title": "Características | WorkInWeb",
     "features.page.description":
-      "Explora nuestra completa suite de características de desarrollo web",
+      "Explora nuestra suite de funciones de desarrollo web",
 
     "features.card.contactForm.title": "Formulario de Contacto",
     "features.card.contactForm.description":
-      "Una solución de formulario de contacto personalizable que te ayuda a conectar con tus usuarios mientras te protege contra el spam.",
-    "features.card.contactForm.subtitle": "Características Principales",
+      "Solución de formulario personalizable para conectar con tus usuarios y protegerse del spam.",
+    "features.card.contactForm.subtitle": "Características Clave",
     "features.card.contactForm.features": [
-      "Validación de formulario en tiempo real",
+      "Validación en tiempo real",
       "Protección contra spam",
-      "Campos de formulario personalizables",
+      "Campos personalizables",
       "Correos de respuesta automática",
-      "Diseño responsive para móviles",
+      "Diseño responsive",
     ],
 
     "features.card.mapView.title": "Vista de Mapa",
     "features.card.mapView.description":
-      "Una vista de mapa interactiva que facilita a los clientes localizar tu negocio y obtener direcciones.",
-    "features.card.mapView.subtitle": "Características Principales",
+      "Vista de mapa interactiva para que los clientes ubiquen tu negocio y obtengan direcciones.",
+    "features.card.mapView.subtitle": "Características Clave",
     "features.card.mapView.features": [
-      "Marcadores de mapa interactivos",
-      "Opciones de estilo personalizadas",
+      "Marcadores interactivos",
+      "Estilos personalizables",
       "Agrupación de ubicaciones",
-      "Funcionalidad de búsqueda",
-      "Ir a la aplicación de Mapas",
+      "Búsqueda",
+      "Ir a la app de Mapas",
     ],
 
-    "features.card.loading.title": "Loading Screen Animation",
+    "features.card.loading.title": "Animación de Pantalla de Carga",
     "features.card.loading.description":
-      "A sleek loading animation that creates an engaging first impression while your application initializes and loads content.",
-    "features.card.loading.subtitle": "Key Features",
+      "Animación de carga que crea una buena primera impresión mientras tu aplicación arranca y carga contenido.",
+    "features.card.loading.subtitle": "Características Clave",
     "features.card.loading.features": [
-      "Smooth transitions",
-      "Customizable animations",
-      "Progress indicators",
-      "Reduced perceived wait time",
-      "Brand-consistent design",
+      "Transiciones fluidas",
+      "Animaciones personalizables",
+      "Indicadores de progreso",
+      "Menor tiempo de espera percibido",
+      "Diseño coherente con la marca",
     ],
 
-    "features.card.multilingual.title": "Soporte Multi-Idioma",
+    "features.card.multilingual.title": "Soporte Multiidioma",
     "features.card.multilingual.description":
-      "A multi-language support feature that allows your website to be easily translated into multiple languages.",
-    "features.card.multilingual.subtitle": "Key Features",
+      "Funcionalidad multilingüe para traducir tu sitio fácilmente a varios idiomas.",
+    "features.card.multilingual.subtitle": "Características Clave",
     "features.card.multilingual.features": [
-      "Language selection",
-      "Translation support",
-      "Language detection",
-      "User-friendly interface",
-      "SEO benefits",
+      "Selección de idioma",
+      "Soporte de traducción",
+      "Detección de idioma",
+      "Interfaz fácil de usar",
+      "Beneficios SEO",
     ],
 
-    "features.card.liveChat.title": "Integración de Chat en Vivo / Chat-bot",
+    "features.card.liveChat.title": "Chat en Vivo / Chatbot",
     "features.card.liveChat.description":
-      "Una característica de integración de chat en vivo o chat-bot que permite a los usuarios de tu sitio web chatear con tu negocio.",
-    "features.card.liveChat.subtitle": "Características Principales",
+      "Integración de chat en vivo o chatbot para que los visitantes chateen con tu negocio.",
+    "features.card.liveChat.subtitle": "Características Clave",
     "features.card.liveChat.features": [
       "Integración de chat en vivo",
-      "Integración de chat-bot",
+      "Integración de chatbot",
       "Widget de chat personalizable",
     ],
 
     "features.card.darkMode.title": "Modo Oscuro / Temas",
     "features.card.darkMode.description":
-      "Una característica de modo oscuro o tema que permite personalizar fácilmente la apariencia de tu sitio web según las preferencias de tus usuarios.",
-    "features.card.darkMode.subtitle": "Características Principales",
+      "Modo oscuro o temas para personalizar tu sitio según las preferencias de tus usuarios.",
+    "features.card.darkMode.subtitle": "Características Clave",
     "features.card.darkMode.features": [
-      "Modo Oscuro",
+      "Modo oscuro",
       "Temas de paleta",
       "Temas personalizables",
     ],
 
-    "showcase.page.title": "Modelos | WorkInWeb",
+    "showcase.page.title": "Vitrina | WorkInWeb",
     "showcase.page.description":
-      "Explora nuestro portafolio de desarrollo web mostrando proyectos exitosos de clientes. Descubre cómo hemos ayudado a empresas a alcanzar sus objetivos con sitios web personalizados, soluciones de comercio electrónico y aplicaciones web.",
+      "Explora nuestro portafolio de desarrollo web con proyectos de clientes. Cómo hemos ayudado a negocios con sitios a medida, e-commerce y aplicaciones web.",
 
     "showcase.title": "Plantillas",
     "showcase.subtitle":
-      "Visualiza tu Futura Presencia en Línea. Explora nuestra muestra de diseños de páginas profesionales para imaginar cómo podría verse tu negocio en línea",
+      "Vislumbra tu futura presencia en línea. Explora nuestra muestra de diseños de landing para imaginar cómo podría verse tu negocio online.",
 
     "showcase.search.placeholder": "Buscar plantillas...",
     "showcase.category.all": "Todos",
 
-    "showcase.template.view": "Ver Sitio Web",
+    "showcase.template.view": "Ver Sitio en Vivo",
     "showcase.pagination.prev": "Página anterior",
     "showcase.pagination.next": "Página siguiente",
 
-    "contact.form.errors.name": "Por favor ingresa tu nombre",
-    "contact.form.errors.email": "Por favor ingresa tu correo electrónico",
-    "contact.form.errors.emailInvalid":
-      "Por favor ingresa un correo electrónico válido",
-    "contact.form.errors.project": "Por favor cuéntanos sobre tu proyecto",
+    "contact.form.errors.name": "Por favor, escribe tu nombre",
+    "contact.form.errors.email": "Por favor, escribe tu correo",
+    "contact.form.errors.emailInvalid": "Por favor, escribe un correo válido",
+    "contact.form.errors.project": "Por favor, cuéntanos sobre tu proyecto",
 
     "blog.page.title": "Blog | WorkInWeb",
     "blog.page.description":
-      "Explora nuestros últimos artículos, noticias y perspectivas sobre desarrollo web y soluciones digitales",
-    "blog.title": "Artículos Recientes",
+      "Explora nuestros últimos artículos, noticias e ideas sobre desarrollo web y soluciones digitales",
+    "blog.title": "Últimos Artículos",
   },
 };
 
