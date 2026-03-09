@@ -51,6 +51,14 @@ export const translations = {
     "success.thefloridaclinic.name": "The Florida Clinic Aesthetics",
     "success.thefloridaclinic.designation": "Healthcare",
 
+    "success.ez2chart.description":
+      "AI-powered chart SaaS. Describe what you need in plain English, get professional charts, then refine with manual controls—tooltips, legends, grid styles—so anyone can turn data into polished visuals.",
+    "success.ez2chart.name": "Ez2Chart",
+    "success.ez2chart.designation": "SaaS",
+
+    "success.project.viewSite": "View Live Site",
+    "success.project.backToStories": "Back to Success Stories",
+
     "footer.copyright": "Copyright © 2025 WorkInWeb. All rights reserved.",
     "footer.legal.title": "Legal",
     "footer.legal.terms": "Terms & Conditions",
@@ -357,6 +365,14 @@ export const translations = {
       "Landing page para una clínica de estética en Miami, Florida.",
     "success.thefloridaclinic.name": "The Florida Clinic Aesthetics",
     "success.thefloridaclinic.designation": "Salud",
+
+    "success.ez2chart.description":
+      "SaaS de gráficos con IA. Describe lo que necesitas en lenguaje natural, obtén gráficos profesionales y afínalos con controles manuales—tooltips, leyendas, estilos de cuadrícula—para que cualquiera pueda convertir datos en visuales pulidos.",
+    "success.ez2chart.name": "Ez2Chart",
+    "success.ez2chart.designation": "SaaS",
+
+    "success.project.viewSite": "Ver Sitio en Vivo",
+    "success.project.backToStories": "Volver a Historias de Éxito",
 
     "footer.copyright":
       "Copyright © 2025 WorkInWeb. Todos los derechos reservados.",

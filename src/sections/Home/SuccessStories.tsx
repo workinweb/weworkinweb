@@ -1,4 +1,5 @@
 import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+import { successStories } from "../../data/successStories";
 
 export default function SuccessStories() {
   const url = new URL(window.location.href);
@@ -11,31 +12,17 @@ export default function SuccessStories() {
     designation: string;
     src: string;
     href: string;
+    slug: string;
   };
 
-  const stories: StoryCard[] = [
-    {
-      description: t("success.galloexpress.description") as string,
-      name: t("success.galloexpress.name") as string,
-      designation: t("success.galloexpress.designation") as string,
-      src: "/success-stories/galloexpress.png",
-      href: "https://www.galloexpress.com/",
-    },
-    {
-      description: t("success.evanhomecare.description") as string,
-      name: t("success.evanhomecare.name") as string,
-      designation: t("success.evanhomecare.designation") as string,
-      src: "/success-stories/evanhomecare.png",
-      href: "https://www.evanhomecare.com/",
-    },
-    {
-      description: t("success.thefloridaclinic.description") as string,
-      name: t("success.thefloridaclinic.name") as string,
-      designation: t("success.thefloridaclinic.designation") as string,
-      src: "/success-stories/thefloridaclinic.png",
-      href: "https://thefloridaclinicsaesthetics.com/",
-    },
-  ];
+  const stories: StoryCard[] = successStories.map((s) => ({
+    description: t(`success.${s.slug}.description`) as string,
+    name: t(`success.${s.slug}.name`) as string,
+    designation: t(`success.${s.slug}.designation`) as string,
+    src: s.src,
+    href: `/${lang}/success-stories/${s.slug}`,
+    slug: s.slug,
+  }));
 
   return (
     <section
@@ -58,12 +45,10 @@ export default function SuccessStories() {
             >
               <a
                 href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 aria-label={`${item.name} - ${item.designation}`}
                 className="block h-full"
               >
-                <div className="relative  overflow-hidden bg-white dark:bg-slate-900 flex items-center justify-center">
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 flex items-center justify-center">
                   <img
                     src={item.src}
                     alt={item.name}
@@ -72,6 +57,7 @@ export default function SuccessStories() {
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-contain"
+                    style={{ viewTransitionName: `success-image-${item.slug}` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>

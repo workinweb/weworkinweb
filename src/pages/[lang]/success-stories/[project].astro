@@ -1,0 +1,114 @@
+---
+import Footer from "../../../components/Footer.astro";
+import Navbar from "../../../components/Navbar";
+import Layout from "../../../layouts/Layout.astro";
+import {
+  defaultLang,
+  getLangFromUrl,
+  languages,
+  translations,
+  useTranslations,
+} from "../../../i18n/translations";
+
+type TranslationKey = keyof (typeof translations)[typeof defaultLang];
+import {
+  getSuccessStory,
+  successStories,
+} from "../../../data/successStories";
+import { ArrowLeft, ExternalLink } from "lucide-react";
+
+export function getStaticPaths() {
+  const paths: { params: { lang: string; project: string } }[] = [];
+  for (const lang of Object.keys(languages)) {
+    for (const { slug } of successStories) {
+      paths.push({ params: { lang, project: slug } });
+    }
+  }
+  return paths;
+}
+
+const { project } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const story = getSuccessStory(project ?? "");
+if (!story) {
+  return Astro.redirect(`/${lang}`);
+}
+
+const name = t(`success.${project}.name` as TranslationKey) as string;
+const description = t(
+  `success.${project}.description` as TranslationKey
+) as string;
+const designation = t(
+  `success.${project}.designation` as TranslationKey
+) as string;
+---
+
+<Layout
+  title={`${name} | WorkInWeb`}
+  description={description}
+  image="https://weworkinweb.com/logo/logo_notext.svg"
+>
+  <Navbar client:only="react" />
+
+  <main
+    class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
+  >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-24">
+      <a
+        href={`/${lang}#success-stories`}
+        class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors mb-12 mt-8 sm:mt-12"
+        aria-label={t("success.project.backToStories") as string}
+      >
+        <ArrowLeft className="w-4 h-4" />
+        {t("success.project.backToStories")}
+      </a>
+
+      <header class="mb-16">
+        <span
+          class="inline-block text-xs font-semibold tracking-wider text-orange-500 uppercase mb-4"
+        >
+          {designation}
+        </span>
+        <h1
+          class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight"
+        >
+          {name}
+        </h1>
+      </header>
+
+      <div class="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:gap-16 items-start">
+        <div
+          class="rounded-2xl bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-6 sm:p-10 min-h-[380px] lg:min-h-[520px]"
+        >
+          <img
+            src={story.src}
+            alt={name}
+            width={900}
+            height={600}
+            class="w-full max-w-2xl h-auto max-h-[520px] object-contain"
+            transition:name={`success-image-${project}`}
+          />
+        </div>
+
+        <div class="space-y-8">
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+            {description}
+          </p>
+          <a
+            href={story.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          >
+            {t("success.project.viewSite")}
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
