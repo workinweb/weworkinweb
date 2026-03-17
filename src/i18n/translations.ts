@@ -56,6 +56,11 @@ export const translations = {
     "success.ez2chart.name": "Ez2Chart",
     "success.ez2chart.designation": "SaaS",
 
+    "success.kindly-hearts.description":
+      "Website for a home care agency supporting individuals and families across Central Florida with kind, compassionate care.",
+    "success.kindly-hearts.name": "Kindly Hearts Home Care",
+    "success.kindly-hearts.designation": "Home Care Services",
+
     "success.project.viewSite": "View Live Site",
     "success.project.backToStories": "Back to Success Stories",
 
@@ -370,6 +375,11 @@ export const translations = {
       "SaaS de gráficos con IA. Describe lo que necesitas en lenguaje natural, obtén gráficos profesionales y afínalos con controles manuales—tooltips, leyendas, estilos de cuadrícula—para que cualquiera pueda convertir datos en visuales pulidos.",
     "success.ez2chart.name": "Ez2Chart",
     "success.ez2chart.designation": "SaaS",
+
+    "success.kindly-hearts.description":
+      "Sitio web para una agencia de cuidado en el hogar que apoya a personas y familias en el centro de Florida con atención amable y compasiva.",
+    "success.kindly-hearts.name": "Kindly Hearts Home Care",
+    "success.kindly-hearts.designation": "Servicios de Cuidado en el Hogar",
 
     "success.project.viewSite": "Ver Sitio en Vivo",
     "success.project.backToStories": "Volver a Historias de Éxito",

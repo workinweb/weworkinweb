@@ -19,6 +19,11 @@ export const successStories = [
     src: "/success-stories/ez2chart/logo.png",
     href: "https://www.ez2chart.com/",
   },
+  {
+    slug: "kindly-hearts",
+    src: "/success-stories/kindly-hearts/og-image.png",
+    href: "https://www.kindlyheartshomecare.com/",
+  },
 ] as const;
 
 export type SuccessStorySlug = (typeof successStories)[number]["slug"];
