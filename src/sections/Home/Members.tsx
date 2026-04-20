@@ -25,6 +25,12 @@ export default function Members() {
       designation: t("members.daniel.designation"),
       src: "https://placehold.co/48",
     },
+    {
+      quote: t("members.yasel.quote"),
+      name: t("members.yasel.name"),
+      designation: t("members.yasel.designation"),
+      src: "/members/yasel.jpeg",
+    },
   ];
 
   return (

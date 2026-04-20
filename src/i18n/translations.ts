@@ -173,6 +173,11 @@ export const translations = {
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Backend and Services Developer",
 
+    "members.yasel.quote":
+      "Building robust backend systems that power seamless experiences, from APIs to databases.",
+    "members.yasel.name": "Yasel Hurtado",
+    "members.yasel.designation": "Backend Developer of WorkInWeb",
+
     "contact.title": "Let's Make Your Project Happen",
     "contact.subtitle":
       "Get a free consultation! Share your ideas with us and we'll work together to find the perfect solution that fits your budget. No commitment required.",
@@ -492,6 +497,11 @@ export const translations = {
       "Garantizando soluciones seguras y escalables que protegen tus datos y mantienen tus aplicaciones ágiles.",
     "members.daniel.name": "Daniel Rodriguez",
     "members.daniel.designation": "Desarrollador Backend y de Servicios",
+
+    "members.yasel.quote":
+      "Construyendo sistemas backend sólidos que impulsan experiencias fluidas, desde APIs hasta bases de datos.",
+    "members.yasel.name": "Yasel Hurtado",
+    "members.yasel.designation": "Desarrollador Backend de WorkInWeb",
 
     "contact.title": "Hagamos Realidad Tu Proyecto",
     "contact.subtitle":
