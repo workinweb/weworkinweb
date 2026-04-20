@@ -61,6 +61,11 @@ export const translations = {
     "success.kindly-hearts.name": "Kindly Hearts Home Care",
     "success.kindly-hearts.designation": "Home Care Services",
 
+    "success.snappy-kit.description":
+      "Private, in-browser image toolkit—compress, resize, crop, remove backgrounds, and convert without uploads or sign-up.",
+    "success.snappy-kit.name": "Snappy Kit",
+    "success.snappy-kit.designation": "Image Tools SaaS",
+
     "success.project.viewSite": "View Live Site",
     "success.project.backToStories": "Back to Success Stories",
 
@@ -385,6 +390,11 @@ export const translations = {
       "Sitio web para una agencia de cuidado en el hogar que apoya a personas y familias en el centro de Florida con atención amable y compasiva.",
     "success.kindly-hearts.name": "Kindly Hearts Home Care",
     "success.kindly-hearts.designation": "Servicios de Cuidado en el Hogar",
+
+    "success.snappy-kit.description":
+      "Kit de imágenes privado en el navegador: comprime, redimensiona, recorta, quita fondos y convierte sin subidas ni registro.",
+    "success.snappy-kit.name": "Snappy Kit",
+    "success.snappy-kit.designation": "SaaS de Edición de Imágenes",
 
     "success.project.viewSite": "Ver Sitio en Vivo",
     "success.project.backToStories": "Volver a Historias de Éxito",

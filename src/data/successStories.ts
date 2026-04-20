@@ -24,6 +24,11 @@ export const successStories = [
     src: "/success-stories/kindly-hearts/og-image.png",
     href: "https://www.kindlyheartshomecare.com/",
   },
+  {
+    slug: "snappy-kit",
+    src: "/success-stories/snappy-kit.png",
+    href: "https://snappy-kit.com/",
+  },
 ] as const;
 
 export type SuccessStorySlug = (typeof successStories)[number]["slug"];
