@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LottieReact from "../../components/ui/LottieReact";
-import { Rocket, Zap, Building2, Clock } from "lucide-react";
+import { Rocket, Zap, Building2 } from "lucide-react";
 import { useTranslations } from "../../i18n/translations";
 
 const journeyStages = [
@@ -168,13 +168,6 @@ export default function WebDevJourneyPricing({ lang }: { lang: "en" | "es" }) {
             )}
           </motion.div>
         </AnimatePresence>
-
-        <div className="flex justify-end mt-4">
-          <div className="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400">
-            <Clock className="w-4 h-4" />
-            <p>{t("pricing.note")}</p>
-          </div>
-        </div>
       </div>
     </section>
   );

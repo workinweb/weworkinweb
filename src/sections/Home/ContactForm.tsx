@@ -116,7 +116,6 @@ export default function ContactForm({ lang }: { lang: "en" | "es" }) {
       ...prev,
       [id]: value,
     }));
-    // Clear error when user starts typing
     if (errors[id as keyof FormErrors]) {
       setErrors((prev) => ({
         ...prev,
@@ -161,46 +160,6 @@ export default function ContactForm({ lang }: { lang: "en" | "es" }) {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center p-4 rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-slate-800 dark:to-slate-700 shadow-sm"
-              >
-                <div className="flex items-center justify-center mb-2">
-                  <MessageSquare className="w-6 h-6 text-orange-500" />
-                </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                  {t("contact.stats.support")}
-                </p>
-                <p className="text-2xl font-bold text-orange-500">24/7</p>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center p-4 rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-slate-800 dark:to-slate-700 shadow-sm"
-              >
-                <div className="flex items-center justify-center mb-2">
-                  <Sparkles className="w-6 h-6 text-orange-500" />
-                </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                  {t("contact.stats.satisfaction")}
-                </p>
-                <p className="text-2xl font-bold text-orange-500">100%</p>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center p-4 rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-slate-800 dark:to-slate-700 shadow-sm"
-              >
-                <div className="flex items-center justify-center mb-2">
-                  <Clock className="w-6 h-6 text-orange-500" />
-                </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                  {t("contact.stats.response")}
-                </p>
-                <p className="text-2xl font-bold text-orange-500">ASAP</p>
-              </motion.div>
-            </div>
-
             {/* Benefits */}
             <div className="space-y-4 bg-white/50 dark:bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">

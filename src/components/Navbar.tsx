@@ -7,6 +7,7 @@ import {
 
 import {
   Blocks,
+  BookOpen,
   Briefcase,
   ChevronDown,
   ChevronRight,
@@ -86,6 +87,7 @@ const getDesktopDropdownItems = (t: (key: string) => string) => [
     href: "#pricing",
     onlyHome: true,
   },
+  { name: t("nav.faq"), icon: BookOpen, href: "#faq", onlyHome: true },
   { name: t("nav.contact"), icon: Mail, href: "#contact", onlyHome: true },
 ];
 
@@ -163,9 +165,13 @@ export default function Navbar() {
       return;
     }
 
-    const sections = ["services", "success-stories", "pricing", "contact"].map(
-      (id) => document.getElementById(id)
-    );
+    const sections = [
+      "services",
+      "success-stories",
+      "pricing",
+      "faq",
+      "contact",
+    ].map((id) => document.getElementById(id));
 
     const navbarHeight = 80;
     let current = "";
@@ -314,6 +320,7 @@ export default function Navbar() {
                       "services",
                       "success-stories",
                       "pricing",
+                      "faq",
                       "contact",
                     ].includes(activeSection)
                       ? "text-orange-500 dark:text-orange-400"

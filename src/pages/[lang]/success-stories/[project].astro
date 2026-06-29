@@ -3,19 +3,19 @@ import Footer from "../../../components/Footer.astro";
 import Navbar from "../../../components/Navbar";
 import Layout from "../../../layouts/Layout.astro";
 import {
-  defaultLang,
   getLangFromUrl,
   languages,
   translations,
+  defaultLang,
   useTranslations,
 } from "../../../i18n/translations";
-
-type TranslationKey = keyof (typeof translations)[typeof defaultLang];
 import {
   getSuccessStory,
   successStories,
 } from "../../../data/successStories";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Globe } from "lucide-react";
+
+type TranslationKey = keyof (typeof translations)[typeof defaultLang];
 
 export function getStaticPaths() {
   const paths: { params: { lang: string; project: string } }[] = [];
@@ -37,78 +37,74 @@ if (!story) {
 }
 
 const name = t(`success.${project}.name` as TranslationKey) as string;
-const description = t(
-  `success.${project}.description` as TranslationKey
-) as string;
-const designation = t(
-  `success.${project}.designation` as TranslationKey
-) as string;
+const description = t(`success.${project}.description` as TranslationKey) as string;
+const designation = t(`success.${project}.designation` as TranslationKey) as string;
+const liveDomain = new URL(story.href).hostname.replace(/^www\./, "");
 ---
 
-<Layout
-  title={`${name} | WorkInWeb`}
-  description={description}
-  image={story.src}
-  lang={lang}
->
+<Layout title={`${name} | WorkInWeb`} description={description} image={story.src} lang={lang}>
   <Navbar client:only="react" />
 
-  <main
-    class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900"
-  >
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-24">
+  <main class="bg-white dark:bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-24">
       <a
         href={`/${lang}#success-stories`}
-        class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors mb-12 mt-8 sm:mt-12"
-        aria-label={t("success.project.backToStories") as string}
+        class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors mb-10"
       >
         <ArrowLeft className="w-4 h-4" />
         {t("success.project.backToStories")}
       </a>
 
-      <header class="mb-16">
-        <span
-          class="inline-block text-xs font-semibold tracking-wider text-orange-500 uppercase mb-4"
-        >
-          {designation}
-        </span>
-        <h1
-          class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight"
-        >
+      <header class="mb-12 max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
           {name}
         </h1>
+        <p class="mt-5 text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
       </header>
 
-      <div class="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:gap-16 items-start">
-        <div
-          class="rounded-2xl bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-6 sm:p-10 min-h-[380px] lg:min-h-[520px]"
-        >
-          <img
-            src={story.src}
-            alt={name}
-            width={900}
-            height={600}
-            decoding="async"
-            fetchpriority="high"
-            class="w-full max-w-2xl h-auto max-h-[520px] object-contain"
-            transition:name={`success-image-${project}`}
-          />
-        </div>
+      <figure class="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-xl">
+        <img
+          src={story.src}
+          alt={`${name} website`}
+          width={1200}
+          height={750}
+          decoding="async"
+          fetchpriority="high"
+          class="w-full h-auto object-contain"
+          transition:name={`success-image-${project}`}
+        />
+      </figure>
 
-        <div class="space-y-8">
-          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
-            {description}
-          </p>
-          <a
-            href={story.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-          >
-            {t("success.project.viewSite")}
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
+      <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+        <dl class="flex flex-wrap gap-x-10 gap-y-4">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+              {t("success.project.industry")}
+            </dt>
+            <dd class="mt-1 font-medium text-slate-900 dark:text-white">{designation}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+              {t("success.project.website")}
+            </dt>
+            <dd class="mt-1 flex items-center gap-1.5 font-medium text-slate-900 dark:text-white">
+              <Globe className="w-4 h-4 text-orange-500" />
+              {liveDomain}
+            </dd>
+          </div>
+        </dl>
+
+        <a
+          href={story.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-600"
+        >
+          {t("success.project.viewSite")}
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
   </main>

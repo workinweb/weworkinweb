@@ -7,11 +7,12 @@ import livechatImage from "../../assets/images/features/livechat.png";
 import darkmodeImage from "../../assets/images/features/darkmode.jpg";
 
 import FeatureCard from "../../components/Cards/FeatureCard.astro";
+import FeatureOverviewCard from "../../components/Cards/FeatureOverviewCard.astro";
 import Footer from "../../components/Footer.astro";
 import Navbar from "../../components/Navbar";
 import Layout from "../../layouts/Layout.astro";
-import FeaturesOverview from "../../sections/Features/FeaturesOverview.astro";
 import FeatureTitle from "../../sections/Features/FeatureTitle.astro";
+import { overviewOnlyFeatures } from "../../data/featuresOverview";
 
 import {
   getLangFromUrl,
@@ -72,9 +73,7 @@ const features = [
       <FeatureTitle />
 
       <div class="relative max-w-7xl mx-auto px-4">
-        <FeaturesOverview />
-
-        <div class="mt-8 space-y-8">
+        <div class="space-y-8">
           {
             features.map((feature) => (
               <FeatureCard
@@ -90,6 +89,20 @@ const features = [
                 img={feature.image}
                 position={feature.position as "left" | "right"}
               />
+            ))
+          }
+        </div>
+
+        <div class="mt-12 flex flex-wrap justify-center gap-6">
+          {
+            overviewOnlyFeatures.map((feature) => (
+              <div class="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]">
+                <FeatureOverviewCard
+                  id={feature.id}
+                  color={feature.color}
+                  icon={feature.icon}
+                />
+              </div>
             ))
           }
         </div>

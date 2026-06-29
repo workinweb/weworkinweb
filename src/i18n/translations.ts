@@ -21,6 +21,7 @@ export const translations = {
     "nav.successStories": "Success Stories",
     "nav.explore": "Explore",
     "nav.exploreMenu": "Explore menu",
+    "nav.faq": "FAQ",
 
     "hero.title1": "We Make Your",
     "hero.title2": "Web Ideas Work",
@@ -44,9 +45,9 @@ export const translations = {
     "success.galloexpress.designation": "Logistics & Delivery",
 
     "success.evanhomecare.description":
-      "Landing page for a home care services company in Orlando, Florida.",
+      "Website for an agency providing services for people with disabilities, designed to be clear, welcoming, and easy to navigate.",
     "success.evanhomecare.name": "Evan Home Care",
-    "success.evanhomecare.designation": "Home Care Services",
+    "success.evanhomecare.designation": "Disability Support Services",
 
     "success.thefloridaclinic.description":
       "Landing page for an aesthetic clinic in Miami, Florida.",
@@ -70,6 +71,61 @@ export const translations = {
 
     "success.project.viewSite": "View Live Site",
     "success.project.backToStories": "Back to Success Stories",
+    "success.project.industry": "Industry",
+    "success.project.website": "Website",
+
+    "process.title": "How We Work",
+    "process.subtitle":
+      "Small team in Miami. You talk directly to the developers—English and Spanish, no account managers.",
+    "process.call.title": "Start with a conversation",
+    "process.call.description":
+      "Tell us about your business and what the site needs to do. We scope it together—free quote, no commitment.",
+    "process.design.title": "See it before we build",
+    "process.design.description":
+      "Layouts you can react to. We adjust typography, colors, and structure until it feels right.",
+    "process.build.title": "We build it in-house",
+    "process.build.description":
+      "Astro and React—fast pages, clean markup. Same stack and crew behind Evan Home Care and Gallo Express.",
+    "process.ship.title": "Launch, then stick around",
+    "process.ship.description":
+      "We handle deploy, hosting, and the basics like analytics. Need a tweak next month? Same team.",
+
+    "testimonials.title": "What Our Clients Say",
+    "testimonials.subtitle":
+      "Real feedback from businesses we've partnered with.",
+    "testimonials.evanhomecare.quote":
+      "As an agency serving people with disabilities, we needed a site that's clear and welcoming. WorkInWeb delivered exactly that, and the inquiries keep coming.",
+    "testimonials.evanhomecare.name": "Evan Home Care",
+    "testimonials.evanhomecare.company": "Disability Support Services",
+    "testimonials.thefloridaclinic.quote":
+      "Our clinic finally has a website that matches the quality of our care. Beautiful, fast, and easy for patients to use.",
+    "testimonials.thefloridaclinic.name": "The Florida Clinic Aesthetics",
+    "testimonials.thefloridaclinic.company": "Aesthetic Clinic",
+    "testimonials.kindly-hearts.quote":
+      "We support families across Central Florida with compassionate care, and our new site reflects that warmth perfectly. The team was a pleasure to work with.",
+    "testimonials.kindly-hearts.name": "Kindly Hearts Home Care",
+    "testimonials.kindly-hearts.company": "Home Care Services",
+
+    "faq.title": "Frequently Asked Questions",
+    "faq.subtitle": "Everything you need to know before we get started.",
+    "faq.pricing.question": "How much does a website cost?",
+    "faq.pricing.answer":
+      "Every project is different, so pricing depends on your scope and goals—from a simple landing page to a full custom solution. Reach out and we'll put together a free, no-commitment quote tailored to you.",
+    "faq.timeline.question": "How long does a project take?",
+    "faq.timeline.answer":
+      "A simple landing page can be ready in 1–2 weeks. Larger multi-page sites and web apps typically take 3–8 weeks depending on complexity and content readiness.",
+    "faq.ownership.question": "Do I own the code and my website?",
+    "faq.ownership.answer":
+      "Yes. Once the project is complete and paid for, you fully own your website and its code—no lock-in.",
+    "faq.hosting.question": "Do you provide hosting?",
+    "faq.hosting.answer":
+      "Yes, we offer fast, reliable hosting and can also deploy to your preferred provider if you already have one.",
+    "faq.maintenance.question": "What about updates and maintenance?",
+    "faq.maintenance.answer":
+      "We offer flexible maintenance plans for updates, security, and support, or one-off changes whenever you need them.",
+    "faq.languages.question": "Can you build a multilingual website?",
+    "faq.languages.answer":
+      "Absolutely—this very site is bilingual. We build multilingual experiences (like English and Spanish) with proper SEO for each language.",
 
     "footer.copyright": "Copyright © 2025 WorkInWeb. All rights reserved.",
     "footer.legal.title": "Legal",
@@ -109,8 +165,6 @@ export const translations = {
     "pricing.subtitle": "Choose the perfect package for your digital journey",
     "pricing.designToggle.own": "I have my own design",
     "pricing.designToggle.need": "I need design help",
-    "pricing.note":
-      "Prices shown reflect current market rates and may be adjusted",
     "pricing.notes.title": "Important Notes",
     "pricing.from": "From $",
 
@@ -202,9 +256,6 @@ export const translations = {
     "contact.benefits.pricing": "Flexible pricing options",
 
     "contact.benefits.title": "Why Work With Us",
-    "contact.stats.support": "Support",
-    "contact.stats.satisfaction": "Satisfaction",
-    "contact.stats.response": "Response",
 
     "contact.benefits.care": "We care about quality and your satisfaction",
     "contact.benefits.ownership":
@@ -239,6 +290,26 @@ export const translations = {
     "features.darkMode.title": "Dark Mode & Themes",
     "features.darkMode.description":
       "Customize your website's appearance with dark mode or theme options. Enhance user experience by allowing them to choose their preferred visual style or a provided palette.",
+
+    "features.seo.title": "SEO Optimization",
+    "features.seo.description":
+      "Rank higher on Google with clean markup, fast load times, structured data, and meta tags configured for every page.",
+
+    "features.analytics.title": "Analytics & Tracking",
+    "features.analytics.description":
+      "Understand your visitors with integrated analytics. Track traffic, conversions, and behavior to make data-driven decisions.",
+
+    "features.newsletter.title": "Newsletter & Lead Capture",
+    "features.newsletter.description":
+      "Grow your audience with email sign-up forms and lead capture that connect to your favorite marketing tools.",
+
+    "features.performance.title": "Speed & Performance",
+    "features.performance.description":
+      "Lightning-fast pages built with modern tooling, optimized images, and best practices for Core Web Vitals.",
+
+    "features.security.title": "Security & Reliability",
+    "features.security.description":
+      "HTTPS by default, secure forms, and dependable hosting so your site stays safe and online around the clock.",
 
     "features.page.title": "Features | WorkInWeb",
     "features.page.description":
@@ -354,6 +425,7 @@ export const translations = {
     "nav.successStories": "Historias de Éxito",
     "nav.explore": "Explorar",
     "nav.exploreMenu": "Menú de exploración",
+    "nav.faq": "Preguntas",
 
     "hero.title1": "Hacemos Tus",
     "hero.title2": "Ideas Web Realidad",
@@ -377,9 +449,9 @@ export const translations = {
     "success.galloexpress.name": "Gallo Express",
     "success.galloexpress.designation": "Logística y Entregas",
     "success.evanhomecare.description":
-      "Landing page para una empresa de cuidados en el hogar en Orlando, Florida.",
+      "Sitio web para una agencia que brinda servicios a personas con discapacidad, diseñado para ser claro, acogedor y fácil de navegar.",
     "success.evanhomecare.name": "Evan Home Care",
-    "success.evanhomecare.designation": "Cuidados en el Hogar",
+    "success.evanhomecare.designation": "Servicios para Personas con Discapacidad",
     "success.thefloridaclinic.description":
       "Landing page para una clínica de estética en Miami, Florida.",
     "success.thefloridaclinic.name": "The Florida Clinic Aesthetics",
@@ -402,6 +474,61 @@ export const translations = {
 
     "success.project.viewSite": "Ver Sitio en Vivo",
     "success.project.backToStories": "Volver a Historias de Éxito",
+    "success.project.industry": "Industria",
+    "success.project.website": "Sitio web",
+
+    "process.title": "Cómo Trabajamos",
+    "process.subtitle":
+      "Equipo pequeño en Miami. Hablas directo con quien construye tu sitio—inglés y español, sin intermediarios.",
+    "process.call.title": "Primero, una charla",
+    "process.call.description":
+      "Cuéntanos tu negocio y lo que el sitio tiene que lograr. Definimos el alcance juntos—presupuesto gratis, sin compromiso.",
+    "process.design.title": "Lo ves antes de programar",
+    "process.design.description":
+      "Maquetas que puedes revisar y opinar. Ajustamos tipografía, colores y estructura hasta que te convenza.",
+    "process.build.title": "Lo construimos nosotros",
+    "process.build.description":
+      "Astro y React—páginas rápidas, código limpio. El mismo stack y equipo de Evan Home Care y Gallo Express.",
+    "process.ship.title": "Lanzamos y seguimos ahí",
+    "process.ship.description":
+      "Deploy, hosting y lo básico como analytics. ¿Un cambio el mes que viene? El mismo equipo.",
+
+    "testimonials.title": "Lo Que Dicen Nuestros Clientes",
+    "testimonials.subtitle":
+      "Opiniones reales de negocios con los que hemos colaborado.",
+    "testimonials.evanhomecare.quote":
+      "Como agencia que atiende a personas con discapacidad, necesitábamos un sitio claro y acogedor. WorkInWeb lo logró, y las consultas siguen llegando.",
+    "testimonials.evanhomecare.name": "Evan Home Care",
+    "testimonials.evanhomecare.company": "Servicios para Personas con Discapacidad",
+    "testimonials.thefloridaclinic.quote":
+      "Nuestra clínica por fin tiene un sitio a la altura de la calidad de nuestra atención. Hermoso, rápido y fácil de usar para los pacientes.",
+    "testimonials.thefloridaclinic.name": "The Florida Clinic Aesthetics",
+    "testimonials.thefloridaclinic.company": "Clínica Estética",
+    "testimonials.kindly-hearts.quote":
+      "Apoyamos a familias en el centro de Florida con cuidado compasivo, y nuestro nuevo sitio refleja esa calidez a la perfección. Un placer trabajar con el equipo.",
+    "testimonials.kindly-hearts.name": "Kindly Hearts Home Care",
+    "testimonials.kindly-hearts.company": "Servicios de Cuidado en el Hogar",
+
+    "faq.title": "Preguntas Frecuentes",
+    "faq.subtitle": "Todo lo que necesitas saber antes de comenzar.",
+    "faq.pricing.question": "¿Cuánto cuesta un sitio web?",
+    "faq.pricing.answer":
+      "Cada proyecto es diferente, así que el precio depende de tu alcance y objetivos—desde una landing sencilla hasta una solución totalmente a medida. Escríbenos y preparamos un presupuesto gratis y sin compromiso adaptado a ti.",
+    "faq.timeline.question": "¿Cuánto tarda un proyecto?",
+    "faq.timeline.answer":
+      "Una landing sencilla puede estar lista en 1–2 semanas. Los sitios de varias páginas y las aplicaciones web suelen tardar de 3 a 8 semanas según la complejidad y el contenido.",
+    "faq.ownership.question": "¿Soy dueño del código y de mi sitio?",
+    "faq.ownership.answer":
+      "Sí. Una vez completado y pagado el proyecto, eres totalmente dueño de tu sitio y su código—sin ataduras.",
+    "faq.hosting.question": "¿Ofrecen hosting?",
+    "faq.hosting.answer":
+      "Sí, ofrecemos hosting rápido y confiable, y también podemos desplegar en el proveedor que prefieras si ya tienes uno.",
+    "faq.maintenance.question": "¿Qué pasa con las actualizaciones y el mantenimiento?",
+    "faq.maintenance.answer":
+      "Ofrecemos planes de mantenimiento flexibles para actualizaciones, seguridad y soporte, o cambios puntuales cuando los necesites.",
+    "faq.languages.question": "¿Pueden crear un sitio multilingüe?",
+    "faq.languages.answer":
+      "Por supuesto—este mismo sitio es bilingüe. Creamos experiencias multilingües (como inglés y español) con SEO adecuado para cada idioma.",
 
     "footer.copyright":
       "Copyright © 2025 WorkInWeb. Todos los derechos reservados.",
@@ -441,8 +568,6 @@ export const translations = {
     "pricing.subtitle": "Elige el paquete perfecto para tu viaje digital",
     "pricing.designToggle.own": "Tengo mi propio diseño",
     "pricing.designToggle.need": "Necesito ayuda con el diseño",
-    "pricing.note":
-      "Los precios mostrados reflejan las tarifas actuales del mercado y pueden ajustarse",
     "pricing.notes.title": "Notas Importantes",
     "pricing.from": "Desde $",
 
@@ -535,9 +660,6 @@ export const translations = {
     "contact.benefits.pricing": "Opciones de precio flexibles",
 
     "contact.benefits.title": "Por Qué Trabajar Con Nosotros",
-    "contact.stats.support": "Soporte",
-    "contact.stats.satisfaction": "Satisfacción",
-    "contact.stats.response": "Respuesta",
 
     "contact.benefits.care": "Nos importa la calidad y tu satisfacción",
     "contact.benefits.ownership":
@@ -572,6 +694,26 @@ export const translations = {
     "features.darkMode.title": "Modo Oscuro y Temas",
     "features.darkMode.description":
       "Personaliza la apariencia de tu sitio con modo oscuro o temas. Mejora la experiencia permitiendo elegir el estilo visual o paleta que prefieran.",
+
+    "features.seo.title": "Optimización SEO",
+    "features.seo.description":
+      "Posiciona mejor en Google con marcado limpio, carga rápida, datos estructurados y metaetiquetas configuradas en cada página.",
+
+    "features.analytics.title": "Analítica y Seguimiento",
+    "features.analytics.description":
+      "Conoce a tus visitantes con analítica integrada. Mide tráfico, conversiones y comportamiento para tomar decisiones basadas en datos.",
+
+    "features.newsletter.title": "Newsletter y Captación de Leads",
+    "features.newsletter.description":
+      "Haz crecer tu audiencia con formularios de suscripción y captación de leads conectados a tus herramientas de marketing favoritas.",
+
+    "features.performance.title": "Velocidad y Rendimiento",
+    "features.performance.description":
+      "Páginas ultrarrápidas con herramientas modernas, imágenes optimizadas y buenas prácticas para los Core Web Vitals.",
+
+    "features.security.title": "Seguridad y Fiabilidad",
+    "features.security.description":
+      "HTTPS por defecto, formularios seguros y hosting confiable para que tu sitio esté protegido y disponible las 24 horas.",
 
     "features.page.title": "Características | WorkInWeb",
     "features.page.description":

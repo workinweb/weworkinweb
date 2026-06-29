@@ -24,12 +24,14 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       className="p-2 rounded-full bg-slate-200 dark:bg-slate-700"
       aria-label="Toggle theme"
+      aria-pressed={isDark}
     >
       {isDark ? (
         <svg
           className="w-5 h-5 text-yellow-500"
           fill="currentColor"
           viewBox="0 0 20 20"
+          aria-hidden="true"
         >
           <path
             fillRule="evenodd"
@@ -42,6 +44,7 @@ export default function ThemeToggle() {
           className="w-5 h-5 text-slate-800"
           fill="currentColor"
           viewBox="0 0 20 20"
+          aria-hidden="true"
         >
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
         </svg>

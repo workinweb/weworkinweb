@@ -1,13 +1,17 @@
 ---
 import Footer from "../../components/Footer.astro";
 import Navbar from "../../components/Navbar";
+import FaqSchema from "../../components/FaqSchema.astro";
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../../sections/Home/ContactForm";
 import Hero from "../../sections/Home/Hero.astro";
 import Members from "../../sections/Home/Members";
 import Pricing from "../../sections/Home/Pricing";
+import Process from "../../sections/Home/Process";
 import Services from "../../sections/Home/Services";
 import SuccessStories from "../../sections/Home/SuccessStories";
+import Testimonials from "../../sections/Home/Testimonials";
+import Faq from "../../sections/Home/Faq";
 
 import {
   getLangFromUrl,
@@ -34,11 +38,16 @@ const t = useTranslations(lang);
   <main>
     <Hero />
     <Services lang={lang} client:visible />
-    <WebAnimation />
+    <Process lang={lang} client:visible />
     <SuccessStories lang={lang} client:visible />
-    <Members lang={lang} client:visible />
+    <Testimonials lang={lang} client:visible />
+    <WebAnimation />
     <Pricing lang={lang} client:visible />
+    <Members lang={lang} client:visible />
+    <Faq lang={lang} client:visible />
     <ContactForm lang={lang} client:visible />
   </main>
   <Footer />
+
+  <FaqSchema />
 </Layout>

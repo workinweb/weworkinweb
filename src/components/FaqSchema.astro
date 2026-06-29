@@ -1,0 +1,26 @@
+---
+import { faqIds } from "../data/faq";
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqIds.map((id) => ({
+    "@type": "Question",
+    name: t(`faq.${id}.question`),
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: t(`faq.${id}.answer`),
+    },
+  })),
+};
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(faqSchema)}
+/>

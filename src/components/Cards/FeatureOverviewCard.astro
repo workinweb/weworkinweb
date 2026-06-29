@@ -1,0 +1,55 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+interface Props {
+  id: string;
+  color: string;
+  icon: string;
+}
+
+const { id, color, icon } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div
+  class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 border border-slate-200/60 dark:border-slate-700/60"
+>
+  <div
+    style={`background-color: var(--${color}-500)`}
+    class="h-12 w-12 rounded-lg mb-4 flex items-center justify-center"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 text-white"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d={icon}></path>
+    </svg>
+  </div>
+  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+    {t(`features.${id}.title`)}
+  </h3>
+  <p class="text-gray-600 dark:text-gray-300">
+    {t(`features.${id}.description`)}
+  </p>
+</div>
+
+<style>
+  :root {
+    --blue-500: rgb(59 130 246);
+    --green-500: rgb(34 197 94);
+    --yellow-500: rgb(234 179 8);
+    --red-500: rgb(239 68 68);
+    --indigo-500: rgb(99 102 241);
+    --purple-500: rgb(168 85 247);
+  }
+</style>
