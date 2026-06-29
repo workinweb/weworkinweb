@@ -48,7 +48,8 @@ const designation = t(
 <Layout
   title={`${name} | WorkInWeb`}
   description={description}
-  image="https://weworkinweb.com/logo/logo_notext.svg"
+  image={story.src}
+  lang={lang}
 >
   <Navbar client:only="react" />
 
@@ -87,6 +88,8 @@ const designation = t(
             alt={name}
             width={900}
             height={600}
+            decoding="async"
+            fetchpriority="high"
             class="w-full max-w-2xl h-auto max-h-[520px] object-contain"
             transition:name={`success-image-${project}`}
           />

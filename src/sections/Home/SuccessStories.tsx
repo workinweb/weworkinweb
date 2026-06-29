@@ -1,9 +1,7 @@
-import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+import { useTranslations } from "../../i18n/translations";
 import { successStories } from "../../data/successStories";
 
-export default function SuccessStories() {
-  const url = new URL(window.location.href);
-  const lang = getLangFromUrl(url);
+export default function SuccessStories({ lang }: { lang: "en" | "es" }) {
   const t = useTranslations(lang);
 
   type StoryCard = {

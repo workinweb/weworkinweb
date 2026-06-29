@@ -31,8 +31,6 @@ export default function ShowcaseClient({
   const categories = ["all", ...new Set(templates.map((t) => t.category))];
 
   const filteredTemplates = templates.filter((template) => {
-    console.log("🚀 ~ filteredTemplates ~ template:", template);
-
     const matchesCategory =
       activeCategory === "all" || template.category === activeCategory;
     const matchesSearch = template.title
@@ -127,7 +125,6 @@ export default function ShowcaseClient({
                     decoding="async"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
                     style={{
-                      imageRendering: "high-quality",
                       backfaceVisibility: "hidden",
                     }}
                   />

@@ -18,6 +18,8 @@ export default function Logo({
         <img
           src="/logo/logo_notext.svg"
           alt="WorkInWeb Logo"
+          width={32}
+          height={32}
           className="h-8 w-auto"
         />
       </div>

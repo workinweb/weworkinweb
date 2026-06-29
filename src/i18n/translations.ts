@@ -19,6 +19,8 @@ export const translations = {
     "nav.pricing": "Pricing",
     "nav.menu": "Menu",
     "nav.successStories": "Success Stories",
+    "nav.explore": "Explore",
+    "nav.exploreMenu": "Explore menu",
 
     "hero.title1": "We Make Your",
     "hero.title2": "Web Ideas Work",
@@ -350,6 +352,8 @@ export const translations = {
     "nav.pricing": "Precios",
     "nav.menu": "Menú",
     "nav.successStories": "Historias de Éxito",
+    "nav.explore": "Explorar",
+    "nav.exploreMenu": "Menú de exploración",
 
     "hero.title1": "Hacemos Tus",
     "hero.title2": "Ideas Web Realidad",
@@ -674,8 +678,15 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
+type TranslationKey = keyof (typeof translations)[typeof defaultLang];
+
 export function useTranslations(lang: keyof typeof languages) {
-  return function t(key: keyof (typeof translations)[typeof defaultLang]) {
-    return translations[lang][key] || translations[defaultLang][key];
+  return function t(key: TranslationKey | (string & {})): string & string[] {
+    const dict = translations[lang] as Record<string, string | string[]>;
+    const fallback = translations[defaultLang] as Record<
+      string,
+      string | string[]
+    >;
+    return (dict[key] ?? fallback[key]) as string & string[];
   };
 }

@@ -23,7 +23,7 @@ const posts = await getLatestPosts({ perPage: 10 });
 <Layout
   title={t("blog.page.title") as string}
   description={t("blog.page.description") as string}
-  image="/logo/logo_notext.svg"
+  lang={lang}
 >
   <Navbar client:only="react" />
 

@@ -20,7 +20,7 @@ const t = useTranslations(lang);
 <Layout
   title={`${t("showcase.page.title")}`}
   description={t("showcase.page.description") as string}
-  image="https://weworkinweb.com/logo/logo_notext.svg"
+  lang={lang}
 >
   <Navbar client:only="react" />
 

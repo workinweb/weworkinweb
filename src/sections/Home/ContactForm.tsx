@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottieReact from "../../components/ui/LottieReact";
 import { useState } from "react";
 import GlassCard from "../../components/Cards/GlassCard";
-import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+import { useTranslations } from "../../i18n/translations";
 import {
   MessageSquare,
   Clock,
@@ -24,9 +24,7 @@ interface FormErrors {
   project?: string;
 }
 
-export default function ContactForm() {
-  const url = new URL(window.location.href);
-  const lang = getLangFromUrl(url);
+export default function ContactForm({ lang }: { lang: "en" | "es" }) {
   const t = useTranslations(lang);
 
   const [status, setStatus] = useState<string>("");
@@ -35,6 +33,7 @@ export default function ContactForm() {
     email: "",
     project: "",
   });
+  const [honeypot, setHoneypot] = useState<string>("");
   const [errors, setErrors] = useState<FormErrors>({});
 
   const validateForm = (): boolean => {
@@ -66,6 +65,13 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (honeypot) {
+      // Bot filled the hidden field; pretend success and bail.
+      setStatus(t("contact.form.success") as string);
+      setFormData({ name: "", email: "", project: "" });
+      return;
+    }
+
     if (!validateForm()) {
       return;
     }
@@ -79,11 +85,14 @@ export default function ContactForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name: formData.name,
           email: formData.email,
           subject: `New Project Inquiry from ${formData.name}`,
           message:
             `Name: ${formData.name} Email: ${formData.email} Project Details: ${formData.project}
           `.trim(),
+          lang,
+          company: honeypot,
         }),
       });
 
@@ -136,9 +145,7 @@ export default function ContactForm() {
             </p>
 
             <div className="flex justify-center mb-6">
-              <Player
-                autoplay
-                loop
+              <LottieReact
                 src="https://assets8.lottiefiles.com/packages/lf20_u25cckyh.json"
                 className="w-full max-w-[200px]"
                 style={{ height: "150px" }}
@@ -267,6 +274,21 @@ export default function ContactForm() {
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl" />
 
               <form onSubmit={handleSubmit} className="space-y-6 relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden"
+                >
+                  <label htmlFor="company">Company (leave blank)</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </div>
                 <div>
                   <label
                     htmlFor="name"

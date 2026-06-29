@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottieReact from "../../components/ui/LottieReact";
 import GlassCard from "../../components/Cards/GlassCard";
-import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+import { useTranslations } from "../../i18n/translations";
 
 const services = [
   {
@@ -40,9 +40,7 @@ const services = [
   },
 ];
 
-export default function Services() {
-  const url = new URL(window.location.href);
-  const lang = getLangFromUrl(url);
+export default function Services({ lang }: { lang: "en" | "es" }) {
   const t = useTranslations(lang);
 
   return (
@@ -67,9 +65,7 @@ export default function Services() {
           {services.map((service, index) => (
             <GlassCard key={index} className="p-6">
               <div className="h-32 mb-8">
-                <Player
-                  autoplay
-                  loop
+                <LottieReact
                   src={service.lottie}
                   style={{ height: "150px", width: "150px", ...service.style }}
                 />

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottieReact from "../../components/ui/LottieReact";
 import { Rocket, Zap, Building2, Clock } from "lucide-react";
-import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+import { useTranslations } from "../../i18n/translations";
 
 const journeyStages = [
   {
@@ -19,11 +19,11 @@ const journeyStages = [
     id: "growth",
     icon: <Zap className="w-8 h-8" />,
     style: {
-      height: { md: "400px", default: "450px" },
-      width: { md: "400px", default: "450px" },
+      height: "400px",
+      width: "400px",
     },
     lottie:
-      "https://lottie.host/e6e61e65-9928-4491-9024-83ea3d8277d3/SBpHNXbJzR.json ",
+      "https://lottie.host/e6e61e65-9928-4491-9024-83ea3d8277d3/SBpHNXbJzR.json",
   },
   {
     id: "custom",
@@ -37,9 +37,7 @@ const journeyStages = [
   },
 ];
 
-export default function WebDevJourneyPricing() {
-  const url = new URL(window.location.href);
-  const lang = getLangFromUrl(url);
+export default function WebDevJourneyPricing({ lang }: { lang: "en" | "es" }) {
   const t = useTranslations(lang);
   const [selectedStage, setSelectedStage] = useState(journeyStages[0].id);
   const [showWithDesign, setShowWithDesign] = useState(false);
@@ -163,12 +161,7 @@ export default function WebDevJourneyPricing() {
                       </div>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Player
-                        autoplay
-                        loop
-                        src={stage.lottie}
-                        style={{ ...stage.style }}
-                      />
+                      <LottieReact src={stage.lottie} style={{ ...stage.style }} />
                     </div>
                   </div>
                 )

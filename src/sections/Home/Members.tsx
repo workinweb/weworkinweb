@@ -1,9 +1,7 @@
 import { AnimatedTestimonials } from "../../components/ui/animated-testimonials";
-import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+import { useTranslations } from "../../i18n/translations";
 
-export default function Members() {
-  const url = new URL(window.location.href);
-  const lang = getLangFromUrl(url);
+export default function Members({ lang }: { lang: "en" | "es" }) {
   const t = useTranslations(lang);
 
   const testimonials = [

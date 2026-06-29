@@ -27,18 +27,18 @@ const t = useTranslations(lang);
 <Layout
   title={`${t("page.home.title")}`}
   description={t("page.home.description") as string}
-  image="https://weworkinweb.com/logo/logo_notext.svg"
+  lang={lang}
 >
   <Navbar client:only="react" />
 
   <main>
     <Hero />
-    <Services client:only="react" />
+    <Services lang={lang} client:visible />
     <WebAnimation />
-    <SuccessStories client:only="react" />
-    <Members client:only="react" />
-    <Pricing client:only="react" />
-    <ContactForm client:only="react" />
+    <SuccessStories lang={lang} client:visible />
+    <Members lang={lang} client:visible />
+    <Pricing lang={lang} client:visible />
+    <ContactForm lang={lang} client:visible />
   </main>
   <Footer />
 </Layout>

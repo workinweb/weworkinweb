@@ -305,11 +305,7 @@ export default function Navbar() {
               <div className="relative" ref={dropdownRef}>
                 <motion.button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  aria-label={
-                    currentLang === "es"
-                      ? "Menú de exploración"
-                      : "Explore menu"
-                  }
+                  aria-label={t("nav.exploreMenu")}
                   whileHover={{ scale: 1.05 }}
                   aria-expanded={isDropdownOpen}
                   className={`flex gap-2 items-center text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors ${
@@ -324,7 +320,7 @@ export default function Navbar() {
                       : ""
                   }`}
                 >
-                  <span>{currentLang === "es" ? "Explorar" : "Explore"}</span>
+                  <span>{t("nav.explore")}</span>
                   <ChevronDown
                     size={16}
                     className={`transform transition-transform ${
@@ -418,6 +414,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

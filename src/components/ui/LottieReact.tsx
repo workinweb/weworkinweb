@@ -1,5 +1,5 @@
-import { Player, PlayerEvent } from "@lottiefiles/react-lottie-player";
-import React from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import type { CSSProperties } from "react";
 
 interface LottieReactProps {
   src: string;
@@ -7,19 +7,7 @@ interface LottieReactProps {
   autoplay?: boolean;
   loop?: boolean;
   speed?: number;
-  direction?: number;
-  hover?: boolean;
-  style?: React.CSSProperties;
-  segments?: [number, number][];
-  background?: string;
-  controls?: boolean;
-  onEvent?: (event: PlayerEvent) => void;
-  onStateChange?: (state: string) => void;
-  onComplete?: () => void;
-  onLoopComplete?: () => void;
-  onEnterFrame?: (frame: number) => void;
-  onLoad?: () => void;
-  keepLastFrame?: boolean;
+  style?: CSSProperties;
 }
 
 function LottieReact({
@@ -27,41 +15,17 @@ function LottieReact({
   className = "w-full h-full",
   autoplay = true,
   loop = true,
-  speed,
-  direction,
-  hover,
+  speed = 1,
   style,
-  segments,
-  background,
-  controls,
-  onEvent,
-  onStateChange,
-  onComplete,
-  onLoopComplete,
-  onEnterFrame,
-  onLoad,
-  keepLastFrame,
 }: LottieReactProps) {
   return (
-    <Player
-      autoplay={autoplay}
-      loop={loop}
+    <DotLottieReact
       src={src}
       className={className}
+      autoplay={autoplay}
+      loop={loop}
       speed={speed}
-      direction={direction}
-      hover={hover}
       style={style}
-      segments={segments}
-      background={background}
-      controls={controls}
-      onEvent={onEvent}
-      onStateChange={onStateChange}
-      onComplete={onComplete}
-      onLoopComplete={onLoopComplete}
-      onEnterFrame={onEnterFrame}
-      onLoad={onLoad}
-      keepLastFrame={keepLastFrame}
     />
   );
 }
